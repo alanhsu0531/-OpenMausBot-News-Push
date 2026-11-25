@@ -56,10 +56,18 @@ CATEGORY_STYLE = {  # (icon, 主色, 背景色)
     "tools": ("🛠️", "green", "green_background"),
     "research": ("🔬", "purple", "purple_background"),
 }
-TOOL_BLOCKS = (("problem", "🎯", "解決什麼問題", "red_background"),
-               ("method", "⚙️", "用什麼方法", "blue_background"),
-               ("usage", "🚀", "如何使用", "green_background"),
-               ("advantage", "✨", "使用後的優勢", "yellow_background"))
+FACET_HEADINGS = {"company": "🧭 事件解析", "tools": "🧰 工具解析", "research": "🔬 技術解析"}
+
+
+def _facets(it: dict) -> list[tuple]:
+    """[(emoji, 短標籤, Notion 欄位名, 內容, 底色)]，相容舊版直接放在 item 上的欄位。"""
+    values = it.get("facets") or {}
+    out = []
+    for key, emoji, label, notion_name, _, bg in S.FACETS.get(it["category"], []):
+        text = (values.get(key) or it.get(key) or "").strip()
+        if text:
+            out.append((emoji, label, notion_name, text, bg))
+    return out
 
 
 def _short_source(src: str) -> str:
@@ -91,11 +99,11 @@ def _page_body(it: dict, day: str, model: str) -> list[dict]:
     if it.get("summary"):
         blocks += [_block("heading_3", rich_text=[_rt("📝 重點摘要", color=color)]),
                    _block("paragraph", rich_text=_text(it["summary"]))]
-    tool_parts = [t for t in TOOL_BLOCKS if it.get(t[0])]
-    if tool_parts:
-        blocks.append(_block("heading_3", rich_text=[_rt("🧰 工具解析", color=color)]))
-        for key, emoji, label, tbg in tool_parts:
-            blocks.append(_callout(emoji, tbg, [_rt(f"{label}\n", bold=True), _rt(it[key])]))
+    facets = _facets(it)
+    if facets:
+        blocks.append(_block("heading_3", rich_text=[_rt(FACET_HEADINGS[it["category"]], color=color)]))
+        for emoji, label, _, text, fbg in facets:
+            blocks.append(_callout(emoji, fbg, [_rt(f"{label}\n", bold=True), _rt(text)]))
     blocks += [_block("divider"),
                _block("heading_3", rich_text=[_rt("🔗 原文連結", color=color)]),
                _block("bookmark", url=it["url"]),
@@ -122,15 +130,13 @@ def sync_to_notion(day: str, digest: dict) -> int:
                 "分類": {"select": {"name": S.CATEGORY_NAMES[it["category"]]}},
                 "一句話重點": {"rich_text": _text(it.get("brief"))},
                 "摘要": {"rich_text": _text(it.get("summary"))},
-                "解決什麼問題": {"rich_text": _text(it.get("problem"))},
-                "用什麼方法": {"rich_text": _text(it.get("method"))},
-                "如何使用": {"rich_text": _text(it.get("usage"))},
-                "使用後的優勢": {"rich_text": _text(it.get("advantage"))},
                 "來源": {"select": {"name": _short_source(it["source"])}},
                 "連結": {"url": it["url"]},
                 "原文標題": {"rich_text": _text(it.get("original_title"))},
                 "模型": {"rich_text": _text(digest.get("model"))},
             }
+            for _, _, notion_name, text, _ in _facets(it):
+                props[notion_name] = {"rich_text": _text(text)}
             _request("POST", "/pages", token, {
                 "parent": {"database_id": db},
                 "icon": {"type": "emoji", "emoji": CATEGORY_STYLE[it["category"]][0]},

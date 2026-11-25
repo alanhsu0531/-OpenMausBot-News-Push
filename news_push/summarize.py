@@ -44,6 +44,9 @@ USER_PROMPT = """以下是今天的候選新聞，分成三類：
 - 優先選影響大、讀者會想點開的；避免同一事件重複
 - tools 優先選真的能用的產品或開源專案，略過純行銷文
 
+每則除了摘要，還要依分類填寫四個固定面向（每個面向 1 到 2 句，具體、不空泛）：
+{facet_guide}
+
 輸出 JSON 格式：
 {{
   "headline": "一句話總結今天最值得注意的趨勢（30 字內）",
@@ -52,11 +55,8 @@ USER_PROMPT = """以下是今天的候選新聞，分成三類：
       "id": 候選編號（整數）,
       "title": "繁體中文標題（25 字內）",
       "brief": "一句話重點（40 字內，用於 Email）",
-      "summary": "2 到 4 句繁體中文摘要，說明發生什麼事、為什麼重要",
-      "problem": "（僅 tools）這個工具想解決什麼問題",
-      "method": "（僅 tools）透過什麼方法或技術解決",
-      "usage": "（僅 tools）如何開始使用",
-      "advantage": "（僅 tools）使用後的優勢"
+      "summary": "2 到 3 句繁體中文摘要，說明發生什麼事、為什麼重要",
+      "facets": {{"面向欄位": "內容", ...}}
     }}
   ]
 }}
@@ -64,6 +64,25 @@ USER_PROMPT = """以下是今天的候選新聞，分成三類：
 候選新聞：
 {candidates}
 """
+
+
+def facet_guide() -> str:
+    lines = []
+    for cat, facets in S.FACETS.items():
+        parts = "；".join(f'"{key}"（{label}：{desc}）' for key, _, label, _, desc, _ in facets)
+        lines.append(f"- {cat}：{parts}")
+    return "\n".join(lines)
+
+
+def item_facets(it: dict) -> list[tuple[str, str, str, str]]:
+    """回傳 [(emoji, 短標籤, Notion 欄位名, 內容)]，相容舊版直接放在 item 上的工具欄位。"""
+    values = it.get("facets") or {}
+    out = []
+    for key, emoji, label, notion_name, _, _ in S.FACETS.get(it["category"], []):
+        text = (values.get(key) or it.get(key) or "").strip()
+        if text:
+            out.append((emoji, label, notion_name, text))
+    return out
 
 
 def build_candidate_list(cands: dict) -> tuple[str, dict[int, dict]]:
@@ -88,7 +107,8 @@ def parse_json(text: str) -> dict:
 
 def select_with_llm(cands: dict) -> dict:
     listing, index = build_candidate_list(cands)
-    prompt = USER_PROMPT.format(min_items=MIN_ITEMS, max_items=MAX_ITEMS, candidates=listing)
+    prompt = USER_PROMPT.format(min_items=MIN_ITEMS, max_items=MAX_ITEMS, candidates=listing,
+                                facet_guide=facet_guide())
     last_err = None
     for attempt in range(2):
         raw, model = chat(SYSTEM_PROMPT, prompt)
@@ -125,8 +145,6 @@ def fallback_selection(cands: dict) -> dict:
 
 
 CATEGORY_SHORT = {S.COMPANY: "公司動態", S.TOOLS: "新工具", S.RESEARCH: "新技術"}
-TOOL_FIELDS = (("problem", "🎯 問題"), ("method", "⚙️ 方法"),
-               ("usage", "🚀 用法"), ("advantage", "✨ 優勢"))
 
 
 def circled(n: int) -> str:
@@ -148,7 +166,7 @@ def render_markdown(day: str, digest: dict) -> str:
     groups = [(cat, [i for i in digest["items"] if i["category"] == cat]) for cat in S.CATEGORY_NAMES]
     groups = [(c, items) for c, items in groups if items]
     total = sum(len(items) for _, items in groups)
-    chars = sum(len(i.get("summary", "")) + sum(len(i.get(k, "")) for k, _ in TOOL_FIELDS)
+    chars = sum(len(i.get("summary", "")) + sum(len(f[3]) for f in item_facets(i))
                 for _, items in groups for i in items)
     minutes = max(1, round(chars / 400))
 
@@ -176,9 +194,10 @@ def render_markdown(day: str, digest: dict) -> str:
             out += [f"### {circled(n)} {it.get('title') or it['original_title']}", ""]
             if it.get("summary"):
                 out += [it["summary"], ""]
-            if cat == S.TOOLS and any(it.get(k) for k, _ in TOOL_FIELDS):
+            facets = item_facets(it)
+            if facets:
                 out += ["| 面向 | 說明 |", "| :-- | :-- |"]
-                out += [f"| **{label}** | {cell(it[k])} |" for k, label in TOOL_FIELDS if it.get(k)]
+                out += [f"| **{emoji} {label}** | {cell(text)} |" for emoji, label, _, text in facets]
                 out.append("")
             out += [f"🔗 [閱讀原文]({it['url']})　·　`{short_source(it['source'])}`", ""]
         out += ["---", ""]

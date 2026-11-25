@@ -62,3 +62,25 @@ AI_KEYWORDS = [
     "neural", "transformer", "diffusion", "xai", "grok", "llama", "mistral",
     "deepseek", "qwen", "hugging face", "chatbot", "聊天機器人",
 ]
+
+# 每類新聞固定的四個面向：(JSON 欄位, emoji, 短標籤, Notion 欄位名, 撰寫說明, Notion 區塊底色)
+FACETS = {
+    COMPANY: [
+        ("event", "📌", "事件", "事件", "誰、做了什麼、什麼時候", "blue_background"),
+        ("background", "🧭", "背景", "背景", "為什麼會發生、之前的脈絡", "gray_background"),
+        ("impact", "🌊", "影響", "影響", "對產業、競爭對手、使用者的影響", "orange_background"),
+        ("outlook", "🔭", "後續觀察", "後續觀察", "接下來值得注意什麼", "purple_background"),
+    ],
+    TOOLS: [
+        ("problem", "🎯", "問題", "解決什麼問題", "這個工具想解決什麼問題", "red_background"),
+        ("method", "⚙️", "方法", "用什麼方法", "透過什麼方法或技術解決", "blue_background"),
+        ("usage", "🚀", "用法", "如何使用", "如何開始使用", "green_background"),
+        ("advantage", "✨", "優勢", "使用後的優勢", "使用後的優勢", "yellow_background"),
+    ],
+    RESEARCH: [
+        ("research_problem", "🧩", "問題", "研究問題", "現有方法卡在哪裡", "red_background"),
+        ("core_method", "💡", "核心方法", "核心方法", "新做法的關鍵點子，一兩句講完", "yellow_background"),
+        ("results", "📊", "成果", "成果", "實驗數據、跟誰比、贏多少（資料沒提就寫「原文未提供具體數據」）", "green_background"),
+        ("implication", "🛠️", "實務意義", "實務意義", "對開發者或產業能怎麼用、有什麼限制", "blue_background"),
+    ],
+}
