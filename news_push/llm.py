@@ -35,8 +35,12 @@ def _post(url: str, headers: dict, payload: dict) -> str:
     if resp.status_code == 429:
         time.sleep(20)
         resp = requests.post(url, headers=headers, json=payload, timeout=180)
-    resp.raise_for_status()
-    data = resp.json()
+    if not resp.ok:
+        raise RuntimeError(f"HTTP {resp.status_code}: {resp.text[:300]}")
+    try:
+        data = resp.json()
+    except ValueError:
+        raise RuntimeError(f"HTTP {resp.status_code} 非 JSON 回應：{resp.text[:300]!r}")
     if "error" in data:
         raise RuntimeError(str(data["error"])[:300])
     content = data["choices"][0]["message"]["content"]
@@ -90,7 +94,12 @@ def chat(system: str, user: str, temperature: float = 0.3) -> tuple[str, str]:
         model = os.environ.get("GITHUB_MODEL", DEFAULT_GITHUB_MODEL)
         try:
             log(f"[llm] 嘗試 GitHub Models {model}")
-            out = _post(GITHUB_MODELS_URL, {"Authorization": f"Bearer {token}"}, {
+            out = _post(GITHUB_MODELS_URL, {
+                "Authorization": f"Bearer {token}",
+                "Accept": "application/vnd.github+json",
+                "X-GitHub-Api-Version": "2022-11-28",
+                "Content-Type": "application/json",
+            }, {
                 "model": model, "messages": messages, "temperature": temperature,
             })
             return out, f"github:{model}"
