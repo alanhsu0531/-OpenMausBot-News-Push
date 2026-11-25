@@ -104,8 +104,17 @@ def get(url: str, **kw) -> requests.Response:
 
 
 def fetch_rss(src: dict, since: datetime) -> list[dict]:
-    resp = get(src["url"])
-    feed = feedparser.parse(resp.content)
+    urls = [src["url"], *src.get("fallback_urls", [])]
+    for i, url in enumerate(urls):
+        try:
+            feed = feedparser.parse(get(url).content)
+            if feed.entries or i == len(urls) - 1:
+                if i:
+                    log(f"[info] {src['name']} 改用 {url}")
+                break
+        except Exception:
+            if i == len(urls) - 1:
+                raise
     items = []
     for e in feed.entries:
         t = e.get("published_parsed") or e.get("updated_parsed")

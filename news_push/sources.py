@@ -32,8 +32,11 @@ RSS_SOURCES = [
      "url": "https://www.ithome.com.tw/rss", "keyword_filter": True},
     {"name": "科技新報", "category": COMPANY,
      "url": "https://technews.tw/feed/", "keyword_filter": True},
-    {"name": "數位時代", "category": COMPANY,
-     "url": "https://www.bnext.com.tw/rss", "keyword_filter": True},
+    {"name": "數位時代", "category": COMPANY, "keyword_filter": True,
+     # 官方 RSS 位置不固定，依序嘗試
+     "url": "https://www.bnext.com.tw/rss/articles",
+     "fallback_urls": ["https://www.bnext.com.tw/feed", "https://www.bnext.com.tw/rss/all",
+                       "https://feeds.feedburner.com/bnext"]},
     {"name": "INSIDE", "category": COMPANY,
      "url": "https://www.inside.com.tw/feed/rss", "keyword_filter": True},
     # 官方部落格（第一手消息）。Anthropic 沒有官方 RSS，用社群每小時轉製的版本。
