@@ -51,18 +51,51 @@ def _exists(db: str, token: str, url: str) -> bool:
     return bool(res.get("results"))
 
 
-def _page_body(it: dict) -> list[dict]:
+CATEGORY_STYLE = {  # (icon, 主色, 背景色)
+    "company": ("🏢", "blue", "blue_background"),
+    "tools": ("🛠️", "green", "green_background"),
+    "research": ("🔬", "purple", "purple_background"),
+}
+TOOL_BLOCKS = (("problem", "🎯", "解決什麼問題", "red_background"),
+               ("method", "⚙️", "用什麼方法", "blue_background"),
+               ("usage", "🚀", "如何使用", "green_background"),
+               ("advantage", "✨", "使用後的優勢", "yellow_background"))
+
+
+def _rt(content: str, bold=False, color="default", link=None) -> dict:
+    text = {"content": content[:MAX_TEXT]}
+    if link:
+        text["link"] = {"url": link}
+    return {"type": "text", "text": text, "annotations": {"bold": bold, "color": color}}
+
+
+def _block(kind: str, **payload) -> dict:
+    return {"object": "block", "type": kind, kind: payload}
+
+
+def _callout(icon: str, color: str, rich: list[dict]) -> dict:
+    return _block("callout", rich_text=rich, icon={"type": "emoji", "emoji": icon}, color=color)
+
+
+def _page_body(it: dict, day: str, model: str) -> list[dict]:
+    icon, color, bg = CATEGORY_STYLE[it["category"]]
     blocks = []
+    if it.get("brief"):
+        blocks.append(_callout("💡", bg, [_rt(it["brief"], bold=True)]))
     if it.get("summary"):
-        blocks.append({"object": "block", "type": "paragraph",
-                       "paragraph": {"rich_text": _text(it["summary"])}})
-    for key, label in (("problem", "解決什麼問題"), ("method", "用什麼方法"),
-                       ("usage", "如何使用"), ("advantage", "使用後的優勢")):
-        if it.get(key):
-            blocks.append({"object": "block", "type": "bulleted_list_item", "bulleted_list_item": {
-                "rich_text": [{"type": "text", "text": {"content": f"{label}："},
-                               "annotations": {"bold": True}}] + _text(it[key])}})
-    blocks.append({"object": "block", "type": "bookmark", "bookmark": {"url": it["url"]}})
+        blocks += [_block("heading_3", rich_text=[_rt("📝 重點摘要", color=color)]),
+                   _block("paragraph", rich_text=_text(it["summary"]))]
+    tool_parts = [t for t in TOOL_BLOCKS if it.get(t[0])]
+    if tool_parts:
+        blocks.append(_block("heading_3", rich_text=[_rt("🧰 工具解析", color=color)]))
+        for key, emoji, label, tbg in tool_parts:
+            blocks.append(_callout(emoji, tbg, [_rt(f"{label}\n", bold=True), _rt(it[key])]))
+    blocks += [_block("divider"),
+               _block("heading_3", rich_text=[_rt("🔗 原文連結", color=color)]),
+               _block("bookmark", url=it["url"]),
+               _block("paragraph", rich_text=[
+                   _rt(f"{icon} {S.CATEGORY_NAMES[it['category']]}　·　來源：{it['source']}　·　收錄於 {day}　·　由 {model} 整理",
+                       color="gray")])]
     return blocks
 
 
@@ -94,9 +127,9 @@ def sync_to_notion(day: str, digest: dict) -> int:
             }
             _request("POST", "/pages", token, {
                 "parent": {"database_id": db},
-                "icon": {"type": "emoji", "emoji": {"company": "🏢", "tools": "🛠️", "research": "🔬"}[it["category"]]},
+                "icon": {"type": "emoji", "emoji": CATEGORY_STYLE[it["category"]][0]},
                 "properties": props,
-                "children": _page_body(it),
+                "children": _page_body(it, day, digest.get("model", "")),
             })
             added += 1
         except Exception as exc:

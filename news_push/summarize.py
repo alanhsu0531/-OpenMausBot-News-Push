@@ -193,11 +193,17 @@ def main() -> int:
     p.add_argument("--rerender", action="store_true", help="不呼叫 AI，只用既有 digest.json 重新產生排版")
     p.add_argument("--no-email", action="store_true", help="不寄 Email")
     p.add_argument("--no-notion", action="store_true", help="不同步 Notion")
+    p.add_argument("--notion-only", action="store_true", help="只把既有 digest.json 同步到 Notion")
     args = p.parse_args()
 
     day = args.date or datetime.now(TW).date().isoformat()
     day_dir = DATA_DIR / day
     cands = json.loads((day_dir / "candidates.json").read_text(encoding="utf-8"))
+
+    if args.notion_only:
+        digest = json.loads((day_dir / "digest.json").read_text(encoding="utf-8"))
+        sync_to_notion(day, digest)
+        return 0
 
     if args.rerender:
         digest = json.loads((day_dir / "digest.json").read_text(encoding="utf-8"))
