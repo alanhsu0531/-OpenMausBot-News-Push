@@ -62,6 +62,12 @@ TOOL_BLOCKS = (("problem", "🎯", "解決什麼問題", "red_background"),
                ("advantage", "✨", "使用後的優勢", "yellow_background"))
 
 
+def _short_source(src: str) -> str:
+    if src.startswith("dair-ai"):
+        return "dair-ai 每週精選論文"
+    return src.replace(",", " ")[:100]
+
+
 def _rt(content: str, bold=False, color="default", link=None) -> dict:
     text = {"content": content[:MAX_TEXT]}
     if link:
@@ -94,7 +100,7 @@ def _page_body(it: dict, day: str, model: str) -> list[dict]:
                _block("heading_3", rich_text=[_rt("🔗 原文連結", color=color)]),
                _block("bookmark", url=it["url"]),
                _block("paragraph", rich_text=[
-                   _rt(f"{icon} {S.CATEGORY_NAMES[it['category']]}　·　來源：{it['source']}　·　收錄於 {day}　·　由 {model} 整理",
+                   _rt(f"{icon} {S.CATEGORY_NAMES[it['category']]}　·　來源：{_short_source(it['source'])}　·　收錄於 {day}　·　由 {model} 整理",
                        color="gray")])]
     return blocks
 
@@ -120,7 +126,7 @@ def sync_to_notion(day: str, digest: dict) -> int:
                 "用什麼方法": {"rich_text": _text(it.get("method"))},
                 "如何使用": {"rich_text": _text(it.get("usage"))},
                 "使用後的優勢": {"rich_text": _text(it.get("advantage"))},
-                "來源": {"select": {"name": it["source"].replace(",", " ")[:100]}},
+                "來源": {"select": {"name": _short_source(it["source"])}},
                 "連結": {"url": it["url"]},
                 "原文標題": {"rich_text": _text(it.get("original_title"))},
                 "模型": {"rich_text": _text(digest.get("model"))},
