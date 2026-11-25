@@ -1,6 +1,6 @@
 {
   "date": "2026-11-26",
-  "generated_at": "2026-11-25T16:54:13.597236+00:00",
+  "generated_at": "2026-11-25T16:55:19.946338+00:00",
   "lookback_hours": 26,
   "categories": {
     "company": {
@@ -270,7 +270,7 @@
           "url": "https://github.com/qianyiai/kurocat",
           "summary": "KuroCat — Free open-source desktop typing cat pet & OBS overlay (Bongo Cat alternative, Tauri v2 + Rust + MCP)｜轻量级透明置顶桌面打字小黑猫伴侣（6款猫咪+鲸鱼娘大肥鱼 / 输密码防偷窥 / OBS透明源 / AI捏猫 / Win·Mac·Linux·Android）",
           "published": "2026-11-21T15:49:31+00:00",
-          "stars": 935,
+          "stars": 936,
           "language": "TypeScript"
         },
         {
@@ -306,7 +306,7 @@
           "url": "https://github.com/erkamyaman/safe-anything",
           "summary": "Find the holes before someone else does. A fast, 100% Rust vulnerability scanner: XSS, SQL injection, leaked secrets, dependency CVEs and AI agent setups.",
           "published": "2026-11-22T16:44:10+00:00",
-          "stars": 683,
+          "stars": 684,
           "language": "Rust"
         },
         {
