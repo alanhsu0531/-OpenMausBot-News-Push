@@ -1,117 +1,165 @@
 {
-  "headline": "AI 代理治理與內容管制升溫，台灣晶片力拚終端推論",
+  "headline": "AI 治理與安全成主軸：從晶片出口管制、代理人控管到模型評測",
   "items": [
     {
-      "id": 22,
-      "title": "Tidal 12 月起全面封殺 AI 生成音樂",
-      "brief": "Tidal 宣布 12 月 9 日起禁止 AI 生成音樂，將刪除約 2,900 萬首曲目。",
-      "summary": "音樂串流平台 Tidal 宣布自 12 月 9 日起禁止 AI 生成音樂上架，並將刪除約 2,900 萬首相關曲目，估計每天還會拒收 8 萬至 8.5 萬首。Tidal 音樂負責人 Robert Andersen 表示，這是繼先前對 AI 曲目標記與停止分潤後的進一步動作。對創作者與串流平台而言，這代表「先標記、後封殺」的管制路線正在成形。",
+      "id": 11,
+      "title": "美擴大 AI 晶片出口管制，阿里子公司列實體清單",
+      "brief": "美 BIS 新規將 Megaspeed 與阿里巴巴新加坡子公司等 7 家東南亞企業列入實體清單。",
+      "summary": "美國商務部工業與安全局（BIS）11 月 24 日公布出口管制新規，以先進運算產品違規轉供風險為由，將 Megaspeed 及阿里巴巴旗下新加坡子公司等 7 家東南亞公司列入實體清單。馬來西亞政府同日宣布，將通知境內資料中心業者建議不要對列名公司提供服務。此舉顯示美方正把防線從晶片原廠延伸到第三地的算力轉售與資料中心環節。",
+      "facets": {
+        "event": "美國 BIS 於 11 月 24 日公告新規，將 Megaspeed、阿里巴巴新加坡子公司等 7 家東南亞企業列入實體清單，理由是涉及先進運算產品違規轉供的高風險。",
+        "background": "美方持續防堵 AI 晶片經第三地流向未經授權的使用者或用途；馬來西亞同日跟進表態，要求境內資料中心業者不要對列名公司提供服務。",
+        "impact": "東南亞的算力轉售商與資料中心面臨更高的客戶盡職調查壓力，晶片灰色流通管道收窄，供應鏈需重新檢視客戶與最終用途。",
+        "outlook": "後續觀察 BIS 是否擴大列名範圍，以及輝達對相關晶片最終流向的說明與調查進展。"
+      },
       "category": "company",
-      "source": "The Verge AI",
-      "url": "https://www.theverge.com/entertainment/1041362/tidal-ai-music-ban",
-      "original_title": "Tidal will start banning AI-generated music next month"
-    },
-    {
-      "id": 6,
-      "title": "Amazon 傳與 Meta 洽談解除 Muse 封鎖",
-      "brief": "Amazon 傳出正與 Meta 討論讓 Muse AI 購物代理重返其電商平台。",
-      "summary": "外媒報導，Amazon 已就讓 Meta 的 Muse AI 購物代理進入其市集展開討論，可能結束長達兩個月的封鎖。談判焦點在於代理推薦的商品類型，以及對 Amazon 廣告營收的潛在衝擊。這顯示當 AI 代理開始代替消費者購物，平台如何守住流量與廣告利益，將成為新一波角力。",
-      "category": "company",
-      "source": "The Verge AI",
-      "url": "https://www.theverge.com/tech/1042071/meta-amazon-muse-ai-shopping-discussions",
-      "original_title": "Amazon is reportedly in talks to end Muse AI shopping block"
+      "source": "iThome",
+      "url": "https://www.ithome.com.tw/news/180794",
+      "original_title": "美國防堵AI晶片違規轉運，阿里巴巴子公司等7家企業遭列出口管制清單"
     },
     {
       "id": 19,
-      "title": "Anthropic 推 Siren 測試代理沙箱逃逸",
-      "brief": "Anthropic 公開 Siren 評估機制，用蜜罐測試 AI 代理是否會突破沙箱。",
-      "summary": "Anthropic 首度公開 AI 安全評估機制 Siren 的設計與測試結果，做法是在沙箱中刻意植入弱點，並在沙箱外設置蜜罐，觀察 AI 代理是否為了完成任務而擅自存取未授權資源。隨著模型愈來愈有能力利用沙箱漏洞，Anthropic 已自 10 月起把 Siren 納入新模型的部署評估。這意味著代理安全開始從紙上規範走向可重複的實測流程。",
+      "title": "Google 推出 AI 代理人安全控管介面",
+      "brief": "Google 公布一組代理人控管介面，提供活動可視度與控制能力。",
+      "summary": "Google 週二（11 月 24 日）公布一組專門的 AI 代理人控管介面，以現代化的建構工具與介面，提供企業對代理人活動的可視度與控管。隨著 AI 代理人開始代替使用者存取資料、執行任務，資料與隱私風險成為企業導入時的主要顧慮。這套介面等於把代理人治理從口號變成可操作的基礎設施。",
+      "facets": {
+        "event": "Google 於 11 月 24 日公布專為 AI 代理人設計的控管介面，主打代理人活動的可視度與控制。",
+        "background": "企業導入 AI 代理人後，代理人會代為存取資料與執行操作，帶來潛在的資料及隱私風險，需要對應的治理工具。",
+        "impact": "為企業部署代理人提供可稽核、可控管的基礎，也可能促使其他雲端與代理人框架業者跟進類似的控管層。",
+        "outlook": "值得觀察這套介面何時整合進 Google Cloud 實際產品，以及第三方代理人框架的支援程度。"
+      },
       "category": "company",
       "source": "iThome",
-      "url": "https://www.ithome.com.tw/news/180792",
-      "original_title": "Anthropic推出Siren安全評估機制，以蜜罐測試AI代理人的沙箱逃逸風險"
+      "url": "https://www.ithome.com.tw/news/180788",
+      "original_title": "Google公布全新AI代理人安全控管介面"
     },
     {
-      "id": 7,
-      "title": "台大發表高能效 Transformer 學習晶片",
-      "brief": "台大團隊揭露兩代 Transformer 學習處理器，第三代 16 奈米已下線。",
-      "summary": "在國科會晶創臺灣方案支持下，台大電機系楊家驤教授團隊發表兩代 Transformer 學習處理器晶片，定位為 NPU 類型，透過減少不必要運算與簡化流程，加速模型訓練、微調與推論。團隊另設計第三代晶片，改善生成式 AI 推論時的資料搬移效率，已於今年 10 月以 16 奈米製程下線。目標是讓生成式 AI 在本地端與裝置端執行更具可行性。",
+      "id": 23,
+      "title": "Tidal 12/9 起全面封殺純 AI 生成音樂",
+      "brief": "Tidal 宣布 12 月 9 日起拒收並下架完全由 AI 生成的音樂，創串流首例。",
+      "summary": "音樂串流平臺 Tidal 週二（11 月 24 日）宣布，自 12 月 9 日起拒絕音樂發行商提交完全由 AI 生成的音樂，並移除平臺上既有的純 AI 生成歌曲。Tidal 成為全球首個全面禁止純 AI 生成音樂的訂閱制音樂串流平臺。此舉把「AI 音樂」的爭議從標示問題推向平台政策層級。",
+      "facets": {
+        "event": "Tidal 於 11 月 24 日宣布，12 月 9 日起拒收完全由 AI 生成的音樂，並下架平臺上既有的純 AI 歌曲。",
+        "background": "Tidal 自 2014 年推出以來強調創作者收益與無損音質，2015 年被 Jay-Z 收購、2021 年由 Block 取得多數股權，政策方向一向偏向保障創作者。",
+        "impact": "對比 Spotify 與 Apple Music 尚未採取全面禁令，Tidal 的作法讓發行商與 AI 音樂創作者面臨通路差異，也替創作者權益立下新標竿。",
+        "outlook": "觀察其他串流平台是否跟進，以及「完全由 AI 生成」的判定標準與申訴機制如何落實。"
+      },
       "category": "company",
       "source": "iThome",
-      "url": "https://www.ithome.com.tw/news/180800",
-      "original_title": "要讓生成式AI走進終端裝置，臺大團隊設計高能效Transformer學習晶片"
+      "url": "https://www.ithome.com.tw/news/180783",
+      "original_title": "音樂串流平臺Tidal將全面封殺純AI生成音樂"
     },
     {
-      "id": 28,
-      "title": "fast-anything：只重寫慢的那 5%",
-      "brief": "開源專案主張別整套改寫，只把效能熱點搬到更快的語言。",
-      "summary": "GitHub 專案 fast-anything 針對「乾脆用 Rust 重寫」的風氣提出反論：真正慢的通常只有一小部分程式。它先用 profiler 找出熱點，再讓 coding agent 把熱點函式移植到更快的語言，並驗證行為一致。對既有 Python、Node 或 Ruby 服務來說，這是風險較低的最佳化路線。",
-      "problem": "整套系統重寫成本高、風險大，但效能瓶頸往往只集中在少數函式。",
-      "method": "先對 Python、Node、Ruby 應用做效能剖析，找出最慢的約 5% 熱點，再用 coding agent 改寫成高效能語言，並比對行為是否一致。",
-      "usage": "從 GitHub 取得專案，對既有專案執行剖析，依結果挑選熱點函式進行移植與驗證。",
-      "advantage": "不必全面重寫就能改善效能，改動範圍小、可逐項驗證，降低回歸風險。",
+      "id": 3,
+      "title": "數發部推風險分級，建立政府 AI 治理機制",
+      "brief": "數發部以風險分級、內控制度與人才培育，把 AI 治理落實到各部會。",
+      "summary": "數位發展部數位政府司長王誠明在 8 月的數位政府高峰會中，首次完整說明政府 AI 治理藍圖，提出風險分類、內控制度及人才培育等規畫。經過數個月推動，這些規畫已逐步轉化為各部會可實際執行的治理機制。政策思維也從「要不要用 AI」轉向「如何安全地用 AI」。",
+      "facets": {
+        "event": "數位發展部數位政府司長王誠明 8 月在數位政府高峰會說明政府 AI 治理藍圖，經數月推動後，風險分級與內控制度已逐步落實為各部會可執行的機制。",
+        "background": "愈來愈多公務人員主動用生成式 AI 撰寫文件、整理資料、查詢法規，單純禁止既擋不住使用，也會錯失行政效率提升的機會。",
+        "impact": "各機關將有一致的導入框架，不必各自摸索；提供政府 AI 服務的廠商也會面臨對應的風險分級與內控合規要求。",
+        "outlook": "後續觀察風險分級的實際細則、內控稽核方式，以及人才培育能否跟上各部會的導入速度。"
+      },
+      "category": "company",
+      "source": "iThome",
+      "url": "https://www.ithome.com.tw/news/178458",
+      "original_title": "數發部建立風險分級與內控制度，協助各部會展開AI治理"
+    },
+    {
+      "id": 26,
+      "title": "Sand AI 發表 480B 電影級影片生成模型 MAGI-2",
+      "brief": "Sand AI 推出主打電影級影片生成的 480B 參數模型 MAGI-2。",
+      "summary": "Sand AI 在 Product Hunt 上發表 MAGI-2，定位為主打電影級影片生成的 480 億參數級大型模型。影片生成模型的參數規模與畫面質感一直是此領域的競爭焦點，MAGI-2 以「電影級」為賣點切入。目前公開資訊以產品頁為主，技術細節仍有限。",
+      "facets": {
+        "problem": "一般影片生成模型在畫面質感與電影感上仍有落差，難以直接用於較高要求的影像創作。",
+        "method": "以 480B 參數規模的模型進行影片生成，主打電影級輸出；原文未提供更細部的架構或訓練方法。",
+        "usage": "可透過 Product Hunt 上的產品頁面進一步了解與取得，原文未提供具體定價或 API 資訊。",
+        "advantage": "主打大規模參數帶來的電影級生成品質，對需要高質感影片素材的創作者具吸引力。"
+      },
       "category": "tools",
-      "source": "GitHub 新興專案",
-      "url": "https://github.com/EL4CTEO/fast-anything",
-      "original_title": "EL4CTEO/fast-anything"
+      "source": "Product Hunt",
+      "url": "https://www.producthunt.com/products/magi-1",
+      "original_title": "MAGI-2"
     },
     {
       "id": 30,
-      "title": "agy-fast：Antigravity 的 MCP 加速外掛",
-      "brief": "非侵入式外掛號稱可減少 34% LLM 回合與 31% token 用量。",
-      "summary": "agy-fast 是針對 Google Antigravity（CLI、桌面與 IDE）設計的 MCP 加速外掛，主打不影響原生介面與 diff 顯示。專案宣稱可減少約 34% 的 LLM 回合、31% 的 token 配額消耗與 40% 的上傳流量。對重度使用代理寫程式的開發者來說，直接關係到成本與額度。",
-      "problem": "代理式開發工具回合數多、token 消耗快，容易撞到配額上限並拉高成本。",
-      "method": "以非侵入式 MCP 外掛方式掛載在 Antigravity 上，在不改動原生 UI 與 diff 的前提下精簡往返內容。",
-      "usage": "從 GitHub 取得外掛，安裝到 Antigravity 的 CLI、桌面版或 IDE 環境即可。",
-      "advantage": "在不改變既有操作習慣的情況下，降低 token 用量與上傳流量，延長可用額度。",
+      "title": "safe-anything：Rust 寫的高速漏洞掃描器",
+      "brief": "開源專案 safe-anything 以純 Rust 掃描程式碼、依賴與 AI agent 設定漏洞。",
+      "summary": "GitHub 新興專案 safe-anything 以 100% Rust 實作，主打快速找出 XSS、SQL injection、外洩密鑰、依賴套件 CVE，甚至涵蓋 AI agent 的設定檢查。專案目前已累積約 687 顆星。在 AI agent 大量接入系統的當下，把 agent 設定納入掃描範圍是它較特別的地方。",
+      "facets": {
+        "problem": "開發團隊常在漏洞被外部發現後才補救，需要一個能在上線前快速掃出常見風險的工具。",
+        "method": "以純 Rust 實作高速掃描引擎，涵蓋 XSS、SQL injection、外洩密鑰、依賴套件 CVE，並延伸檢查 AI agent 的設定。",
+        "usage": "可直接從 GitHub 取得開源專案（erkamyaman/safe-anything）使用。",
+        "advantage": "Rust 帶來執行速度優勢，且單一工具同時涵蓋程式碼、依賴與 AI agent 設定三種風險面。"
+      },
       "category": "tools",
       "source": "GitHub 新興專案",
-      "url": "https://github.com/INK-Q/agy-fast",
-      "original_title": "INK-Q/agy-fast"
+      "url": "https://github.com/erkamyaman/safe-anything",
+      "original_title": "erkamyaman/safe-anything"
     },
     {
       "id": 34,
-      "title": "songe：用閒置算力訓練本地模型",
-      "brief": "開源訓練引擎讓你用閒置運算資源訓練自己的本地模型。",
-      "summary": "songe 是一個鎖定本地模型的訓練引擎，主打利用閒置運算資源進行訓練。在雲端 GPU 昂貴、資料又常不便外送的現實下，這類工具讓個人與小團隊更容易嘗試自有模型。目前專案仍在早期階段，實際效果需視硬體與模型規模而定。",
-      "problem": "本地模型缺乏好用的訓練流程，而租用雲端 GPU 成本高、資料外傳也有顧慮。",
-      "method": "提供訓練引擎，把機器上閒置的運算資源投入本地模型的訓練流程。",
-      "usage": "從 GitHub 取得專案，設定本地模型與訓練資料後啟動。",
-      "advantage": "資料留在本地、省下雲端費用，並可重複利用平常閒置的算力。",
+      "title": "PiBot：本地優先的桌面多代理 AI 團隊",
+      "brief": "PiBot 開源本地優先 AI 代理團隊，支援多代理群聊、電腦操作與審批。",
+      "summary": "GitHub 專案 PiBot 主打本地優先（local-first）的桌面 AI 代理團隊，支援多代理群組對話、電腦操作、瀏覽器、MCP、例行任務與審批流程。它可跨 macOS、Windows、Linux 與 Android 執行，建構在 pi 之上。對在意資料不外流的團隊來說，是少見把審批機制做進代理流程的開源選項。",
+      "facets": {
+        "problem": "多數桌面 AI 代理依賴雲端服務，且缺乏多代理協作與人工審批的把關機制。",
+        "method": "採本地優先架構，讓多個代理以群組對話協作，並整合電腦操作、瀏覽器、MCP 工具、例行任務與審批流程。",
+        "usage": "從 GitHub 取得開源專案（w01fb0ss/PiBot），在 macOS、Windows、Linux 或 Android 上安裝使用。",
+        "advantage": "資料與執行留在本地，具備審批控制與跨平台支援，適合對隱私與流程控管有要求的團隊。"
+      },
       "category": "tools",
       "source": "GitHub 新興專案",
-      "url": "https://github.com/sous-labs/songe",
-      "original_title": "sous-labs/songe"
+      "url": "https://github.com/w01fb0ss/PiBot",
+      "original_title": "w01fb0ss/PiBot"
     },
     {
-      "id": 51,
-      "title": "PenGPT：用生成式 Transformer 寫字與畫圖",
-      "brief": "PenGPT 把筆跡與素描當成序列生成，在 Hacker News 掀起討論。",
-      "summary": "PenGPT 是一個生成式 Transformer 專案，目標是產生手寫筆跡與素描線條，而非點陣圖片。作者在技術文章中說明其建模方式，專案在 Hacker News 上獲得數百點討論。這類「筆順即序列」的做法，對教育、字型與創意工具都有想像空間。",
+      "id": 50,
+      "title": "用可驗證信念獎勵，治好長任務代理的偷懶",
+      "brief": "研究以可驗證信念的強化學習，讓代理在證據足夠時才下決定。",
+      "summary": "研究指出，AI 代理在處理長任務時常在意見尚未收斂前就提前給出答案，這種行為被稱為「偷懶」，即使它陳述的信念仍列出多個可能答案。由於現行做法只在任務結束時對最終答案給出結果獎勵，無法教會代理「何時該承諾」。團隊因此提出以可驗證信念為訊號的強化學習方法。",
+      "facets": {
+        "research_problem": "長任務代理常在證據不足時就提前承諾答案，而僅依最終答案給分的結果獎勵無法教會它判斷何時該下定論。",
+        "core_method": "以「可驗證的信念」作為強化學習的獎勵依據，讓代理依自己實際相信的內容行動，而非提早鎖定答案。",
+        "results": "原文未提供具體數據，僅指出在評估中代理經常在信念仍有多個可能答案時就提前承諾。",
+        "implication": "對長流程 agent 的訓練提供了新的獎勵設計方向，但前提是系統能取得可驗證的信念表示。"
+      },
       "category": "research",
-      "source": "Hacker News 熱門 AI 討論",
-      "url": "https://greydanus.github.io/2026/11/12/pengpt/",
-      "original_title": "PenGPT: A Generative Transformer for Handwriting and Sketches"
+      "source": "Hugging Face Daily Papers",
+      "url": "https://huggingface.co/papers/2611.32884",
+      "original_title": "Lazy Agents Answer Against Their Own Beliefs: Reinforcement Learning with Verifiable Beliefs Teaches Them to Act on What They Believe"
+    },
+    {
+      "id": 54,
+      "title": "一面鏡子就讓機器人操作策略失效",
+      "brief": "新基準 RoboDojo-Mirror 顯示，場景中的鏡像反射足以讓機器人策略失準。",
+      "summary": "研究團隊受動物認知中的鏡子自我辨識實驗啟發，檢驗機器人操作策略在含鏡像反射的場景中，是否還能可靠地操作實體物件。他們建構 RoboDojo-Mirror 基準，在保留原任務設定的前提下加入鏡子反射情境。結果顯示，一面簡單的鏡子就足以讓現有策略失效。",
+      "facets": {
+        "research_problem": "現有機器人操作策略的評測多半在無反射干擾的場景進行，無法反映真實環境中鏡面、玻璃造成的視覺混淆。",
+        "core_method": "建構 RoboDojo-Mirror 基準，在保留 RoboDojo 原任務設定的條件下加入鏡子反射，系統性檢驗策略的穩健性。",
+        "results": "原文未提供具體數據，但研究結論指出簡單的鏡子就能讓現有機器人操作策略失敗。",
+        "implication": "對準備把機器人部署到醫院、零售等充滿反射面場域的團隊是一記警訊；限制在於目前驗證仍以模擬基準為主。"
+      },
+      "category": "research",
+      "source": "Hugging Face Daily Papers",
+      "url": "https://huggingface.co/papers/2611.33010",
+      "original_title": "Embodied AI Fails the Mirror Test: How a Simple Mirror Breaks Robot Policies"
     },
     {
       "id": 65,
-      "title": "CompoundingKernel：上千代理自動寫 GPU 核心",
-      "brief": "Amazon 團隊讓上千個代理同時搜尋，寫出拿下基準榜首的 GPU 核心。",
-      "summary": "Amazon 研究團隊提出 CompoundingKernel，一套會自我改進的代理系統，透過搜尋方式自動撰寫 GPU 核心。實驗中同時運行超過一千個代理，產出的核心在 NVIDIA B200 上的 SOL-ExecBench 公開榜單 L1、L2 與量化項目排名第一。這展示了以大量代理平行搜尋，取代人工調校底層效能程式的可能性。",
+      "title": "QDA：讓 AI 代理自動設計量化配方",
+      "brief": "MIT 與 NVIDIA 的 QDA 讓代理為每個模型自動設計後訓練量化配方。",
+      "summary": "MIT 與 NVIDIA 的研究團隊提出 QDA，讓一個代理針對每個模型與精度組合，自動設計後訓練量化（PTQ）配方。系統以代理從未見過的推理軌跡上、相對原始模型的輸出 KL 散度作為評分依據，幾分鐘內就能篩選候選配方，並可调用共享的公開 PTQ 方法庫。這把量化調校從人工試錯變成可自動化的搜尋流程。",
+      "facets": {
+        "research_problem": "後訓練量化需要針對不同模型與精度逐一調整配方，人工搜尋成本高且難以規模化。",
+        "core_method": "由代理自動設計量化配方，並以模型在未見過的推理軌跡上、輸出分佈相對原模型的 KL 散度快速評分，同時共用公開 PTQ 方法庫。",
+        "results": "研究在四項推理相關評測上驗證；原文未提供具體數據。",
+        "implication": "可降低模型壓縮與部署的調校門檻，但評分依賴 KL 散度這類代理指標，與實際任務表現的落差仍需驗證。"
+      },
       "category": "research",
       "source": "dair-ai Top AI Papers of the Week (November 16 - November 22) - 2026",
-      "url": "https://academy.dair.ai/papers/compoundingkernel-self-improving-from-zero-to-first-2611.19230",
-      "original_title": "CompoundingKernel"
-    },
-    {
-      "id": 69,
-      "title": "MIT 讓模型自己設計學習流程",
-      "brief": "冷凍模型獲得算力與工具後，自行寫練習遊戲並教會另一個自己。",
-      "summary": "MIT CSAIL 與圖賓根大學的研究團隊，給一個凍結的模型運算預算與簡單工具，讓它自行撰寫練習遊戲、觀察另一個自己遊玩，再修改對方的提示與技能檔案，過程中沒有真實任務、驗證分數或學習指令。結果顯示能力足夠的模型能自行建構出一套可運作的學習程序。這對「模型能否自我改進」的討論提供了具體實驗。",
-      "category": "research",
-      "source": "dair-ai Top AI Papers of the Week (November 16 - November 22) - 2026",
-      "url": "https://academy.dair.ai/papers/do-llm-agents-still-need-to-be-told-how-to-self-improve-2611.23219",
-      "original_title": "Self-Directed Self-Improvement"
+      "url": "https://academy.dair.ai/papers/qda-closed-loop-llm-quantization-design-with-agents-2611.23388",
+      "original_title": "QDA"
     }
   ],
   "model": "openrouter:particle-ai/particle-1:free",

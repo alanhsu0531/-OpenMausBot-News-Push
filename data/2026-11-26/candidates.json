@@ -1,6 +1,6 @@
 {
   "date": "2026-11-26",
-  "generated_at": "2026-11-25T17:09:48.088755+00:00",
+  "generated_at": "2026-11-25T17:37:39.379176+00:00",
   "lookback_hours": 26,
   "categories": {
     "company": {
@@ -9,10 +9,10 @@
         {
           "category": "company",
           "source": "TechCrunch AI",
-          "title": "AI data centers are becoming harder to build, and neoclouds are feeling it",
-          "url": "https://techcrunch.com/podcast/ai-data-centers-are-becoming-harder-to-build-and-neoclouds-are-feeling-it/",
-          "summary": "⁠Nvidia has made clear⁠ it won’t backstop an AI data center until it’s nearly ready to run, and that’s landing just as neoclouds report construction delays and more expensive debt. The message to developers is that land, power, and a finished building matter more than a pitch deck. ⁠Anita Verma-Lallian⁠ has been selling exactly that. […]",
-          "published": "2026-11-25T15:41:43+00:00"
+          "title": "State AGs fight Character.AI’s plan to auction off users’ private chats",
+          "url": "https://techcrunch.com/2026/11/25/state-ags-fight-character-ais-plan-to-auction-off-users-private-chats/",
+          "summary": "The proposed Character.ai bankruptcy sale includes sensitive personal data from more than 21 million U.S. accounts, including 2.1 million registered to minors, the state AGs said.",
+          "published": "2026-11-25T17:35:58+00:00"
         },
         {
           "category": "company",
@@ -41,42 +41,10 @@
         {
           "category": "company",
           "source": "TechCrunch AI",
-          "title": "Amazon and Meta reportedly in talks to lift blockade on AI agent Muse",
-          "url": "https://techcrunch.com/2026/11/25/amazon-and-meta-reportedly-in-talks-to-lift-blockade-on-ai-agent-muse/",
-          "summary": "Amazon and Meta are discussing a potential deal that would end a two-month-long blockade of Muse.",
-          "published": "2026-11-25T14:10:18+00:00"
-        },
-        {
-          "category": "company",
-          "source": "The Verge AI",
-          "title": "Amazon is reportedly in talks to end Muse AI shopping block",
-          "url": "https://www.theverge.com/tech/1042071/meta-amazon-muse-ai-shopping-discussions",
-          "summary": "Amazon has held talks about letting Meta's Muse AI agent shop on its online marketplace, according to a report from Fortune. The discussions, which could end Amazon's block on Muse, reportedly center on the kinds of products the AI agent recommends and the potential impact on the ecommerce giant's advertising revenue. As reported by Fortune, […]",
-          "published": "2026-11-25T14:12:33+00:00"
-        },
-        {
-          "category": "company",
-          "source": "iThome",
-          "title": "要讓生成式AI走進終端裝置，臺大團隊設計高能效Transformer學習晶片",
-          "url": "https://www.ithome.com.tw/news/180800",
-          "summary": "在國科會晶創臺灣方案的支援下，臺大電機工程學系暨電子工程學研究所楊家驤教授團隊今日（11/25）揭露自行設計的兩代Transformer學習處理器晶片，定位為NPU類型晶片，透過減少不必要的運算、簡化AI運算流程，來加速Transformer模型的訓練、微調和推論。 除了兩代晶片，他們也設計出第三代，主要改善生成式AI推論時的資料搬移效率，已於今年10月採16奈米製程下線。團隊希望，這些研發能促進生成式AI在本地端或裝置端執行的可行性。",
-          "published": "2026-11-25T05:11:25+00:00"
-        },
-        {
-          "category": "company",
-          "source": "科技新報",
-          "title": "韓國防堵 AI 作弊，擬試卷中嵌入提示指令及浮水印",
-          "url": "https://technews.tw/2026/11/25/south-korea-ai-cheating-prevention-embed-prompts-watermarks-exams/",
-          "summary": "韓國近期爆發稅務師資格考試 AI 作弊事件，加上大學修學能力試驗多起違規，韓國政府為此成立了「恢復考試公平性專 […]",
-          "published": "2026-11-25T09:30:58+00:00"
-        },
-        {
-          "category": "company",
-          "source": "TechCrunch AI",
-          "title": "The questions Jensen Huang and Nvidia will still have to answer about Megaspeed",
-          "url": "https://techcrunch.com/2026/11/25/the-questions-jensen-huang-and-nvidia-will-still-have-to-answer-about-megaspeed/",
-          "summary": "Huang still faces questions from Congress and his own board about his romantic relationship with an alleged chip smuggler.",
-          "published": "2026-11-25T13:00:00+00:00"
+          "title": "AI data centers are becoming harder to build, and neoclouds are feeling it",
+          "url": "https://techcrunch.com/podcast/ai-data-centers-are-becoming-harder-to-build-and-neoclouds-are-feeling-it/",
+          "summary": "⁠Nvidia has made clear⁠ it won’t backstop an AI data center until it’s nearly ready to run, and that’s landing just as neoclouds report construction delays and more expensive debt. The message to developers is that land, power, and a finished building matter more than a pitch deck. ⁠Anita Verma-Lallian⁠ has been selling exactly that. […]",
+          "published": "2026-11-25T15:41:43+00:00"
         },
         {
           "category": "company",
@@ -97,18 +65,18 @@
         {
           "category": "company",
           "source": "科技新報",
-          "title": "歐盟擬設立 500 億歐元科技基金，設法縮小與美中差距",
-          "url": "https://finance.technews.tw/2026/11/25/eu-plans-e50-billion-technology-fund/",
-          "summary": "英國金融時報披露，歐盟（EU）擬投入最高 500 億歐元成立一檔基金，對歐洲人工智慧（AI）與量子運算企業進行 […]",
-          "published": "2026-11-25T08:40:35+00:00"
+          "title": "韓國防堵 AI 作弊，擬試卷中嵌入提示指令及浮水印",
+          "url": "https://technews.tw/2026/11/25/south-korea-ai-cheating-prevention-embed-prompts-watermarks-exams/",
+          "summary": "韓國近期爆發稅務師資格考試 AI 作弊事件，加上大學修學能力試驗多起違規，韓國政府為此成立了「恢復考試公平性專 […]",
+          "published": "2026-11-25T09:30:58+00:00"
         },
         {
           "category": "company",
           "source": "TechCrunch AI",
-          "title": "Yale’s Sonnenfeld: Nvidia is a ‘detriment’ to US industrial might — not a champion",
-          "url": "https://techcrunch.com/2026/11/24/yales-sonnenfeld-nvidia-is-a-detriment-to-u-s-industrial-might-not-a-champion/",
-          "summary": "Yale's Jeffrey Sonnenfeld warns that what the market cheered Monday, Jensen Huang's White House–backed return as Nvidia's CEO and board member, could prove a giant mistake, exposing the directors to \"historic\" personal liability from a growing pile of lawsuits and raising the question of whether the country is celebrating a company that has helped put advanced chips in its adversaries' hands.",
-          "published": "2026-11-25T00:12:02+00:00"
+          "title": "Amazon and Meta reportedly in talks to lift blockade on AI agent Muse",
+          "url": "https://techcrunch.com/2026/11/25/amazon-and-meta-reportedly-in-talks-to-lift-blockade-on-ai-agent-muse/",
+          "summary": "Amazon and Meta are discussing a potential deal that would end a two-month-long blockade of Muse.",
+          "published": "2026-11-25T14:10:18+00:00"
         },
         {
           "category": "company",
@@ -129,18 +97,18 @@
         {
           "category": "company",
           "source": "科技新報",
-          "title": "華碩 Maestro 打通智慧協作斷點，拓實體 AI 應用場域",
-          "url": "https://technews.tw/2026/11/25/asus-maestro-physical-ai/",
-          "summary": "隨著 AI 與智慧設備加速導入醫療場域，跨系統協作成為關鍵挑戰。為此，華碩 Maestro 智慧指揮中樞在既有 […]",
-          "published": "2026-11-25T08:29:52+00:00"
+          "title": "歐盟擬設立 500 億歐元科技基金，設法縮小與美中差距",
+          "url": "https://finance.technews.tw/2026/11/25/eu-plans-e50-billion-technology-fund/",
+          "summary": "英國金融時報披露，歐盟（EU）擬投入最高 500 億歐元成立一檔基金，對歐洲人工智慧（AI）與量子運算企業進行 […]",
+          "published": "2026-11-25T08:40:35+00:00"
         },
         {
           "category": "company",
           "source": "TechCrunch AI",
-          "title": "Jensen Huang still thinks a succession plan creates unnecessary hierarchy",
-          "url": "https://techcrunch.com/2026/11/24/jensen-huang-still-thinks-a-succession-plan-creates-unnecessary-hierarchy/",
-          "summary": "It's a remarkable stance for a company that spent the last two weeks finding out what happens without its founder.",
-          "published": "2026-11-24T22:27:52+00:00"
+          "title": "The questions Jensen Huang and Nvidia will still have to answer about Megaspeed",
+          "url": "https://techcrunch.com/2026/11/25/the-questions-jensen-huang-and-nvidia-will-still-have-to-answer-about-megaspeed/",
+          "summary": "The central question for investigators is what Nvidia knew about where those chips ended up and whether Huang's affair with a Megaspeed executive gave the company reason to doubt Megaspeed's assurances.",
+          "published": "2026-11-25T13:00:00+00:00"
         },
         {
           "category": "company",
@@ -153,10 +121,42 @@
         {
           "category": "company",
           "source": "iThome",
-          "title": "Anthropic推出Siren安全評估機制，以蜜罐測試AI代理人的沙箱逃逸風險",
-          "url": "https://www.ithome.com.tw/news/180792",
-          "summary": "Anthropic周二（11/24）首度公開AI安全評估機制Siren的完整設計及測試結果，透過在沙箱環境中刻意植入安全弱點，並於沙箱外部設置蜜罐（Honeypot），測試AI代理人是否會為了完成任務而突破沙箱限制，擅自存取及使用未經授權的資源。 沙箱（Sandbox）為一隔離執行環境，可用來限制AI代理人的資源存取權限。隨著AI模型愈來愈有能力利用沙箱漏洞，Anthropic開發了Siren，以評估AI代理人是否會主動遵守安全規範，並自今年10月起將其納入新模型的部署評估。",
-          "published": "2026-11-25T02:11:07+00:00"
+          "title": "網擎揭露AI應用布局，從郵件產品功能創新到加速軟體開發與測試",
+          "url": "https://www.ithome.com.tw/news/180693",
+          "summary": "如同其他企業將AI用於輔助內部營運，網擎以此提升技術服務與雲端營運的效率，身為軟體廠商，也將AI用於產品資安功能與軟體工程的強化，希望打造出更安全的產品，並持續推出AI新應用，例如，透過AI協助用戶善用既有的郵件資料，藉此活化組織的記憶資產，或運用AI提升資安產品的威脅偵測與攔截效果。 活用AI提升競爭力是所有企業高度關切的議題，網擎資訊執行長廖長健在近期宣布策略投資微智安聯的記者會上，透露公司內部運用AI的做法。",
+          "published": "2026-11-25T12:11:06+00:00"
+        },
+        {
+          "category": "company",
+          "source": "科技新報",
+          "title": "華碩 Maestro 打通智慧協作斷點，拓實體 AI 應用場域",
+          "url": "https://technews.tw/2026/11/25/asus-maestro-physical-ai/",
+          "summary": "隨著 AI 與智慧設備加速導入醫療場域，跨系統協作成為關鍵挑戰。為此，華碩 Maestro 智慧指揮中樞在既有 […]",
+          "published": "2026-11-25T08:29:52+00:00"
+        },
+        {
+          "category": "company",
+          "source": "TechCrunch AI",
+          "title": "Yale’s Sonnenfeld: Nvidia is a ‘detriment’ to US industrial might — not a champion",
+          "url": "https://techcrunch.com/2026/11/24/yales-sonnenfeld-nvidia-is-a-detriment-to-u-s-industrial-might-not-a-champion/",
+          "summary": "Yale's Jeffrey Sonnenfeld warns that what the market cheered Monday, Jensen Huang's White House–backed return as Nvidia's CEO and board member, could prove a giant mistake, exposing the directors to \"historic\" personal liability from a growing pile of lawsuits and raising the question of whether the country is celebrating a company that has helped put advanced chips in its adversaries' hands.",
+          "published": "2026-11-25T00:12:02+00:00"
+        },
+        {
+          "category": "company",
+          "source": "The Verge AI",
+          "title": "Jensen Huang deepfakes are the hot new AI slop",
+          "url": "https://www.theverge.com/tech/1041222/jensen-huang-nvidia-scandal-deepfakes",
+          "summary": "Jensen Huang is partying it up in Ibiza. In a video with nearly 6 million views on Instagram, the former CEO of Nvidia is dancing in a crowded club, champagne glass in hand, still wearing his signature black leather jacket. Suddenly, from behind him, Alice Huang - the Chinese technology executive and suspected spy he […]",
+          "published": "2026-11-24T16:30:00+00:00"
+        },
+        {
+          "category": "company",
+          "source": "iThome",
+          "title": "Google公布全新AI代理人安全控管介面",
+          "url": "https://www.ithome.com.tw/news/180788",
+          "summary": "因應AI代理人導入為企業帶來潛在的資料及隱私風險，Google週二（11月24日）公布一組專門的代理人控管介面，以現代化建構工具及介面，提供代理人活動的可視度及控管。",
+          "published": "2026-11-25T12:11:44+00:00"
         },
         {
           "category": "company",
@@ -169,26 +169,26 @@
         {
           "category": "company",
           "source": "TechCrunch AI",
-          "title": "In all-hands meeting, Jensen Huang thanks White House and says he’s in therapy",
-          "url": "https://techcrunch.com/2026/11/24/in-all-hands-meeting-jensen-huang-thanks-white-house-and-says-hes-in-therapy/",
-          "summary": "The Nvidia founder apologized to his staff on Tuesday and said he was grateful for a second chance to lead the company.",
-          "published": "2026-11-24T21:48:27+00:00"
+          "title": "Jensen Huang still thinks a succession plan creates unnecessary hierarchy",
+          "url": "https://techcrunch.com/2026/11/24/jensen-huang-still-thinks-a-succession-plan-creates-unnecessary-hierarchy/",
+          "summary": "It's a remarkable stance for a company that spent the last two weeks finding out what happens without its founder.",
+          "published": "2026-11-24T22:27:52+00:00"
         },
         {
           "category": "company",
           "source": "The Verge AI",
-          "title": "Tidal will start banning AI-generated music next month",
-          "url": "https://www.theverge.com/entertainment/1041362/tidal-ai-music-ban",
-          "summary": "Tidal is officially banning AI-generated music on December 9th. As a result of this change, Tidal will delete around 29 million AI-generated songs and reject an estimated 80,000 to 85,000 tracks per day, according to Tidal music lead Robert Andersen. The move comes just months after Tidal began labeling and demonetizing tracks identified as 100 […]",
-          "published": "2026-11-24T17:17:09+00:00"
+          "title": "The New York Times warns photographers not to update Photoshop over AI features",
+          "url": "https://www.theverge.com/ai-artificial-intelligence/1041227/the-new-york-times-warns-photographers-not-to-update-photoshop-over-ai-features",
+          "summary": "The New York Times is asking freelance photographers not to use the newest version of Adobe Photoshop because features in the 2027 update use AI \"in ways that may not be apparent to users.\" In an email seen by The Verge and posted on Threads, two of the Times' photography leaders, Meaghan Looram and Josh […]",
+          "published": "2026-11-24T16:09:23+00:00"
         },
         {
           "category": "company",
           "source": "iThome",
-          "title": "網擎揭露AI應用布局，從郵件產品功能創新到加速軟體開發與測試",
-          "url": "https://www.ithome.com.tw/news/180693",
-          "summary": "如同其他企業將AI用於輔助內部營運，網擎以此提升技術服務與雲端營運的效率，身為軟體廠商，也將AI用於產品資安功能與軟體工程的強化，希望打造出更安全的產品，並持續推出AI新應用，例如，透過AI協助用戶善用既有的郵件資料，藉此活化組織的記憶資產，或運用AI提升資安產品的威脅偵測與攔截效果。 活用AI提升競爭力是所有企業高度關切的議題，網擎資訊執行長廖長健在近期宣布策略投資微智安聯的記者會上，透露公司內部運用AI的做法。",
-          "published": "2026-11-25T12:11:06+00:00"
+          "title": "音樂串流平臺Tidal將全面封殺純AI生成音樂",
+          "url": "https://www.ithome.com.tw/news/180783",
+          "summary": "音樂串流平臺Tidal周二（11/24）宣布，自今年12月9日起，將拒絕音樂發行商提交完全由AI生成的音樂，並移除平臺上既有的純AI生成歌曲，成為全球首個全面禁止純AI生成音樂的訂閱制音樂串流平臺。 相較於Spotify及Apple Music，2014年推出的Tidal更強調音樂創作者的收益及無損音質，並致力於建立對音樂創作者更公平的收益分配機制。它在2015年被美國饒舌歌手Jay-Z收購，2021年由金融科技業者Square（現為Block）取得多數股權。",
+          "published": "2026-11-25T11:11:31+00:00"
         },
         {
           "category": "company",
@@ -201,42 +201,16 @@
         {
           "category": "company",
           "source": "TechCrunch AI",
-          "title": "Even the best AI agents struggle with everyday life",
-          "url": "https://techcrunch.com/2026/11/24/even-the-best-ai-agents-struggle-with-everyday-life/",
-          "summary": "As millions embrace personal AI assistants, a new benchmark reveals that even the most advanced AI models struggle to complete everyday tasks reliably and safely without introducing potential new problems.",
-          "published": "2026-11-24T21:33:29+00:00"
+          "title": "In all-hands meeting, Jensen Huang thanks White House and says he’s in therapy",
+          "url": "https://techcrunch.com/2026/11/24/in-all-hands-meeting-jensen-huang-thanks-white-house-and-says-hes-in-therapy/",
+          "summary": "The Nvidia founder apologized to his staff on Tuesday and said he was grateful for a second chance to lead the company.",
+          "published": "2026-11-24T21:48:27+00:00"
         }
       ]
     },
     "tools": {
       "name": "AI 新工具",
       "items": [
-        {
-          "category": "tools",
-          "source": "Product Hunt",
-          "title": "OpenEight",
-          "url": "https://www.producthunt.com/products/openeight",
-          "summary": "The deterministic control layer for AI agents Discussion | Link",
-          "published": "2026-11-25T06:58:59+00:00"
-        },
-        {
-          "category": "tools",
-          "source": "Hacker News Show HN",
-          "title": "Show HN: Old Nvidia and ATI tech demos, running again in the browser",
-          "url": "https://gpu-demo-gallery.pages.dev/",
-          "summary": "Article URL: https://gpu-demo-gallery.pages.dev/ Comments URL: https://news.ycombinator.com/item?id=50638503 Points: 261 # Comments: 55",
-          "published": "2026-11-25T04:31:48+00:00"
-        },
-        {
-          "category": "tools",
-          "source": "GitHub 新興專案",
-          "title": "EL4CTEO/fast-anything",
-          "url": "https://github.com/EL4CTEO/fast-anything",
-          "summary": "Don't rewrite it in Rust. Rewrite the 5% that's slow: profile Python, Node or Ruby apps, port the hot functions with your coding agent, prove they behave the same.",
-          "published": "2026-11-21T14:40:27+00:00",
-          "stars": 3876,
-          "language": "Rust"
-        },
         {
           "category": "tools",
           "source": "Product Hunt",
@@ -247,21 +221,11 @@
         },
         {
           "category": "tools",
-          "source": "GitHub 新興專案",
-          "title": "INK-Q/agy-fast",
-          "url": "https://github.com/INK-Q/agy-fast",
-          "summary": "Non-invasive MCP accelerator plugin for Google Antigravity (CLI/Desktop/IDE): cuts LLM turns (-34%), token quota (-31%), and upload traffic (-40%) without affecting native UI or diffs.",
-          "published": "2026-11-19T04:58:46+00:00",
-          "stars": 1478,
-          "language": "TypeScript"
-        },
-        {
-          "category": "tools",
-          "source": "Product Hunt",
-          "title": "Qube",
-          "url": "https://www.producthunt.com/products/qube-6",
-          "summary": "An AI agent for anyone with the model of your choice Discussion | Link",
-          "published": "2026-11-24T17:55:06+00:00"
+          "source": "Hacker News Show HN",
+          "title": "Show HN: Old Nvidia and ATI tech demos, running again in the browser",
+          "url": "https://gpu-demo-gallery.pages.dev/",
+          "summary": "Article URL: https://gpu-demo-gallery.pages.dev/ Comments URL: https://news.ycombinator.com/item?id=50638503 Points: 276 # Comments: 61",
+          "published": "2026-11-25T04:31:48+00:00"
         },
         {
           "category": "tools",
@@ -270,7 +234,7 @@
           "url": "https://github.com/qianyiai/kurocat",
           "summary": "KuroCat — Free open-source desktop typing cat pet & OBS overlay (Bongo Cat alternative, Tauri v2 + Rust + MCP)｜轻量级透明置顶桌面打字小黑猫伴侣（6款猫咪+鲸鱼娘大肥鱼 / 输密码防偷窥 / OBS透明源 / AI捏猫 / Win·Mac·Linux·Android）",
           "published": "2026-11-21T15:49:31+00:00",
-          "stars": 937,
+          "stars": 938,
           "language": "TypeScript"
         },
         {
@@ -284,38 +248,20 @@
         {
           "category": "tools",
           "source": "GitHub 新興專案",
-          "title": "sous-labs/songe",
-          "url": "https://github.com/sous-labs/songe",
-          "summary": "A training engine for your local model, using your idle compute",
-          "published": "2026-11-20T11:01:20+00:00",
-          "stars": 832,
-          "language": "Python"
-        },
-        {
-          "category": "tools",
-          "source": "Product Hunt",
-          "title": "MemoryWorks",
-          "url": "https://www.producthunt.com/products/memoryworks",
-          "summary": "Company memory for people and AI agents Discussion | Link",
-          "published": "2026-11-24T20:30:45+00:00"
-        },
-        {
-          "category": "tools",
-          "source": "GitHub 新興專案",
           "title": "erkamyaman/safe-anything",
           "url": "https://github.com/erkamyaman/safe-anything",
           "summary": "Find the holes before someone else does. A fast, 100% Rust vulnerability scanner: XSS, SQL injection, leaked secrets, dependency CVEs and AI agent setups.",
           "published": "2026-11-22T16:44:10+00:00",
-          "stars": 685,
+          "stars": 687,
           "language": "Rust"
         },
         {
           "category": "tools",
           "source": "Product Hunt",
-          "title": "Notely",
-          "url": "https://www.producthunt.com/products/notely-8",
-          "summary": "Notion-grade power & BYOK AI, stored locally in SQLite Discussion | Link",
-          "published": "2026-11-25T00:50:46+00:00"
+          "title": "OpenEight",
+          "url": "https://www.producthunt.com/products/openeight",
+          "summary": "The deterministic control layer for AI agents Discussion | Link",
+          "published": "2026-11-25T06:58:59+00:00"
         },
         {
           "category": "tools",
@@ -330,10 +276,10 @@
         {
           "category": "tools",
           "source": "Product Hunt",
-          "title": "Statefold",
-          "url": "https://www.producthunt.com/products/statefold-2",
-          "summary": "Coding agents that keep working while you're away Discussion | Link",
-          "published": "2026-11-25T01:45:57+00:00"
+          "title": "MemoryWorks",
+          "url": "https://www.producthunt.com/products/memoryworks",
+          "summary": "Company memory for people and AI agents Discussion | Link",
+          "published": "2026-11-24T20:30:45+00:00"
         },
         {
           "category": "tools",
@@ -348,10 +294,10 @@
         {
           "category": "tools",
           "source": "Product Hunt",
-          "title": "PeerBand",
-          "url": "https://www.producthunt.com/products/peerband",
-          "summary": "Reach every coding agent you run, from anywhere Discussion | Link",
-          "published": "2026-11-25T01:23:23+00:00"
+          "title": "Qube",
+          "url": "https://www.producthunt.com/products/qube-6",
+          "summary": "An AI agent for anyone with the model of your choice Discussion | Link",
+          "published": "2026-11-24T17:55:06+00:00"
         },
         {
           "category": "tools",
@@ -360,8 +306,16 @@
           "url": "https://github.com/chanke17/KuroCat",
           "summary": "KuroCat — Free open-source native desktop cat pet & OBS overlay (Bongo Cat alternative, Swift/C++, 802 KB)｜开源免费原生桌面萌猫（全平台 macOS·Win·Linux·UOS / 2.5D转头捕猎 / 数位板 / OBS透明绿幕 / 在线皮肤工坊 / 零按键上传）",
           "published": "2026-11-23T01:06:18+00:00",
-          "stars": 512,
+          "stars": 514,
           "language": "C++"
+        },
+        {
+          "category": "tools",
+          "source": "Product Hunt",
+          "title": "Notely",
+          "url": "https://www.producthunt.com/products/notely-8",
+          "summary": "Notion-grade power & BYOK AI, stored locally in SQLite Discussion | Link",
+          "published": "2026-11-25T00:50:46+00:00"
         },
         {
           "category": "tools",
@@ -375,6 +329,14 @@
         },
         {
           "category": "tools",
+          "source": "Product Hunt",
+          "title": "PeerBand",
+          "url": "https://www.producthunt.com/products/peerband",
+          "summary": "Reach every coding agent you run, from anywhere Discussion | Link",
+          "published": "2026-11-25T01:23:23+00:00"
+        },
+        {
+          "category": "tools",
           "source": "GitHub 新興專案",
           "title": "praseesh369/youtube-ai-video-editing-system",
           "url": "https://github.com/praseesh369/youtube-ai-video-editing-system",
@@ -385,12 +347,20 @@
         },
         {
           "category": "tools",
+          "source": "Product Hunt",
+          "title": "Statefold",
+          "url": "https://www.producthunt.com/products/statefold-2",
+          "summary": "Coding agents that keep working while you're away Discussion | Link",
+          "published": "2026-11-25T01:45:57+00:00"
+        },
+        {
+          "category": "tools",
           "source": "GitHub 新興專案",
           "title": "EL4CTEO/shrink-anything",
           "url": "https://github.com/EL4CTEO/shrink-anything",
           "summary": "Less code, same tests passing: delete the dead code, files, dependencies and assets in any codebase, and keep each cut only if your own tests still pass.",
           "published": "2026-11-23T15:55:48+00:00",
-          "stars": 263,
+          "stars": 266,
           "language": "Rust"
         },
         {
@@ -430,7 +400,7 @@
           "url": "https://github.com/matheusmongarde/garimpo",
           "summary": "Prospecção open source do Google Maps ao Pix: acha negócios no Maps, gera um site-prévia com o nome de cada um, conversa no WhatsApp e cobra por Pix, Mercado Pago ou Stripe. Pagou, fecha sozinho. Roda no seu PC, VPS ou Vercel, com API para agentes (Claude Code, Codex, n8n).",
           "published": "2026-11-24T23:58:18+00:00",
-          "stars": 151,
+          "stars": 154,
           "language": "TypeScript"
         },
         {
@@ -442,20 +412,32 @@
           "published": "2026-11-24T02:39:01+00:00",
           "stars": 144,
           "language": "Python"
+        },
+        {
+          "category": "tools",
+          "source": "GitHub 新興專案",
+          "title": "w1ccc/sap-data-mcp",
+          "url": "https://github.com/w1ccc/sap-data-mcp",
+          "summary": "Read-only MCP servers that let AI assistants query SAP S/4HANA through RFC/BAPI, private-cloud OData and public-cloud released APIs. Every call audited; credentials stay local.",
+          "published": "2026-11-20T15:15:23+00:00",
+          "stars": 143,
+          "language": "Python"
+        },
+        {
+          "category": "tools",
+          "source": "GitHub 新興專案",
+          "title": "mbzuai-oryx/LoopedWSP",
+          "url": "https://github.com/mbzuai-oryx/LoopedWSP",
+          "summary": "Looped Weight-Space Programming: LLM-Written Transformers for Long Algorithmic Reasoning",
+          "published": "2026-11-23T06:25:04+00:00",
+          "stars": 113,
+          "language": "Python"
         }
       ]
     },
     "research": {
       "name": "ML / DL / NLP 新技術",
       "items": [
-        {
-          "category": "research",
-          "source": "Hacker News 熱門 AI 討論",
-          "title": "PenGPT: A Generative Transformer for Handwriting and Sketches",
-          "url": "https://greydanus.github.io/2026/11/12/pengpt/",
-          "summary": "Article URL: https://greydanus.github.io/2026/11/12/pengpt/ Comments URL: https://news.ycombinator.com/item?id=50637056 Points: 360 # Comments: 63",
-          "published": "2026-11-25T00:54:49+00:00"
-        },
         {
           "category": "research",
           "source": "Hugging Face Daily Papers",
@@ -570,9 +552,9 @@
         {
           "category": "research",
           "source": "dair-ai Top AI Papers of the Week (November 16 - November 22) - 2026",
-          "title": "CompoundingKernel",
-          "url": "https://academy.dair.ai/papers/compoundingkernel-self-improving-from-zero-to-first-2611.19230",
-          "summary": "Amazon researchers present CompoundingKernel, a self-improving agent system that writes GPU kernels by search. Over a thousand agents ran at once, and the resulting kernels rank first on the public L1, L2, and Quantization boards of SOL-ExecBench on NVIDIA B200.",
+          "title": "Against All Likelihood",
+          "url": "https://academy.dair.ai/papers/against-all-likelihood-2611.09385",
+          "summary": "This essay from Meta argues that maximum likelihood, the dominant training principle for LLMs, is neither necessary nor sufficient for truth, since unlikely events happen every day and frequently repeated statements can be false. Drawing on philosophers who tie objectivity to invariance, including Nozick, Poincaré, and Cassirer, it proposes judging a statement true when it holds across relevant changes to the environment. The author connects this to work on out-of-distribution generalization, sketches how an LLM could test invariance at inference time, and discusses what it means for continua…",
           "published": null
         },
         {
@@ -587,9 +569,9 @@
         {
           "category": "research",
           "source": "dair-ai Top AI Papers of the Week (November 16 - November 22) - 2026",
-          "title": "Against All Likelihood",
-          "url": "https://academy.dair.ai/papers/against-all-likelihood-2611.09385",
-          "summary": "This essay from Meta argues that maximum likelihood, the dominant training principle for LLMs, is neither necessary nor sufficient for truth, since unlikely events happen every day and frequently repeated statements can be false. Drawing on philosophers who tie objectivity to invariance, including Nozick, Poincaré, and Cassirer, it proposes judging a statement true when it holds across relevant changes to the environment. The author connects this to work on out-of-distribution generalization, sketches how an LLM could test invariance at inference time, and discusses what it means for continua…",
+          "title": "QDA",
+          "url": "https://academy.dair.ai/papers/qda-closed-loop-llm-quantization-design-with-agents-2611.23388",
+          "summary": "Researchers from MIT and NVIDIA present QDA, a system where an agent designs the post-training quantization recipe for each model and precision. It scores each candidate in minutes by its output KL divergence from the original model on reasoning traces the agent never sees, and draws on a shared library of public PTQ methods. Across four reasoning models, QDA beats the strongest public recipe by 0.9, 1.4, and 2.2 points at W4A16, W4A8, and W3A16 using 64 GPU-hours per search, and on GLM-5.3-Flash at NVFP4 W4A4 it recovers 98.3% of FP8 accuracy against 96.9% for the best vendor checkpoint.",
           "published": null
         },
         {
@@ -603,28 +585,12 @@
         },
         {
           "category": "research",
-          "source": "dair-ai Top AI Papers of the Week (November 16 - November 22) - 2026",
-          "title": "Self-Directed Self-Improvement",
-          "url": "https://academy.dair.ai/papers/do-llm-agents-still-need-to-be-told-how-to-self-improve-2611.23219",
-          "summary": "Researchers from MIT CSAIL and the University of Tübingen give a frozen model a compute budget and simple tools to write practice games, watch another copy of itself play them, and edit that copy's prompt and skill files, without real tasks, validation scores, or instructions on how to learn. Capable models built a working learning procedure on their own, with strategies such as calibrated task difficulty, controlled A/B comparisons, and self-built validation suites, and improved on held-out games with hidden mechanics. The text files they produced also improved play on external benchmarks wi…",
-          "published": null
-        },
-        {
-          "category": "research",
           "source": "Hugging Face Daily Papers",
           "title": "Coding4Games: Can Modern Coding Agents Play Modern Video Games?",
           "url": "https://huggingface.co/papers/2611.31974",
           "summary": "Games, especially modern AAA games, challenge language models to perceive complex scenes, control actions, and make decisions over long horizons. Existing game benchmarks primarily test language models as computer-use agents that query a language model throughout play, incurring repeated inference cost and, in real-time games, acting while the environment continues to evolve. We ask whether coding agents can learn from game interaction to develop standalone game-playing programs that run without language model inference. We thus introduce Coding4Games, a benchmark for evaluating whether codin…",
           "published": "2026-11-23T19:00:00+00:00",
           "upvotes": 10
-        },
-        {
-          "category": "research",
-          "source": "dair-ai Top AI Papers of the Week (November 16 - November 22) - 2026",
-          "title": "QDA",
-          "url": "https://academy.dair.ai/papers/qda-closed-loop-llm-quantization-design-with-agents-2611.23388",
-          "summary": "Researchers from MIT and NVIDIA present QDA, a system where an agent designs the post-training quantization recipe for each model and precision. It scores each candidate in minutes by its output KL divergence from the original model on reasoning traces the agent never sees, and draws on a shared library of public PTQ methods. Across four reasoning models, QDA beats the strongest public recipe by 0.9, 1.4, and 2.2 points at W4A16, W4A8, and W3A16 using 64 GPU-hours per search, and on GLM-5.3-Flash at NVFP4 W4A4 it recovers 98.3% of FP8 accuracy against 96.9% for the best vendor checkpoint.",
-          "published": null
         },
         {
           "category": "research",
@@ -661,6 +627,33 @@
           "summary": "Real-time interactive video generation allows users to change the prompt during generation to steer the evolving video. However, existing streaming models, which generate videos chunk by chunk, often keep following the previous prompt after a switch. We trace this failure to context inertia, where the previous chunk acts as a strong prior that suppresses the new prompt. Furthermore, we find that this inertia persists even when the cache retains only the previous chunk, yet discarding the context breaks visual continuity, which limits approaches that edit the cache. Rather than editing the cac…",
           "published": "2026-11-23T19:00:00+00:00",
           "upvotes": 7
+        },
+        {
+          "category": "research",
+          "source": "Hugging Face Daily Papers",
+          "title": "Separating Measurement Failures from Defence Failures in Split Language-Model Privacy",
+          "url": "https://huggingface.co/papers/2611.31752",
+          "summary": "Split-training privacy evaluations fail through distinct mechanisms. Evaluators can overlook an exposed gradient channel, align reconstructions against shifted labels, or deploy uncalibrated probes before testing a candidate defence, while calibrated attacks can also refute real defences. Separating these failure modes alters which claims survive. We conduct a retrospective evidentiary reanalysis across four split-LLM campaigns and two cross-cutting scope checks covering host key custody and variational mutual-information bounds, mapping every recorded claim to one of five admissibility state…",
+          "published": "2026-11-23T19:00:00+00:00",
+          "upvotes": 4
+        },
+        {
+          "category": "research",
+          "source": "Hugging Face Daily Papers",
+          "title": "Clinical3D-Bench: Evaluating and Improving Spatial Intelligence of Multimodal LLMs in Hospital Environments",
+          "url": "https://huggingface.co/papers/2611.32094",
+          "summary": "Spatial reasoning in hospitals requires tracking look-alike equipment, interpreting patient-relative directions, and judging passage widths, yet existing benchmarks provide limited coverage of these abilities. We introduce Clinical3D-Bench, a simulated benchmark with 3,368 questions of eight types on egocentric walkthroughs of 373 hospital-room layouts. Layouts follow hospital design guidelines, answers are computed from the 3D scenes, and paired scene states test whether models change their answers when relevant evidence changes. Videos are photorealistic, and ten physicians screened the lay…",
+          "published": "2026-11-23T19:00:00+00:00",
+          "upvotes": 4
+        },
+        {
+          "category": "research",
+          "source": "Hugging Face Daily Papers",
+          "title": "SpatialArena: Where Do Geometric Foundation Models Stand?",
+          "url": "https://huggingface.co/papers/2611.32816",
+          "summary": "3D perception is shifting from task-specific pipelines to geometric foundation models: monocular depth networks, feed-forward 3D/4D reconstruction models, and vision--language models that predict geometry. However, their progress cannot be measured reliably. Published numbers are not comparable, because every paper samples frames, sets resolutions, and selects test splits differently. They are not robust because the alignment required for every up-to-scale prediction can outweigh the gap between models: fitting depth in the wrong space nearly triples its error, and standard trajectory alignme…",
+          "published": "2026-11-23T19:00:00+00:00",
+          "upvotes": 3
         }
       ]
     }
@@ -669,7 +662,7 @@
     {
       "source": "TechCrunch AI",
       "ok": true,
-      "count": 16
+      "count": 17
     },
     {
       "source": "The Verge AI",
@@ -703,8 +696,8 @@
     },
     {
       "source": "Hacker News 熱門 AI 討論",
-      "ok": true,
-      "count": 1
+      "ok": false,
+      "error": "HTTPError: 502 Server Error: Bad Gateway for url: https://hnrss.org/newest?points=150&q=LLM+OR+transformer+OR+diffusion+OR+%22reinforcement+learning%22"
     },
     {
       "source": "Hugging Face Daily Papers",
