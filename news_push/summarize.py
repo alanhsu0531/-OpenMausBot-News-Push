@@ -125,8 +125,8 @@ def fallback_selection(cands: dict) -> dict:
 
 
 CATEGORY_SHORT = {S.COMPANY: "公司動態", S.TOOLS: "新工具", S.RESEARCH: "新技術"}
-TOOL_FIELDS = (("problem", "🎯 解決什麼問題"), ("method", "⚙️ 用什麼方法"),
-               ("usage", "🚀 如何使用"), ("advantage", "✨ 使用後的優勢"))
+TOOL_FIELDS = (("problem", "🎯 問題"), ("method", "⚙️ 方法"),
+               ("usage", "🚀 用法"), ("advantage", "✨ 優勢"))
 
 
 def circled(n: int) -> str:
