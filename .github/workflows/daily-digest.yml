@@ -11,6 +11,7 @@ on:
 
 permissions:
   contents: write
+  models: read  # GitHub Models 免費備援
 
 concurrency:
   group: daily-digest
@@ -35,6 +36,16 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: python -m news_push.fetch
 
+      - name: 第 2 步：AI 挑選、摘要、寄 Email
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+          OPENROUTER_MODELS: ${{ vars.OPENROUTER_MODELS }}
+          GMAIL_ADDRESS: ${{ secrets.GMAIL_ADDRESS }}
+          GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
+          MAIL_TO: ${{ secrets.MAIL_TO }}
+        run: python -m news_push.summarize
+
       - name: 儲存結果到 repo
         run: |
           git config user.name "daily-digest-bot"
@@ -43,7 +54,7 @@ jobs:
           if git diff --cached --quiet; then
             echo "沒有新內容"
           else
-            git commit -m "data: $(TZ=Asia/Taipei date +%F) 候選新聞"
+            git commit -m "data: $(TZ=Asia/Taipei date +%F) AI 科技早報"
             git pull --rebase
             git push
           fi

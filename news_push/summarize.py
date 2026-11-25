@@ -1,0 +1,185 @@
+"""第 2 步：AI 挑選 5 到 10 則新聞、寫繁體中文摘要，產出完整版與 Email 精簡版。
+
+用法：
+    python -m news_push.summarize                 # 讀今天的 candidates.json，寫 digest，寄 Email
+    python -m news_push.summarize --no-email      # 不寄信（測試用）
+
+產出：
+    data/YYYY-MM-DD/digest.md    完整版（OpenMausBot 讀這份）
+    data/YYYY-MM-DD/digest.json  結構化資料
+    data/latest.md               永遠是最新一天的完整版
+"""
+
+from __future__ import annotations
+
+import argparse
+import json
+import re
+import sys
+from datetime import date, datetime
+from pathlib import Path
+
+from . import sources as S
+from .fetch import DATA_DIR, TW, mark_seen, log
+from .llm import chat
+from .mailer import send_digest_email
+
+MIN_ITEMS, MAX_ITEMS = 5, 10
+WEEKDAYS = "一二三四五六日"
+CATEGORY_ICONS = {S.COMPANY: "🏢", S.TOOLS: "🛠️", S.RESEARCH: "🔬"}
+
+SYSTEM_PROMPT = """你是一位專業的科技新聞編輯，替台灣讀者整理每日 AI 科技早報。
+一律使用台灣慣用的繁體中文（例如：軟體、模型、程式、晶片、輝達），專有名詞與產品名可保留英文。
+只根據提供的資料撰寫，不可捏造事實、數字或功能；資料不足時就寫得保守一點。
+只輸出一個 JSON 物件，不要有任何其他文字或 Markdown 程式碼框。"""
+
+USER_PROMPT = """以下是今天的候選新聞，分成三類：
+- company：AI 科技公司新聞（人事異動、產品決策、商業與政策動態）
+- tools：AI 新工具
+- research：ML / DL / NLP 新技術與論文
+
+請挑出最重要、最有新意的 {min_items} 到 {max_items} 則：
+- 三類都要有，每類 2 到 4 則（某類候選不足時例外）
+- 優先選影響大、讀者會想點開的；避免同一事件重複
+- tools 優先選真的能用的產品或開源專案，略過純行銷文
+
+輸出 JSON 格式：
+{{
+  "headline": "一句話總結今天最值得注意的趨勢（30 字內）",
+  "items": [
+    {{
+      "id": 候選編號（整數）,
+      "title": "繁體中文標題（25 字內）",
+      "brief": "一句話重點（40 字內，用於 Email）",
+      "summary": "2 到 4 句繁體中文摘要，說明發生什麼事、為什麼重要",
+      "problem": "（僅 tools）這個工具想解決什麼問題",
+      "method": "（僅 tools）透過什麼方法或技術解決",
+      "usage": "（僅 tools）如何開始使用",
+      "advantage": "（僅 tools）使用後的優勢"
+    }}
+  ]
+}}
+
+候選新聞：
+{candidates}
+"""
+
+
+def build_candidate_list(cands: dict) -> tuple[str, dict[int, dict]]:
+    lines, index, n = [], {}, 0
+    for cat, block in cands["categories"].items():
+        for it in block["items"]:
+            n += 1
+            index[n] = it
+            summary = it.get("summary", "")[:350]
+            extra = f"（GitHub ⭐{it['stars']}）" if it.get("stars") else ""
+            lines.append(f"[{n}] ({cat}) {it['source']}｜{it['title']}{extra}\n    {summary}")
+    return "\n".join(lines), index
+
+
+def parse_json(text: str) -> dict:
+    text = re.sub(r"^```(?:json)?\s*|\s*```$", "", text.strip())
+    start, end = text.find("{"), text.rfind("}")
+    if start < 0 or end < 0:
+        raise ValueError("回應中找不到 JSON")
+    return json.loads(text[start:end + 1])
+
+
+def select_with_llm(cands: dict) -> dict:
+    listing, index = build_candidate_list(cands)
+    prompt = USER_PROMPT.format(min_items=MIN_ITEMS, max_items=MAX_ITEMS, candidates=listing)
+    last_err = None
+    for attempt in range(2):
+        raw, model = chat(SYSTEM_PROMPT, prompt)
+        try:
+            data = parse_json(raw)
+            items = []
+            for sel in data.get("items", []):
+                try:
+                    src = index[int(sel["id"])]
+                except (KeyError, ValueError, TypeError):
+                    continue  # 模型給了不存在的編號就略過，確保網址都是真的
+                if any(i["url"] == src["url"] for i in items):
+                    continue
+                items.append({**sel, "category": src["category"], "source": src["source"],
+                              "url": src["url"], "original_title": src["title"]})
+            if len(items) < 3:
+                raise ValueError(f"有效項目只有 {len(items)} 則")
+            return {"headline": data.get("headline", ""), "items": items[:MAX_ITEMS], "model": model}
+        except Exception as exc:
+            last_err = exc
+            log(f"[summarize] 第 {attempt + 1} 次解析失敗：{exc}")
+    raise RuntimeError(f"AI 回應無法使用：{last_err}")
+
+
+def fallback_selection(cands: dict) -> dict:
+    """AI 全部失敗時的備案：每類取前 3 則原文標題，至少讓早報照常出現。"""
+    items = []
+    for cat, block in cands["categories"].items():
+        for it in block["items"][:3]:
+            items.append({"category": cat, "source": it["source"], "url": it["url"],
+                          "title": it["title"], "original_title": it["title"],
+                          "brief": it["title"], "summary": it.get("summary", "")[:200]})
+    return {"headline": "今天 AI 摘要服務暫時無法使用，以下為原文標題。", "items": items, "model": "fallback"}
+
+
+def render_markdown(day: str, digest: dict) -> str:
+    d = date.fromisoformat(day)
+    out = [f"# AI 科技早報｜{day}（週{WEEKDAYS[d.weekday()]}）", ""]
+    if digest.get("headline"):
+        out += [f"> {digest['headline']}", ""]
+    n = 0
+    for cat, name in S.CATEGORY_NAMES.items():
+        items = [i for i in digest["items"] if i["category"] == cat]
+        if not items:
+            continue
+        out += [f"## {CATEGORY_ICONS[cat]} {name}", ""]
+        for it in items:
+            n += 1
+            out += [f"### {n}. {it.get('title') or it['original_title']}", ""]
+            if it.get("summary"):
+                out += [it["summary"], ""]
+            if cat == S.TOOLS:
+                for key, label in (("problem", "解決什麼問題"), ("method", "用什麼方法"),
+                                   ("usage", "如何使用"), ("advantage", "使用後的優勢")):
+                    if it.get(key):
+                        out.append(f"- **{label}**：{it[key]}")
+                out.append("")
+            out += [f"來源：{it['source']}｜[閱讀原文]({it['url']})", ""]
+    out += ["---", f"共 {n} 則｜產生時間 {datetime.now(TW):%Y-%m-%d %H:%M}（台灣）｜模型 {digest.get('model', '')}", ""]
+    return "\n".join(out)
+
+
+def main() -> int:
+    p = argparse.ArgumentParser(description="AI 挑選與摘要每日新聞")
+    p.add_argument("--date", help="日期 YYYY-MM-DD（預設今天，台灣時間）")
+    p.add_argument("--no-email", action="store_true", help="不寄 Email")
+    args = p.parse_args()
+
+    day = args.date or datetime.now(TW).date().isoformat()
+    day_dir = DATA_DIR / day
+    cands = json.loads((day_dir / "candidates.json").read_text(encoding="utf-8"))
+
+    try:
+        digest = select_with_llm(cands)
+    except Exception as exc:
+        log(f"[summarize] 改用備案：{exc}")
+        digest = fallback_selection(cands)
+    digest["date"] = day
+
+    md = render_markdown(day, digest)
+    (day_dir / "digest.md").write_text(md, encoding="utf-8")
+    (day_dir / "digest.json").write_text(json.dumps(digest, ensure_ascii=False, indent=2), encoding="utf-8")
+    (DATA_DIR / "latest.md").write_text(md, encoding="utf-8")
+    log(f"[summarize] 寫入 {day_dir / 'digest.md'}，共 {len(digest['items'])} 則，模型 {digest['model']}")
+
+    if digest["model"] != "fallback":
+        mark_seen([i["url"] for i in digest["items"]], day)
+
+    if not args.no_email:
+        send_digest_email(day, digest)
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())
