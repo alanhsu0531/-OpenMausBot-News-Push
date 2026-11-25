@@ -7,9 +7,9 @@ on:
   workflow_dispatch:
     inputs:
       mode:
-        description: "full = 完整執行；notion_only = 只把今天的早報補寫進 Notion"
+        description: "full = 完整執行；notion_only = 只把今天的早報補寫進 Notion；test = 試跑（不寄信、不寫 Notion、不存檔）"
         type: choice
-        options: [full, notion_only]
+        options: [full, notion_only, test]
         default: full
 
 permissions:
@@ -66,10 +66,14 @@ jobs:
           MAIL_TO: ${{ secrets.MAIL_TO }}
           NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
           NOTION_DATABASE_ID: ${{ vars.NOTION_DATABASE_ID }}
-        run: python -m news_push.summarize
+        run: python -m news_push.summarize ${{ inputs.mode == 'test' && '--no-email --no-notion' || '' }}
+
+      - name: 試跑結果
+        if: ${{ inputs.mode == 'test' }}
+        run: python -m news_push.source_report --days 1 && head -40 data/latest.md
 
       - name: 失敗提醒（寄警示信，並把早報換成失敗通知）
-        if: ${{ failure() && inputs.mode != 'notion_only' }}
+        if: ${{ failure() && inputs.mode != 'notion_only' && inputs.mode != 'test' }}
         env:
           GMAIL_ADDRESS: ${{ secrets.GMAIL_ADDRESS }}
           GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
@@ -77,7 +81,7 @@ jobs:
         run: python -m news_push.alert
 
       - name: 儲存結果到 repo
-        if: ${{ always() }}
+        if: ${{ always() && inputs.mode != 'test' }}
         run: |
           git config user.name "daily-digest-bot"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
