@@ -5,9 +5,6 @@ on:
     # 台灣時間每天 06:30（UTC 22:30）。GitHub 排程常延遲 10 到 30 分鐘，所以提早開始。
     - cron: "30 22 * * *"
   workflow_dispatch:
-  push:
-    branches: [claude/project-thread-70x7w4]
-    paths: ["news_push/**", ".github/workflows/daily-digest.yml"]
 
 permissions:
   contents: write
@@ -42,6 +39,10 @@ jobs:
           OPENROUTER_MODELS: ${{ vars.OPENROUTER_MODELS }}
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           GEMINI_MODEL: ${{ vars.GEMINI_MODEL }}
+          NVIDIA_API_KEY: ${{ secrets.NVIDIA_API_KEY }}
+          NVIDIA_MODEL: ${{ vars.NVIDIA_MODEL }}
+          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+          GROQ_MODEL: ${{ vars.GROQ_MODEL }}
           GMAIL_ADDRESS: ${{ secrets.GMAIL_ADDRESS }}
           GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
           MAIL_TO: ${{ secrets.MAIL_TO }}

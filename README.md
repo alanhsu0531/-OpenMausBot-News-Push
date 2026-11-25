@@ -31,6 +31,8 @@
 | --- | --- |
 | `OPENROUTER_API_KEY` | OpenRouter API key |
 | `GEMINI_API_KEY` | 選填，Google AI Studio 的免費 API key，OpenRouter 失敗時備援 |
+| `NVIDIA_API_KEY` | 選填，build.nvidia.com 的免費 key，第二備援 |
+| `GROQ_API_KEY` | 選填，Groq 免費 key，第三備援 |
 | `GMAIL_ADDRESS` | 寄件 Gmail |
 | `GMAIL_APP_PASSWORD` | Gmail 應用程式密碼 |
 | `MAIL_TO` | 收件人，多個用逗號分隔（沒設定時寄給自己） |

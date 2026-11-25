@@ -1,10 +1,14 @@
-"""呼叫免費的大型語言模型。
+"""呼叫免費的大型語言模型，依序嘗試多家服務，有一家成功就停。
 
-優先順序：
+優先順序（沒設定 key 的服務會自動略過）：
 1. OpenRouter 免費模型（OPENROUTER_API_KEY）。先試 OPENROUTER_MODELS 指定的模型，
-   都失敗時自動從 OpenRouter 模型清單挑其他 :free 模型。
-2. Google Gemini API 免費額度（GEMINI_API_KEY，到 Google AI Studio 申請）。
-   GitHub Models 已於 2026-07-30 停止服務，所以不再使用。
+   沒指定或都失敗時，自動從 OpenRouter 模型清單挑目前可用的 :free 模型。
+2. Google Gemini API 免費額度（GEMINI_API_KEY）
+3. NVIDIA NIM 免費端點（NVIDIA_API_KEY）
+4. Groq 免費方案（GROQ_API_KEY）。每分鐘只有 8,000 tokens，提示太長時會失敗，所以放最後。
+
+每家的模型都可用 Repository variables 覆寫：GEMINI_MODEL、NVIDIA_MODEL、GROQ_MODEL。
+GitHub Models 已於 2026-07-30 停止服務；Hugging Face 免費帳號已無推論額度，所以都不使用。
 """
 
 from __future__ import annotations
@@ -17,14 +21,20 @@ import requests
 
 OPENROUTER_URL = "https://openrouter.ai/api/v1/chat/completions"
 OPENROUTER_MODELS_URL = "https://openrouter.ai/api/v1/models"
-DEFAULT_OPENROUTER_MODELS = [
-    "deepseek/deepseek-chat-v3.1:free",
-    "qwen/qwen3-235b-a22b:free",
-    "meta-llama/llama-3.3-70b-instruct:free",
+MAX_AUTO_FREE_MODELS = 5
+
+# (名稱, API key 環境變數, 網址, 模型環境變數, 預設模型)
+BACKUP_PROVIDERS = [
+    ("Gemini", "GEMINI_API_KEY",
+     "https://generativelanguage.googleapis.com/v1beta/openai/chat/completions",
+     "GEMINI_MODEL", "gemini-flash-latest"),
+    ("NVIDIA", "NVIDIA_API_KEY",
+     "https://integrate.api.nvidia.com/v1/chat/completions",
+     "NVIDIA_MODEL", "moonshotai/kimi-k3.1-pro"),
+    ("Groq", "GROQ_API_KEY",
+     "https://api.groq.com/openai/v1/chat/completions",
+     "GROQ_MODEL", "openai/gpt-oss-120b"),
 ]
-GEMINI_URL = "https://generativelanguage.googleapis.com/v1beta/openai/chat/completions"
-DEFAULT_GEMINI_MODEL = "gemini-flash-latest"
-MAX_AUTO_FREE_MODELS = 4
 
 
 def log(msg: str) -> None:
@@ -63,44 +73,38 @@ def _auto_free_models(headers: dict, exclude: set[str]) -> list[str]:
 
 
 def chat(system: str, user: str, temperature: float = 0.3) -> tuple[str, str]:
-    """回傳 (內容, 使用的模型)。所有模型都失敗時丟出 RuntimeError。"""
+    """回傳 (內容, 使用的模型)。所有服務都失敗時丟出 RuntimeError。"""
     messages = [{"role": "system", "content": system}, {"role": "user", "content": user}]
-    errors = []
+    errors: list[str] = []
+
+    def attempt(label: str, url: str, key: str, model: str) -> str | None:
+        try:
+            log(f"[llm] 嘗試 {label} {model}")
+            return _post(url, {"Authorization": f"Bearer {key}", "X-Title": "Daily AI Digest"},
+                         {"model": model, "messages": messages, "temperature": temperature})
+        except Exception as exc:
+            errors.append(f"{label} {model}: {exc}"[:200])
+            log(f"[llm] 失敗 {label} {model}: {exc}")
+            return None
 
     key = os.environ.get("OPENROUTER_API_KEY")
     if key:
-        headers = {"Authorization": f"Bearer {key}", "X-Title": "Daily AI Digest"}
         preferred = [m.strip() for m in os.environ.get("OPENROUTER_MODELS", "").split(",") if m.strip()]
-        candidates = preferred or DEFAULT_OPENROUTER_MODELS
         tried: set[str] = set()
-        for phase in ("preferred", "auto"):
-            if phase == "auto":
-                candidates = _auto_free_models(headers, tried)
-            for model in candidates:
-                tried.add(model)
-                try:
-                    log(f"[llm] 嘗試 OpenRouter {model}")
-                    out = _post(OPENROUTER_URL, headers, {
-                        "model": model, "messages": messages, "temperature": temperature,
-                    })
-                    return out, f"openrouter:{model}"
-                except Exception as exc:
-                    errors.append(f"{model}: {exc}"[:200])
-                    log(f"[llm] 失敗 {model}: {exc}")
-    else:
-        log("[llm] 沒有設定 OPENROUTER_API_KEY，改用 Gemini")
+        for model in preferred:
+            tried.add(model)
+            if (out := attempt("OpenRouter", OPENROUTER_URL, key, model)):
+                return out, f"openrouter:{model}"
+        for model in _auto_free_models({"Authorization": f"Bearer {key}"}, tried):
+            if (out := attempt("OpenRouter", OPENROUTER_URL, key, model)):
+                return out, f"openrouter:{model}"
 
-    gkey = os.environ.get("GEMINI_API_KEY")
-    if gkey:
-        model = os.environ.get("GEMINI_MODEL") or DEFAULT_GEMINI_MODEL
-        try:
-            log(f"[llm] 嘗試 Gemini {model}")
-            out = _post(GEMINI_URL, {"Authorization": f"Bearer {gkey}"}, {
-                "model": model, "messages": messages, "temperature": temperature,
-            })
-            return out, f"gemini:{model}"
-        except Exception as exc:
-            errors.append(f"gemini {model}: {exc}"[:200])
-            log(f"[llm] 失敗 Gemini: {exc}")
+    for name, key_env, url, model_env, default_model in BACKUP_PROVIDERS:
+        key = os.environ.get(key_env)
+        if not key:
+            continue
+        model = os.environ.get(model_env) or default_model
+        if (out := attempt(name, url, key, model)):
+            return out, f"{name.lower()}:{model}"
 
     raise RuntimeError("所有模型都失敗：\n" + "\n".join(errors))
