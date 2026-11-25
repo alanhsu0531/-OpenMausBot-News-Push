@@ -1,0 +1,733 @@
+{
+  "date": "2026-11-26",
+  "generated_at": "2026-11-25T16:50:37.237126+00:00",
+  "lookback_hours": 26,
+  "categories": {
+    "company": {
+      "name": "AI 科技公司新聞",
+      "items": [
+        {
+          "category": "company",
+          "source": "TechCrunch AI",
+          "title": "AI data centers are becoming harder to build, and neoclouds are feeling it",
+          "url": "https://techcrunch.com/podcast/ai-data-centers-are-becoming-harder-to-build-and-neoclouds-are-feeling-it/",
+          "summary": "⁠Nvidia has made clear⁠ it won’t backstop an AI data center until it’s nearly ready to run, and that’s landing just as neoclouds report construction delays and more expensive debt. The message to developers is that land, power, and a finished building matter more than a pitch deck. ⁠Anita Verma-Lallian⁠ has been selling exactly that. […]",
+          "published": "2026-11-25T15:41:43+00:00"
+        },
+        {
+          "category": "company",
+          "source": "TechCrunch AI",
+          "title": "Amazon and Meta reportedly in talks to lift blockade on AI agent Muse",
+          "url": "https://techcrunch.com/2026/11/25/amazon-and-meta-reportedly-in-talks-to-lift-blockade-on-ai-agent-muse/",
+          "summary": "Amazon and Meta are discussing a potential deal that would end a two-month-long blockade of Muse.",
+          "published": "2026-11-25T14:10:18+00:00"
+        },
+        {
+          "category": "company",
+          "source": "TechCrunch AI",
+          "title": "The questions Jensen Huang and Nvidia will still have to answer about Megaspeed",
+          "url": "https://techcrunch.com/2026/11/25/the-questions-jensen-huang-and-nvidia-will-still-have-to-answer-about-megaspeed/",
+          "summary": "Huang still faces questions from Congress and his own board about his romantic relationship with an alleged chip smuggler.",
+          "published": "2026-11-25T13:00:00+00:00"
+        },
+        {
+          "category": "company",
+          "source": "TechCrunch AI",
+          "title": "Yale’s Sonnenfeld: Nvidia is a ‘detriment’ to US industrial might — not a champion",
+          "url": "https://techcrunch.com/2026/11/24/yales-sonnenfeld-nvidia-is-a-detriment-to-u-s-industrial-might-not-a-champion/",
+          "summary": "Yale's Jeffrey Sonnenfeld warns that what the market cheered Monday, Jensen Huang's White House–backed return as Nvidia's CEO and board member, could prove a giant mistake, exposing the directors to \"historic\" personal liability from a growing pile of lawsuits and raising the question of whether the country is celebrating a company that has helped put advanced chips in its adversaries' hands.",
+          "published": "2026-11-25T00:12:02+00:00"
+        },
+        {
+          "category": "company",
+          "source": "TechCrunch AI",
+          "title": "Jensen Huang still thinks a succession plan creates unnecessary hierarchy",
+          "url": "https://techcrunch.com/2026/11/24/jensen-huang-still-thinks-a-succession-plan-creates-unnecessary-hierarchy/",
+          "summary": "It's a remarkable stance for a company that spent the last two weeks finding out what happens without its founder.",
+          "published": "2026-11-24T22:27:52+00:00"
+        },
+        {
+          "category": "company",
+          "source": "TechCrunch AI",
+          "title": "In all-hands meeting, Jensen Huang thanks White House and says he’s in therapy",
+          "url": "https://techcrunch.com/2026/11/24/in-all-hands-meeting-jensen-huang-thanks-white-house-and-says-hes-in-therapy/",
+          "summary": "The Nvidia founder apologized to his staff on Tuesday and said he was grateful for a second chance to lead the company.",
+          "published": "2026-11-24T21:48:27+00:00"
+        },
+        {
+          "category": "company",
+          "source": "TechCrunch AI",
+          "title": "Even the best AI agents struggle with everyday life",
+          "url": "https://techcrunch.com/2026/11/24/even-the-best-ai-agents-struggle-with-everyday-life/",
+          "summary": "As millions embrace personal AI assistants, a new benchmark reveals that even the most advanced AI models struggle to complete everyday tasks reliably and safely without introducing potential new problems.",
+          "published": "2026-11-24T21:33:29+00:00"
+        },
+        {
+          "category": "company",
+          "source": "TechCrunch AI",
+          "title": "Walmart teams up with Meta to bring Black Friday deals to AI agent Muse",
+          "url": "https://techcrunch.com/2026/11/24/walmart-teams-up-with-meta-to-bring-black-friday-deals-to-ai-agent-muse/",
+          "summary": "Walmart now lets customers shop Black Friday deals through Muse, Meta’s AI agent.",
+          "published": "2026-11-24T21:32:38+00:00"
+        },
+        {
+          "category": "company",
+          "source": "TechCrunch AI",
+          "title": "Maple raises $5.3M to build AI products that protect your data, even from itself",
+          "url": "https://techcrunch.com/2026/11/24/maple-raises-5-3m-to-build-ai-products-that-protect-your-data-even-from-itself/",
+          "summary": "The startup's encrypted AI architecture is designed to prevent even the company itself from accessing users' private data.",
+          "published": "2026-11-24T21:19:52+00:00"
+        },
+        {
+          "category": "company",
+          "source": "TechCrunch AI",
+          "title": "Anthropic shares fall below IPO price, a worrying sign for AI startups",
+          "url": "https://techcrunch.com/2026/11/24/anthropic-shares-fall-below-ipo-price-a-worrying-sign-for-ai-startups/",
+          "summary": "Anthropic’s post-IPO slump could put pressure on AI startup valuations.",
+          "published": "2026-11-24T18:30:42+00:00"
+        },
+        {
+          "category": "company",
+          "source": "TechCrunch AI",
+          "title": "UK warns AI-driven cyberattacks are exposing years of weak security",
+          "url": "https://techcrunch.com/2026/11/24/uk-warns-ai-driven-cyberattacks-are-exposing-years-of-weak-security/",
+          "summary": "The British cyber agency says that \"building strong foundations has never mattered more\" as AI hacking tools rely on exploiting simple security flaws.",
+          "published": "2026-11-24T18:02:59+00:00"
+        },
+        {
+          "category": "company",
+          "source": "TechCrunch AI",
+          "title": "Meta brings its Muse AI assistant directly into Instagram DMs",
+          "url": "https://techcrunch.com/2026/11/24/meta-brings-its-muse-ai-assistant-directly-into-instagram-dms/",
+          "summary": "The new integration gets rid of the need for users to toggle between Instagram and the Muse app when they want to interact with the AI agent.",
+          "published": "2026-11-24T17:00:00+00:00"
+        },
+        {
+          "category": "company",
+          "source": "TechCrunch AI",
+          "title": "Tidal to ban and remove millions of AI-generated tracks as AI slop inundates music streaming",
+          "url": "https://techcrunch.com/2026/11/24/tidal-to-ban-and-remove-millions-of-ai-generated-tracks-as-ai-slop-inundates-music-streaming/",
+          "summary": "The company said it will still accept songs that were made with AI assistance, but not fully generated.",
+          "published": "2026-11-24T16:46:00+00:00"
+        },
+        {
+          "category": "company",
+          "source": "TechCrunch AI",
+          "title": "Why a Crusoe investor is betting on solar and batteries to power future AI data centers",
+          "url": "https://techcrunch.com/2026/11/24/why-a-crusoe-investor-is-betting-on-solar-and-batteries-to-power-future-ai-data-centers/",
+          "summary": "Next-generation data centers will need tens of gigawatts of power every year. One of Crusoe's investors thinks solar and energy storage are the obvious choice.",
+          "published": "2026-11-24T16:10:00+00:00"
+        },
+        {
+          "category": "company",
+          "source": "TechCrunch AI",
+          "title": "Pinterest will now let parents limit the AI-generated content their teens see",
+          "url": "https://techcrunch.com/2026/11/24/pinterest-will-now-let-parents-limit-the-ai-generated-content-their-teens-see/",
+          "summary": "While other social platforms have focused on restricting teens' access to AI chatbots, Pinterest is addressing the AI content filling their feeds.",
+          "published": "2026-11-24T16:02:37+00:00"
+        },
+        {
+          "category": "company",
+          "source": "TechCrunch AI",
+          "title": "Amazon’s Decart acquisition is a bet on using software to narrow the silicon gap with Nvidia",
+          "url": "https://techcrunch.com/2026/11/24/amazons-decart-acquisition-is-a-bet-on-using-software-to-narrow-the-gap-with-nvidia-in-the-ai-chip-race/",
+          "summary": "Amazon’s decision to acquire Decart for a reported $7.5 billion is part of its efforts to improve the efficiency of its Trainium chips.",
+          "published": "2026-11-24T15:51:07+00:00"
+        },
+        {
+          "category": "company",
+          "source": "The Verge AI",
+          "title": "Nothing offers a full look at its AI earbuds and charging case",
+          "url": "https://www.theverge.com/gadgets/1042162/nothing-ear-note-ai-earbuds-reveal",
+          "summary": "Nothing is showing off a much more detailed look at its upcoming AI earbuds ahead of their December 8th release. The Ear Note buds can record your calls, while their charging case can record, transcribe, and summarize your conversations. Like the Ear 3, the Ear Note's microphone-equipped case comes with a \"Talk\" button that you […]",
+          "published": "2026-11-25T16:00:59+00:00"
+        },
+        {
+          "category": "company",
+          "source": "The Verge AI",
+          "title": "Amazon is reportedly in talks to end Muse AI shopping block",
+          "url": "https://www.theverge.com/tech/1042071/meta-amazon-muse-ai-shopping-discussions",
+          "summary": "Amazon has held talks about letting Meta's Muse AI agent shop on its online marketplace, according to a report from Fortune. The discussions, which could end Amazon's block on Muse, reportedly center on the kinds of products the AI agent recommends and the potential impact on the ecommerce giant's advertising revenue. As reported by Fortune, […]",
+          "published": "2026-11-25T14:12:33+00:00"
+        },
+        {
+          "category": "company",
+          "source": "The Verge AI",
+          "title": "Has vibe coding made open source the new normal for synths?",
+          "url": "https://www.theverge.com/ai-artificial-intelligence/1040081/vibe-coding-open-source-music-firmware",
+          "summary": "The emergence of powerful vibe-coding agents and tools like Reverse Engineer Anything has caused chaos in the music gear world, leaving companies scrambling to figure out how to respond. While some, like Roland, have remained silent for now, others have embraced the modding community. In the last several weeks, as it's become clear that no […]",
+          "published": "2026-11-25T13:00:00+00:00"
+        },
+        {
+          "category": "company",
+          "source": "The Verge AI",
+          "title": "Jensen Huang reportedly tells Nvidia staff it’s ‘not true’ Trump got him rehired",
+          "url": "https://www.theverge.com/tech/1041571/jensen-huang-all-hands-nvidia-apology",
+          "summary": "Nvidia CEO Jensen Huang apologized to staff during his first all-hands since returning to the company, while attempting to distance himself from the narrative that the White House and tech leaders helped him get his job back, according to reports from Bloomberg, The New York Times, and The Handbasket's Marisa Kabas. During the meeting, Huang […]",
+          "published": "2026-11-24T20:02:03+00:00"
+        },
+        {
+          "category": "company",
+          "source": "The Verge AI",
+          "title": "David Fincher is being dragged for suspected use of AI in his latest film",
+          "url": "https://www.theverge.com/entertainment/1041417/david-fincher-netflix-cliff-booth-ai-interpositive",
+          "summary": "Though David Fincher's fans had been eagerly anticipating The Further Mis-Adventures of Cliff Booth, early screenings of the Once Upon a Time in Hollywood sequel starring Brad Pitt have raised questions about whether generative AI was used in the film. People have claimed that the movie is chock-full of uncanny, inconsistent visuals that make it […]",
+          "published": "2026-11-24T18:15:00+00:00"
+        },
+        {
+          "category": "company",
+          "source": "The Verge AI",
+          "title": "Tidal will start banning AI-generated music next month",
+          "url": "https://www.theverge.com/entertainment/1041362/tidal-ai-music-ban",
+          "summary": "Tidal is officially banning AI-generated music on December 9th. As a result of this change, Tidal will delete around 29 million AI-generated songs and reject an estimated 80,000 to 85,000 tracks per day, according to Tidal music lead Robert Andersen. The move comes just months after Tidal began labeling and demonetizing tracks identified as 100 […]",
+          "published": "2026-11-24T17:17:09+00:00"
+        },
+        {
+          "category": "company",
+          "source": "The Verge AI",
+          "title": "Jensen Huang deepfakes are the hot new AI slop",
+          "url": "https://www.theverge.com/tech/1041222/jensen-huang-nvidia-scandal-deepfakes",
+          "summary": "Jensen Huang is partying it up in Ibiza. In a video with nearly 6 million views on Instagram, the former CEO of Nvidia is dancing in a crowded club, champagne glass in hand, still wearing his signature black leather jacket. Suddenly, from behind him, Alice Huang - the Chinese technology executive and suspected spy he […]",
+          "published": "2026-11-24T16:30:00+00:00"
+        },
+        {
+          "category": "company",
+          "source": "The Verge AI",
+          "title": "The New York Times warns photographers not to update Photoshop over AI features",
+          "url": "https://www.theverge.com/ai-artificial-intelligence/1041227/the-new-york-times-warns-photographers-not-to-update-photoshop-over-ai-features",
+          "summary": "The New York Times is asking freelance photographers not to use the newest version of Adobe Photoshop because features in the 2027 update use AI \"in ways that may not be apparent to users.\" In an email seen by The Verge and posted on Threads, two of the Times' photography leaders, Meaghan Looram and Josh […]",
+          "published": "2026-11-24T16:09:23+00:00"
+        },
+        {
+          "category": "company",
+          "source": "iThome",
+          "title": "數發部建立風險分級與內控制度，協助各部會展開AI治理",
+          "url": "https://www.ithome.com.tw/news/178458",
+          "summary": "生成式AI快速普及，政府面臨的問題已不再是「要不要用AI」，而是如何在兼顧效率與風險的前提下，建立一套可長可久的治理制度。 數位發展部數位政府司長王誠明在8月的數位政府高峰會中，首次完整說明政府AI治理的政策藍圖。他指出，愈來愈多公務人員已開始主動利用生成式AI協助撰寫文件、整理資料、查詢法規與處理行政工作，政府若僅以禁止或限制回應，不但無法阻止AI使用，也可能錯失提升行政效能的機會，因此必須建立一致的治理框架，讓各機關知道如何安全導入AI，而非各自摸索。當時提出的風險分類、內控制度及人才培育等規畫，經過數個月推動，如今已逐步轉化為各部會可實際執行的治理機制。",
+          "published": "2026-11-25T05:11:56+00:00"
+        }
+      ]
+    },
+    "tools": {
+      "name": "AI 新工具",
+      "items": [
+        {
+          "category": "tools",
+          "source": "Product Hunt",
+          "title": "Canva MCP",
+          "url": "https://www.producthunt.com/products/canva",
+          "summary": "Turn any AI agent into a creative powerhouse Discussion | Link",
+          "published": "2026-11-24T15:05:09+00:00"
+        },
+        {
+          "category": "tools",
+          "source": "Product Hunt",
+          "title": "MyClaw 3.0",
+          "url": "https://www.producthunt.com/products/myclaw-3-0",
+          "summary": "Build an always-on AI team with shared memory Discussion | Link",
+          "published": "2026-11-24T15:39:09+00:00"
+        },
+        {
+          "category": "tools",
+          "source": "Product Hunt",
+          "title": "MAGI-2",
+          "url": "https://www.producthunt.com/products/magi-1",
+          "summary": "Sand AI's 480B model for cinematic video generation Discussion | Link",
+          "published": "2026-11-25T05:35:39+00:00"
+        },
+        {
+          "category": "tools",
+          "source": "Product Hunt",
+          "title": "MemoryWorks",
+          "url": "https://www.producthunt.com/products/memoryworks",
+          "summary": "Company memory for people and AI agents Discussion | Link",
+          "published": "2026-11-24T20:30:45+00:00"
+        },
+        {
+          "category": "tools",
+          "source": "Product Hunt",
+          "title": "Qube",
+          "url": "https://www.producthunt.com/products/qube-6",
+          "summary": "An AI agent for anyone with the model of your choice Discussion | Link",
+          "published": "2026-11-24T17:55:06+00:00"
+        },
+        {
+          "category": "tools",
+          "source": "Product Hunt",
+          "title": "OpenEight",
+          "url": "https://www.producthunt.com/products/openeight",
+          "summary": "The deterministic control layer for AI agents Discussion | Link",
+          "published": "2026-11-25T06:58:59+00:00"
+        },
+        {
+          "category": "tools",
+          "source": "Product Hunt",
+          "title": "Statefold",
+          "url": "https://www.producthunt.com/products/statefold-2",
+          "summary": "Coding agents that keep working while you're away Discussion | Link",
+          "published": "2026-11-25T01:45:57+00:00"
+        },
+        {
+          "category": "tools",
+          "source": "Product Hunt",
+          "title": "PeerBand",
+          "url": "https://www.producthunt.com/products/peerband",
+          "summary": "Reach every coding agent you run, from anywhere Discussion | Link",
+          "published": "2026-11-25T01:23:23+00:00"
+        },
+        {
+          "category": "tools",
+          "source": "Product Hunt",
+          "title": "Notely",
+          "url": "https://www.producthunt.com/products/notely-8",
+          "summary": "Notion-grade power & BYOK AI, stored locally in SQLite Discussion | Link",
+          "published": "2026-11-25T00:50:46+00:00"
+        },
+        {
+          "category": "tools",
+          "source": "Hacker News Show HN",
+          "title": "Show HN: Old Nvidia and ATI tech demos, running again in the browser",
+          "url": "https://gpu-demo-gallery.pages.dev/",
+          "summary": "Article URL: https://gpu-demo-gallery.pages.dev/ Comments URL: https://news.ycombinator.com/item?id=50638503 Points: 261 # Comments: 55",
+          "published": "2026-11-25T04:31:48+00:00"
+        },
+        {
+          "category": "tools",
+          "source": "GitHub 新興專案",
+          "title": "EL4CTEO/fast-anything",
+          "url": "https://github.com/EL4CTEO/fast-anything",
+          "summary": "Don't rewrite it in Rust. Rewrite the 5% that's slow: profile Python, Node or Ruby apps, port the hot functions with your coding agent, prove they behave the same.",
+          "published": "2026-11-21T14:40:27+00:00",
+          "stars": 3871,
+          "language": "Rust"
+        },
+        {
+          "category": "tools",
+          "source": "GitHub 新興專案",
+          "title": "INK-Q/agy-fast",
+          "url": "https://github.com/INK-Q/agy-fast",
+          "summary": "Non-invasive MCP accelerator plugin for Google Antigravity (CLI/Desktop/IDE): cuts LLM turns (-34%), token quota (-31%), and upload traffic (-40%) without affecting native UI or diffs.",
+          "published": "2026-11-19T04:58:46+00:00",
+          "stars": 1475,
+          "language": "TypeScript"
+        },
+        {
+          "category": "tools",
+          "source": "GitHub 新興專案",
+          "title": "qianyiai/kurocat",
+          "url": "https://github.com/qianyiai/kurocat",
+          "summary": "KuroCat — Free open-source desktop typing cat pet & OBS overlay (Bongo Cat alternative, Tauri v2 + Rust + MCP)｜轻量级透明置顶桌面打字小黑猫伴侣（6款猫咪+鲸鱼娘大肥鱼 / 输密码防偷窥 / OBS透明源 / AI捏猫 / Win·Mac·Linux·Android）",
+          "published": "2026-11-21T15:49:31+00:00",
+          "stars": 935,
+          "language": "TypeScript"
+        },
+        {
+          "category": "tools",
+          "source": "GitHub 新興專案",
+          "title": "sous-labs/songe",
+          "url": "https://github.com/sous-labs/songe",
+          "summary": "A training engine for your local model, using your idle compute",
+          "published": "2026-11-20T11:01:20+00:00",
+          "stars": 829,
+          "language": "Python"
+        },
+        {
+          "category": "tools",
+          "source": "GitHub 新興專案",
+          "title": "erkamyaman/safe-anything",
+          "url": "https://github.com/erkamyaman/safe-anything",
+          "summary": "Find the holes before someone else does. A fast, 100% Rust vulnerability scanner: XSS, SQL injection, leaked secrets, dependency CVEs and AI agent setups.",
+          "published": "2026-11-22T16:44:10+00:00",
+          "stars": 683,
+          "language": "Rust"
+        },
+        {
+          "category": "tools",
+          "source": "GitHub 新興專案",
+          "title": "Developing-Gamer/agent-sim",
+          "url": "https://github.com/Developing-Gamer/agent-sim",
+          "summary": "iOS simulators for AI agents, on Linux. The agent layer for x86Sim.",
+          "published": "2026-11-21T20:26:12+00:00",
+          "stars": 588,
+          "language": "Rust"
+        },
+        {
+          "category": "tools",
+          "source": "GitHub 新興專案",
+          "title": "w01fb0ss/PiBot",
+          "url": "https://github.com/w01fb0ss/PiBot",
+          "summary": "Open-source, local-first AI agent team for your desktop: multi-agent group chats, computer use, browser, MCP, routines and approvals. macOS, Windows, Linux + Android. Built on pi.",
+          "published": "2026-11-21T06:54:24+00:00",
+          "stars": 585,
+          "language": "TypeScript"
+        },
+        {
+          "category": "tools",
+          "source": "GitHub 新興專案",
+          "title": "chanke17/KuroCat",
+          "url": "https://github.com/chanke17/KuroCat",
+          "summary": "KuroCat — Free open-source native desktop cat pet & OBS overlay (Bongo Cat alternative, Swift/C++, 802 KB)｜开源免费原生桌面萌猫（全平台 macOS·Win·Linux·UOS / 2.5D转头捕猎 / 数位板 / OBS透明绿幕 / 在线皮肤工坊 / 零按键上传）",
+          "published": "2026-11-23T01:06:18+00:00",
+          "stars": 511,
+          "language": "C++"
+        },
+        {
+          "category": "tools",
+          "source": "GitHub 新興專案",
+          "title": "lukendeasy/open-diagram",
+          "url": "https://github.com/lukendeasy/open-diagram",
+          "summary": "Python building blocks for dense architecture diagrams that check their own layout",
+          "published": "2026-11-18T17:34:59+00:00",
+          "stars": 398,
+          "language": "Python"
+        },
+        {
+          "category": "tools",
+          "source": "GitHub 新興專案",
+          "title": "praseesh369/youtube-ai-video-editing-system",
+          "url": "https://github.com/praseesh369/youtube-ai-video-editing-system",
+          "summary": "Storyboard, capture, and animate: an AI editing workflow for YouTube",
+          "published": "2026-11-21T17:21:17+00:00",
+          "stars": 338,
+          "language": "HTML"
+        },
+        {
+          "category": "tools",
+          "source": "GitHub 新興專案",
+          "title": "EL4CTEO/shrink-anything",
+          "url": "https://github.com/EL4CTEO/shrink-anything",
+          "summary": "Less code, same tests passing: delete the dead code, files, dependencies and assets in any codebase, and keep each cut only if your own tests still pass.",
+          "published": "2026-11-23T15:55:48+00:00",
+          "stars": 263,
+          "language": "Rust"
+        },
+        {
+          "category": "tools",
+          "source": "GitHub 新興專案",
+          "title": "zou172866/Antigravity-agy-dart",
+          "url": "https://github.com/zou172866/Antigravity-agy-dart",
+          "summary": "Google Antigravity plugin that improves cache hits, keeps cache warm automatically, protects context quota, shows live context usage, rescues crashed sessions, and saves tokens.",
+          "published": "2026-11-20T12:39:45+00:00",
+          "stars": 173,
+          "language": "JavaScript"
+        },
+        {
+          "category": "tools",
+          "source": "GitHub 新興專案",
+          "title": "LIUFelix2004/dsh-workbuddy",
+          "url": "https://github.com/LIUFelix2004/dsh-workbuddy",
+          "summary": "Import WorkBuddy accounts into DeepSeek Harness as model providers: one route per account, full model list, per-account credit balance, and an automatic workaround for the gateway 11128 channel check.",
+          "published": "2026-11-20T11:22:44+00:00",
+          "stars": 165,
+          "language": "JavaScript"
+        },
+        {
+          "category": "tools",
+          "source": "GitHub 新興專案",
+          "title": "nestjs/agent-skills",
+          "url": "https://github.com/nestjs/agent-skills",
+          "summary": "Agent skills for Nest framework (node.js) 🕵️‍♂️",
+          "published": "2026-11-20T07:44:21+00:00",
+          "stars": 161,
+          "language": "JavaScript"
+        },
+        {
+          "category": "tools",
+          "source": "GitHub 新興專案",
+          "title": "matheusmongarde/garimpo",
+          "url": "https://github.com/matheusmongarde/garimpo",
+          "summary": "Prospecção open source do Google Maps ao Pix: acha negócios no Maps, gera um site-prévia com o nome de cada um, conversa no WhatsApp e cobra por Pix, Mercado Pago ou Stripe. Pagou, fecha sozinho. Roda no seu PC, VPS ou Vercel, com API para agentes (Claude Code, Codex, n8n).",
+          "published": "2026-11-24T23:58:18+00:00",
+          "stars": 150,
+          "language": "TypeScript"
+        }
+      ]
+    },
+    "research": {
+      "name": "ML / DL / NLP 新技術",
+      "items": [
+        {
+          "category": "research",
+          "source": "Hacker News 熱門 AI 討論",
+          "title": "PenGPT: A Generative Transformer for Handwriting and Sketches",
+          "url": "https://greydanus.github.io/2026/11/12/pengpt/",
+          "summary": "Article URL: https://greydanus.github.io/2026/11/12/pengpt/ Comments URL: https://news.ycombinator.com/item?id=50637056 Points: 355 # Comments: 63",
+          "published": "2026-11-25T00:54:49+00:00"
+        },
+        {
+          "category": "research",
+          "source": "Hugging Face Daily Papers",
+          "title": "Lazy Agents Answer Against Their Own Beliefs: Reinforcement Learning with Verifiable Beliefs Teaches Them to Act on What They Believe",
+          "url": "https://huggingface.co/papers/2611.32884",
+          "summary": "AI agents working on long tasks often commit to an answer before they have enough evidence, a behavior called laziness. In our evaluations, they frequently commit even while their stated belief still names several possible answers. An outcome reward at the end of the episode scores only the final answer, so it cannot teach the agent when to commit, because a lucky guess receives the same reward as an answer backed by evidence. During training, however, the simulator can compute the exact posterior over the answer at every step and tell whether the evidence is already enough. We propose Reinfo…",
+          "published": "2026-11-23T19:00:00+00:00",
+          "upvotes": 86
+        },
+        {
+          "category": "research",
+          "source": "Hugging Face Daily Papers",
+          "title": "PartAgent: Agentic 3D Part Segmentation via Expert Integration and Closed-Loop Refinement",
+          "url": "https://huggingface.co/papers/2611.32554",
+          "summary": "Segmenting a 3D object into semantically meaningful parts requires joint reasoning about geometric structure and semantic context. Pretrained 3D experts provide spatially grounded region proposals, while 2D experts provide semantic cues for identifying object parts. The challenge is to integrate these complementary capabilities into a framework that can both produce meaningful part segmentations and progressively refine them. We present PartAgent, a training-free agentic framework for 3D part segmentation built upon two complementary modules: (i) Structural-Semantic Expert Integration combine…",
+          "published": "2026-11-23T19:00:00+00:00",
+          "upvotes": 32
+        },
+        {
+          "category": "research",
+          "source": "Hugging Face Daily Papers",
+          "title": "Embodied AI Fails the Mirror Test: How a Simple Mirror Breaks Robot Policies",
+          "url": "https://huggingface.co/papers/2611.33010",
+          "summary": "Can a simple mirror expose the limitations of today's robotic manipulation policies? Inspired by the mirror self-recognition test in animal cognition, we investigate whether robot policies can reliably manipulate physical objects in scenes containing their reflections. We introduce RoboDojo-Mirror, a benchmark built on RoboDojo that preserves task objectives, success criteria, and policy checkpoints while comparing a mirror-free baseline with single-mirror, dual-mirror, and mirrored-tabletop conditions. Across five policies spanning Vision-Language-Action models, World Action Models, and agen…",
+          "published": "2026-11-23T19:00:00+00:00",
+          "upvotes": 28
+        },
+        {
+          "category": "research",
+          "source": "Hugging Face Daily Papers",
+          "title": "ThinkMorph-SSL: Scaling Interleaved Multimodal Reasoning with Pretext Tasks",
+          "url": "https://huggingface.co/papers/2611.32183",
+          "summary": "People reason with pictures as well as words. Interleaved multimodal reasoning gives models a similar way to solve problems by creating intermediate images and using them to guide further reasoning. Training models with this ability usually relies on task-specific demonstrations, which are difficult to collect. We introduce ThinkMorph-SSL, a two-stage training recipe that uses images themselves as a source of supervision. The first stage, pretext reasoning, converts visual pretext tasks, such as image colorization and denoising, into instruction-free interleaved traces. Models describe a corr…",
+          "published": "2026-11-23T19:00:00+00:00",
+          "upvotes": 21
+        },
+        {
+          "category": "research",
+          "source": "Hugging Face Daily Papers",
+          "title": "ICLWorld: Benchmarking In-Context Learning of Agents from Digital to Physical Worlds",
+          "url": "https://huggingface.co/papers/2611.32649",
+          "summary": "In-context learning (ICL) lets agents acquire new rules from context and adapt to user-specific requirements at inference time. The same frontier agents now operate both computers and robots, yet their ICL remains insufficiently assessed: existing benchmarks are largely offline, rely on text or static images, and risk training-data contamination, while robot evaluations are limited to method-level ablations. We present ICLWorld, an online benchmark that evaluates the ICL of agents from digital to physical worlds, covering computer use and robot use, together with UIverse, a unified harness th…",
+          "published": "2026-11-23T19:00:00+00:00",
+          "upvotes": 19
+        },
+        {
+          "category": "research",
+          "source": "Hugging Face Daily Papers",
+          "title": "Qwen-Image-HD: Autoregressive Diffusion for High Definition Image Generation",
+          "url": "https://huggingface.co/papers/2611.32736",
+          "summary": "Fine-tuning a generator on a complete high-resolution canvas requires long image sequences and substantial computation, yet local regions can still exhibit unnatural repetitive stripes when training resources are limited. We introduce Qwen-Image-HD, which adapts Qwen-Image 2.0 to high-resolution synthesis through local training and blockwise autoregressive generation. Each prediction covers a target tile at 1K scale, conditioned on high-resolution upper and left neighbors and a compressed historical thumbnail. These conditions provide adjacent fine-scale structures and an overview of the scen…",
+          "published": "2026-11-23T19:00:00+00:00",
+          "upvotes": 18
+        },
+        {
+          "category": "research",
+          "source": "Hugging Face Daily Papers",
+          "title": "CoT-Proxy: Cross-Format Transfer for Distilling Long-Horizon Policies",
+          "url": "https://huggingface.co/papers/2611.33148",
+          "summary": "Reasoning models become long-horizon agents through reinforcement learning or, more cheaply, through fine-tuning on a stronger teacher's trajectories, which contain the teacher's chain-of-thought as well as its actions. The standard fine-tuning approach imitates both, yet the strongest teachers are closed models whose chain-of-thought is hidden behind an API. We show that the chain-of-thought can be left out altogether and that the long-horizon policy can be distilled from the teacher's actions alone. The student is trained on these trajectories with its reasoning block left empty, while a KL…",
+          "published": "2026-11-23T19:00:00+00:00",
+          "upvotes": 13
+        },
+        {
+          "category": "research",
+          "source": "Hugging Face Daily Papers",
+          "title": "Reinforcing Diffusion Models by Instantaneous Trajectory Distribution Matching",
+          "url": "https://huggingface.co/papers/2611.30986",
+          "summary": "Forward diffusion reinforcement learning (RL)---enabling deterministic ODE sampling without trajectory backpropagation---has grown increasingly popular for efficiently aligning diffusion models. However, we reveal that existing methods essentially rely on signed reward-weighted regression (RWR), regressing the trainable policy velocity onto rollouts from a behavior distribution. Unbiased baseline subtraction implicitly assumes that the policy velocity equals the behavior marginal velocity---an idealized assumption violated under classifier-free guidance (CFG) rollouts, offline/off-policy upda…",
+          "published": "2026-11-23T19:00:00+00:00",
+          "upvotes": 13
+        },
+        {
+          "category": "research",
+          "source": "Hugging Face Daily Papers",
+          "title": "MAGPIE: Agentic Multi-Reference Image Generation via Executable Scene Construction",
+          "url": "https://huggingface.co/papers/2611.32462",
+          "summary": "Multi-reference image generation requires a model to preserve the appearance of selected subjects while arranging them according to an instruction. Despite recent progress in reference-based generation and compositional control, reliably organizing selected subjects into the intended scene remains challenging. Although existing methods provide various forms of compositional guidance, the planned relationships are not always explicitly instantiated for inspection and refinement before image synthesis. To address this limitation, we introduce MAGPIE, which represents the intended composition as…",
+          "published": "2026-11-23T19:00:00+00:00",
+          "upvotes": 12
+        },
+        {
+          "category": "research",
+          "source": "Hugging Face Daily Papers",
+          "title": "Coding4Games: Can Modern Coding Agents Play Modern Video Games?",
+          "url": "https://huggingface.co/papers/2611.31974",
+          "summary": "Games, especially modern AAA games, challenge language models to perceive complex scenes, control actions, and make decisions over long horizons. Existing game benchmarks primarily test language models as computer-use agents that query a language model throughout play, incurring repeated inference cost and, in real-time games, acting while the environment continues to evolve. We ask whether coding agents can learn from game interaction to develop standalone game-playing programs that run without language model inference. We thus introduce Coding4Games, a benchmark for evaluating whether codin…",
+          "published": "2026-11-23T19:00:00+00:00",
+          "upvotes": 10
+        },
+        {
+          "category": "research",
+          "source": "Hugging Face Daily Papers",
+          "title": "VenusOCR2.0: Towards Efficient and Effective Document Parsing",
+          "url": "https://huggingface.co/papers/2611.32617",
+          "summary": "We present VenusOCR2.0, a compact 1B-parameter vision-language recognizer designed for both high-accuracy and high-throughput document parsing across text, tables, and formulas. To continuously improve recognition quality without self-training collapse, we build a bounded recursive self-improvement (RSI) data engine where the model acts strictly as a weakness probe, while external multi-expert medoid consensus, VLM visual verification, and factorized synthesis supply reliable supervision across pretraining, curated SFT, and RLVR. VenusOCR2.0 couples a dynamic-resolution SigLIP2 encoder and 2x…",
+          "published": "2026-11-23T19:00:00+00:00",
+          "upvotes": 9
+        },
+        {
+          "category": "research",
+          "source": "Hugging Face Daily Papers",
+          "title": "SpecEngineeringBench: Evaluating Coding Agents as Autonomous Specification Engineers",
+          "url": "https://huggingface.co/papers/2611.32973",
+          "summary": "Autonomous specification engineering requires coding agents to translate functional requirements into executable tests and use the results to discover and validate defects. However, existing benchmarks evaluate coding agents on explicitly specified test generation tasks, commonly providing an issue description, a designated test entry point, or files to inspect, leaving the ability to determine what to test and where to investigate insufficiently evaluated. Relying on such clues bypasses the challenge of mapping requirements to implementations and proactively uncovering unknown defects. We pr…",
+          "published": "2026-11-23T19:00:00+00:00",
+          "upvotes": 8
+        },
+        {
+          "category": "research",
+          "source": "Hugging Face Daily Papers",
+          "title": "LoopDVR: Looped Transformer for Efficient Dense Visual Recognition",
+          "url": "https://huggingface.co/papers/2611.32067",
+          "summary": "We propose LoopDVR, a framework for converting pretrained Transformer-based dense visual recognition models into parameter-efficient looped networks. Rather than reducing the network width or depth directly, LoopDVR reuses Transformer blocks across layers in both the ViT backbone and Transformer decoder, reducing the number of parameters while retaining the original computational structure. However, naively sharing parameters can disrupt the distinct transformations learned at different depths. To address this challenge, we identify suitable sharing groups based on inter-layer representation …",
+          "published": "2026-11-23T19:00:00+00:00",
+          "upvotes": 8
+        },
+        {
+          "category": "research",
+          "source": "Hugging Face Daily Papers",
+          "title": "Residual Guidance for Real-Time Interactive Video Generation",
+          "url": "https://huggingface.co/papers/2611.32820",
+          "summary": "Real-time interactive video generation allows users to change the prompt during generation to steer the evolving video. However, existing streaming models, which generate videos chunk by chunk, often keep following the previous prompt after a switch. We trace this failure to context inertia, where the previous chunk acts as a strong prior that suppresses the new prompt. Furthermore, we find that this inertia persists even when the cache retains only the previous chunk, yet discarding the context breaks visual continuity, which limits approaches that edit the cache. Rather than editing the cac…",
+          "published": "2026-11-23T19:00:00+00:00",
+          "upvotes": 7
+        },
+        {
+          "category": "research",
+          "source": "Hugging Face Daily Papers",
+          "title": "Separating Measurement Failures from Defence Failures in Split Language-Model Privacy",
+          "url": "https://huggingface.co/papers/2611.31752",
+          "summary": "Split-training privacy evaluations fail through distinct mechanisms. Evaluators can overlook an exposed gradient channel, align reconstructions against shifted labels, or deploy uncalibrated probes before testing a candidate defence, while calibrated attacks can also refute real defences. Separating these failure modes alters which claims survive. We conduct a retrospective evidentiary reanalysis across four split-LLM campaigns and two cross-cutting scope checks covering host key custody and variational mutual-information bounds, mapping every recorded claim to one of five admissibility state…",
+          "published": "2026-11-23T19:00:00+00:00",
+          "upvotes": 4
+        },
+        {
+          "category": "research",
+          "source": "Hugging Face Daily Papers",
+          "title": "Clinical3D-Bench: Evaluating and Improving Spatial Intelligence of Multimodal LLMs in Hospital Environments",
+          "url": "https://huggingface.co/papers/2611.32094",
+          "summary": "Spatial reasoning in hospitals requires tracking look-alike equipment, interpreting patient-relative directions, and judging passage widths, yet existing benchmarks provide limited coverage of these abilities. We introduce Clinical3D-Bench, a simulated benchmark with 3,368 questions of eight types on egocentric walkthroughs of 373 hospital-room layouts. Layouts follow hospital design guidelines, answers are computed from the 3D scenes, and paired scene states test whether models change their answers when relevant evidence changes. Videos are photorealistic, and ten physicians screened the lay…",
+          "published": "2026-11-23T19:00:00+00:00",
+          "upvotes": 4
+        },
+        {
+          "category": "research",
+          "source": "Hugging Face Daily Papers",
+          "title": "SpatialArena: Where Do Geometric Foundation Models Stand?",
+          "url": "https://huggingface.co/papers/2611.32816",
+          "summary": "3D perception is shifting from task-specific pipelines to geometric foundation models: monocular depth networks, feed-forward 3D/4D reconstruction models, and vision--language models that predict geometry. However, their progress cannot be measured reliably. Published numbers are not comparable, because every paper samples frames, sets resolutions, and selects test splits differently. They are not robust because the alignment required for every up-to-scale prediction can outweigh the gap between models: fitting depth in the wrong space nearly triples its error, and standard trajectory alignme…",
+          "published": "2026-11-23T19:00:00+00:00",
+          "upvotes": 3
+        },
+        {
+          "category": "research",
+          "source": "Hugging Face Daily Papers",
+          "title": "Distill to Loop: Turning Pretrained Diffusion Transformers into Looped Models with Adjustable Depth",
+          "url": "https://huggingface.co/papers/2611.31977",
+          "summary": "Looped transformers reuse one block of shared weights along the depth of the network. Recent looped diffusion transformers are trained from scratch, which repeats the full pretraining cost although strong pretrained non-looped diffusion transformers exist. We propose Distill to Loop (Dooop), which distills a pretrained non-looped diffusion transformer into a looped student whose blocks are initialized from the teacher's. We cast distillation as a fixed-point iteration toward the teacher, in which the output after every loop is trained toward the teacher, and each loop is one step of an ordina…",
+          "published": "2026-11-23T19:00:00+00:00",
+          "upvotes": 3
+        },
+        {
+          "category": "research",
+          "source": "Hugging Face Daily Papers",
+          "title": "GRAPE-Bench: When Vision Degrades, Does Video Reasoning Hold?",
+          "url": "https://huggingface.co/papers/2611.33020",
+          "summary": "Despite strong performance on standard benchmarks, video reasoning models remain vulnerable to visual degradation, raising concerns about their reliability in safety-critical scenarios. Existing benchmarks address this concern in part by simulating visual degradation or probing model reasoning with challenging questions, leaving open how well models handle naturally degraded video and whether they can make the simpler judgments that matter for safe driving. To this end, we introduce GRAPE-Bench, which jointly evaluates video reasoning across visual degradation conditions and question difficul…",
+          "published": "2026-11-23T19:00:00+00:00",
+          "upvotes": 3
+        },
+        {
+          "category": "research",
+          "source": "Hugging Face Daily Papers",
+          "title": "Measuring Layer-wise Intrinsic Dimensionality of FFNs in LLMs via PCA",
+          "url": "https://huggingface.co/papers/2611.32782",
+          "summary": "Modern large language models (LLMs) keep the feed-forward network (FFN) intermediate width identical across every layer, a convention inherited from the original Transformer. Yet mechanistic work suggests layers at different depths do qualitatively different work, raising a natural question: are their capacity demands also non-uniform, and if so, can a fixed parameter budget be allocated more wisely than uniformly? To probe this, we apply principal component analysis (PCA) to the input of each FFN down-projection and measure, for every layer, its intrinsic dimensionality as the smallest numbe…",
+          "published": "2026-11-23T19:00:00+00:00",
+          "upvotes": 2
+        },
+        {
+          "category": "research",
+          "source": "Hugging Face Daily Papers",
+          "title": "Factorized Context Attention: From Emulated to Native Grid Probing",
+          "url": "https://huggingface.co/papers/2611.32423",
+          "summary": "Models read a book, an hour of video, or an image in one forward pass. As the context grows, this pass slows down, loses accuracy, and stops at the context window. Sparse attention is efficient, but keeps the other two limitations. Grid probing, a recent training-free method, recovers the accuracy and extends the reach by asking a frozen model the same question about short local and strided spans of the input, but every question repeats the whole computation, since each span is encoded again. Our insight is that grid probing is emulated attention, an attention pattern reproduced from outside …",
+          "published": "2026-11-23T19:00:00+00:00",
+          "upvotes": 2
+        },
+        {
+          "category": "research",
+          "source": "Hugging Face Daily Papers",
+          "title": "InstructReplay: Replaying Assistant Turns to Preserve General Behavior During Factual Fine-Tuning",
+          "url": "https://huggingface.co/papers/2611.32918",
+          "summary": "Fine-tuning an instruction-tuned language model on new facts often erodes its general abilities. We find that standard fine-tuning lowers instruction-following, reasoning and coding benchmarks by 35 points on average, and that these losses track a collapse in answer length: fine-tuned models at least halve their responses, and the further a response drifts from the initial model's length, the more often it fails. We propose InstructReplay: the initial model answers a set of general instructions once, and during fine-tuning the model is kept close to the initial model on these answers. Across …",
+          "published": "2026-11-23T19:00:00+00:00",
+          "upvotes": 1
+        },
+        {
+          "category": "research",
+          "source": "Hugging Face Daily Papers",
+          "title": "ReFocus: Progress-Guided Adaptive Practice for Long-Horizon Robotic Manipulation Reinforcement Learning",
+          "url": "https://huggingface.co/papers/2611.32639",
+          "summary": "Online reinforcement learning (RL) enables vision-language-action policies to improve through environmental interaction. However, in long-horizon manipulation, sparse success/failure feedback provides little information about where policies encounter bottlenecks. Moreover, repeated full-task rollouts also leave these bottlenecks weakly analyzed and insufficiently practiced. To this end, we introduce ReFocus, a progress-guided multi-round RL framework that alternates between Global and Local RL to identify task-specific bottlenecks and allocate additional practice to them. Specifically, during…",
+          "published": "2026-11-23T19:00:00+00:00",
+          "upvotes": 1
+        },
+        {
+          "category": "research",
+          "source": "Hugging Face Daily Papers",
+          "title": "RoMo Hands: A Large Scale Richly Organized Text to Hand Motion Dataset",
+          "url": "https://huggingface.co/papers/2611.31766",
+          "summary": "While text-driven body motion generation has matured, pure-hand synthesis remains bottlenecked by data. Existing datasets often treat hands as rigid end-effectors, lack fine-grained captions, or are too limited in scale to support robust generalization. We introduce RoMo Hands, an in-the-wild, text-paired dataset of ~542K sequences (884 hours, 95.5M frames at 30 fps) which is an order of magnitude larger than prior work. To ensure high-quality supervision, a stringent dexterity filter discards low-articulation sequences, focusing the distribution on complex bimanual movement. Each clip is pai…",
+          "published": "2026-11-23T19:00:00+00:00",
+          "upvotes": 1
+        }
+      ]
+    }
+  },
+  "sources": [
+    {
+      "source": "TechCrunch AI",
+      "ok": true,
+      "count": 16
+    },
+    {
+      "source": "The Verge AI",
+      "ok": true,
+      "count": 8
+    },
+    {
+      "source": "VentureBeat AI",
+      "ok": false,
+      "error": "HTTPError: 429 Client Error: Too Many Requests for url: https://venturebeat.com/category/ai/feed/"
+    },
+    {
+      "source": "iThome",
+      "ok": true,
+      "count": 10
+    },
+    {
+      "source": "科技新報",
+      "ok": true,
+      "count": 10
+    },
+    {
+      "source": "Product Hunt",
+      "ok": true,
+      "count": 9
+    },
+    {
+      "source": "Hacker News Show HN",
+      "ok": true,
+      "count": 1
+    },
+    {
+      "source": "Hacker News 熱門 AI 討論",
+      "ok": true,
+      "count": 1
+    },
+    {
+      "source": "Hugging Face Daily Papers",
+      "ok": true,
+      "count": 25
+    },
+    {
+      "source": "dair-ai AI Papers of the Week",
+      "ok": true,
+      "count": 10
+    },
+    {
+      "source": "GitHub 新興專案",
+      "ok": true,
+      "count": 19
+    }
+  ]
+}
