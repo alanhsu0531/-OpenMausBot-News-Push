@@ -66,4 +66,4 @@ Harness optimization is usually studied with one fixed model and one fixed bench
 來源：dair-ai Top AI Papers of the Week (November 16 - November 22) - 2026｜[閱讀原文](https://academy.dair.ai/papers/self-improvement-memory-enables-continual-recursive-self-improvement-2611.18856)
 
 ---
-共 9 則｜產生時間 2026-11-26 00:54（台灣）｜模型 fallback
+共 9 則｜產生時間 2026-11-26 00:55（台灣）｜模型 fallback
