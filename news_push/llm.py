@@ -3,7 +3,8 @@
 優先順序：
 1. OpenRouter 免費模型（OPENROUTER_API_KEY）。先試 OPENROUTER_MODELS 指定的模型，
    都失敗時自動從 OpenRouter 模型清單挑其他 :free 模型。
-2. GitHub Models（用 Actions 內建的 GITHUB_TOKEN，免費但有每日次數限制）。
+2. Google Gemini API 免費額度（GEMINI_API_KEY，到 Google AI Studio 申請）。
+   GitHub Models 已於 2026-07-30 停止服務，所以不再使用。
 """
 
 from __future__ import annotations
@@ -21,8 +22,8 @@ DEFAULT_OPENROUTER_MODELS = [
     "qwen/qwen3-235b-a22b:free",
     "meta-llama/llama-3.3-70b-instruct:free",
 ]
-GITHUB_MODELS_URL = "https://models.github.ai/inference/chat/completions"
-DEFAULT_GITHUB_MODEL = "openai/gpt-4.1-mini"
+GEMINI_URL = "https://generativelanguage.googleapis.com/v1beta/openai/chat/completions"
+DEFAULT_GEMINI_MODEL = "gemini-flash-latest"
 MAX_AUTO_FREE_MODELS = 4
 
 
@@ -87,24 +88,19 @@ def chat(system: str, user: str, temperature: float = 0.3) -> tuple[str, str]:
                     errors.append(f"{model}: {exc}"[:200])
                     log(f"[llm] 失敗 {model}: {exc}")
     else:
-        log("[llm] 沒有設定 OPENROUTER_API_KEY，直接使用 GitHub Models")
+        log("[llm] 沒有設定 OPENROUTER_API_KEY，改用 Gemini")
 
-    token = os.environ.get("GITHUB_TOKEN")
-    if token:
-        model = os.environ.get("GITHUB_MODEL", DEFAULT_GITHUB_MODEL)
+    gkey = os.environ.get("GEMINI_API_KEY")
+    if gkey:
+        model = os.environ.get("GEMINI_MODEL") or DEFAULT_GEMINI_MODEL
         try:
-            log(f"[llm] 嘗試 GitHub Models {model}")
-            out = _post(GITHUB_MODELS_URL, {
-                "Authorization": f"Bearer {token}",
-                "Accept": "application/vnd.github+json",
-                "X-GitHub-Api-Version": "2022-11-28",
-                "Content-Type": "application/json",
-            }, {
+            log(f"[llm] 嘗試 Gemini {model}")
+            out = _post(GEMINI_URL, {"Authorization": f"Bearer {gkey}"}, {
                 "model": model, "messages": messages, "temperature": temperature,
             })
-            return out, f"github:{model}"
+            return out, f"gemini:{model}"
         except Exception as exc:
-            errors.append(f"github {model}: {exc}"[:200])
-            log(f"[llm] 失敗 GitHub Models: {exc}")
+            errors.append(f"gemini {model}: {exc}"[:200])
+            log(f"[llm] 失敗 Gemini: {exc}")
 
     raise RuntimeError("所有模型都失敗：\n" + "\n".join(errors))

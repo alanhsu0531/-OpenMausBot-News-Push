@@ -21,7 +21,7 @@
 - `news_push/sources.py`：新聞來源與 AI 關鍵字，要增減來源改這裡
 - `news_push/fetch.py`：抓取程式，輸出 `data/YYYY-MM-DD/candidates.json`
 - `news_push/summarize.py`：AI 挑選與摘要，輸出 `data/YYYY-MM-DD/digest.md` 與 `data/latest.md`
-- `news_push/llm.py`：OpenRouter 免費模型，失敗時改用 GitHub Models
+- `news_push/llm.py`：OpenRouter 免費模型，失敗時改用 Gemini API 免費額度
 - `news_push/mailer.py`：Gmail 寄送精簡版
 - `.github/workflows/daily-digest.yml`：每日排程
 
@@ -29,7 +29,8 @@
 
 | 名稱 | 說明 |
 | --- | --- |
-| `OPENROUTER_API_KEY` | OpenRouter API key（沒設定時改用 GitHub Models） |
+| `OPENROUTER_API_KEY` | OpenRouter API key |
+| `GEMINI_API_KEY` | 選填，Google AI Studio 的免費 API key，OpenRouter 失敗時備援 |
 | `GMAIL_ADDRESS` | 寄件 Gmail |
 | `GMAIL_APP_PASSWORD` | Gmail 應用程式密碼 |
 | `MAIL_TO` | 收件人，多個用逗號分隔（沒設定時寄給自己） |
