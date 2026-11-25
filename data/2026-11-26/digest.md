@@ -24,12 +24,12 @@ Nothing is showing off a much more detailed look at its upcoming AI earbuds ahea
 
 ## 🛠️ AI 新工具
 
-### 4. MyClaw 3.0
+### 4. MAGI-2
 
-Build an always-on AI team with shared memory Discussion | Link
+Sand AI's 480B model for cinematic video generation Discussion | Link
 
 
-來源：Product Hunt｜[閱讀原文](https://www.producthunt.com/products/myclaw-3-0)
+來源：Product Hunt｜[閱讀原文](https://www.producthunt.com/products/magi-1)
 
 ### 5. Show HN: Old Nvidia and ATI tech demos, running again in the browser
 
@@ -66,4 +66,4 @@ Harness optimization is usually studied with one fixed model and one fixed bench
 來源：dair-ai Top AI Papers of the Week (November 16 - November 22) - 2026｜[閱讀原文](https://academy.dair.ai/papers/self-improvement-memory-enables-continual-recursive-self-improvement-2611.18856)
 
 ---
-共 9 則｜產生時間 2026-11-26 00:55（台灣）｜模型 fallback
+共 9 則｜產生時間 2026-11-26 00:57（台灣）｜模型 fallback

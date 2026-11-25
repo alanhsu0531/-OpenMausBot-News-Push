@@ -1,6 +1,6 @@
 {
   "date": "2026-11-26",
-  "generated_at": "2026-11-25T16:55:19.946338+00:00",
+  "generated_at": "2026-11-25T16:56:42.010746+00:00",
   "lookback_hours": 26,
   "categories": {
     "company": {
@@ -214,10 +214,10 @@
         {
           "category": "tools",
           "source": "Product Hunt",
-          "title": "MyClaw 3.0",
-          "url": "https://www.producthunt.com/products/myclaw-3-0",
-          "summary": "Build an always-on AI team with shared memory Discussion | Link",
-          "published": "2026-11-24T15:39:09+00:00"
+          "title": "MAGI-2",
+          "url": "https://www.producthunt.com/products/magi-1",
+          "summary": "Sand AI's 480B model for cinematic video generation Discussion | Link",
+          "published": "2026-11-25T05:35:39+00:00"
         },
         {
           "category": "tools",
@@ -240,10 +240,10 @@
         {
           "category": "tools",
           "source": "Product Hunt",
-          "title": "Qube",
-          "url": "https://www.producthunt.com/products/qube-6",
-          "summary": "An AI agent for anyone with the model of your choice Discussion | Link",
-          "published": "2026-11-24T17:55:06+00:00"
+          "title": "MyClaw 3.0",
+          "url": "https://www.producthunt.com/products/myclaw-3-0",
+          "summary": "Build an always-on AI team with shared memory Discussion | Link",
+          "published": "2026-11-24T15:39:09+00:00"
         },
         {
           "category": "tools",
@@ -258,10 +258,10 @@
         {
           "category": "tools",
           "source": "Product Hunt",
-          "title": "MAGI-2",
-          "url": "https://www.producthunt.com/products/magi-1",
-          "summary": "Sand AI's 480B model for cinematic video generation Discussion | Link",
-          "published": "2026-11-25T05:35:39+00:00"
+          "title": "Qube",
+          "url": "https://www.producthunt.com/products/qube-6",
+          "summary": "An AI agent for anyone with the model of your choice Discussion | Link",
+          "published": "2026-11-24T17:55:06+00:00"
         },
         {
           "category": "tools",
@@ -270,7 +270,7 @@
           "url": "https://github.com/qianyiai/kurocat",
           "summary": "KuroCat — Free open-source desktop typing cat pet & OBS overlay (Bongo Cat alternative, Tauri v2 + Rust + MCP)｜轻量级透明置顶桌面打字小黑猫伴侣（6款猫咪+鲸鱼娘大肥鱼 / 输密码防偷窥 / OBS透明源 / AI捏猫 / Win·Mac·Linux·Android）",
           "published": "2026-11-21T15:49:31+00:00",
-          "stars": 936,
+          "stars": 937,
           "language": "TypeScript"
         },
         {
