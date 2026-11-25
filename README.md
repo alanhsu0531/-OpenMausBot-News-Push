@@ -23,6 +23,7 @@
 - `news_push/summarize.py`：AI 挑選與摘要，輸出 `data/YYYY-MM-DD/digest.md` 與 `data/latest.md`
 - `news_push/llm.py`：OpenRouter 免費模型，失敗時改用 Gemini API 免費額度
 - `news_push/mailer.py`：Gmail 寄送精簡版
+- `news_push/notion_sync.py`：每則新聞寫入 Notion 資料庫一列
 - `.github/workflows/daily-digest.yml`：每日排程
 
 ## 需要設定的 GitHub Secrets
@@ -36,6 +37,7 @@
 | `GMAIL_ADDRESS` | 寄件 Gmail |
 | `GMAIL_APP_PASSWORD` | Gmail 應用程式密碼 |
 | `MAIL_TO` | 收件人，多個用逗號分隔（沒設定時寄給自己） |
+| `NOTION_TOKEN` | Notion integration token，用來寫入「AI 科技早報資料庫」 |
 
 想指定 OpenRouter 模型，可在 Repository variables 新增 `OPENROUTER_MODELS`（逗號分隔）。
 

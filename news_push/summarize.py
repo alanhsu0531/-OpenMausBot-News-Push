@@ -23,6 +23,7 @@ from . import sources as S
 from .fetch import DATA_DIR, TW, mark_seen, log
 from .llm import chat
 from .mailer import send_digest_email
+from .notion_sync import sync_to_notion
 
 MIN_ITEMS, MAX_ITEMS = 5, 10
 WEEKDAYS = "一二三四五六日"
@@ -123,42 +124,88 @@ def fallback_selection(cands: dict) -> dict:
     return {"headline": "今天 AI 摘要服務暫時無法使用，以下為原文標題。", "items": items, "model": "fallback"}
 
 
+CATEGORY_SHORT = {S.COMPANY: "公司動態", S.TOOLS: "新工具", S.RESEARCH: "新技術"}
+TOOL_FIELDS = (("problem", "🎯 解決什麼問題"), ("method", "⚙️ 用什麼方法"),
+               ("usage", "🚀 如何使用"), ("advantage", "✨ 使用後的優勢"))
+
+
+def circled(n: int) -> str:
+    return chr(0x2460 + n - 1) if 1 <= n <= 20 else f"{n}."
+
+
+def short_source(src: str) -> str:
+    if src.startswith("dair-ai"):
+        return "dair-ai 每週精選論文"
+    return src
+
+
+def cell(text: str) -> str:
+    return (text or "").replace("|", "／").replace("\n", " ").strip()
+
+
 def render_markdown(day: str, digest: dict) -> str:
     d = date.fromisoformat(day)
-    out = [f"# AI 科技早報｜{day}（週{WEEKDAYS[d.weekday()]}）", ""]
+    groups = [(cat, [i for i in digest["items"] if i["category"] == cat]) for cat in S.CATEGORY_NAMES]
+    groups = [(c, items) for c, items in groups if items]
+    total = sum(len(items) for _, items in groups)
+    chars = sum(len(i.get("summary", "")) + sum(len(i.get(k, "")) for k, _ in TOOL_FIELDS)
+                for _, items in groups for i in items)
+    minutes = max(1, round(chars / 400))
+
+    out = [f"# ☀️ AI 科技早報｜{day}（週{WEEKDAYS[d.weekday()]}）", "",
+           f"**{total} 則精選**　·　閱讀約 {minutes} 分鐘", ""]
     if digest.get("headline"):
-        out += [f"> {digest['headline']}", ""]
+        out += [f"> 💡 **今日焦點**　{digest['headline']}", ""]
+
+    # 今日導覽
+    out += ["### 📋 今日導覽", ""]
     n = 0
-    for cat, name in S.CATEGORY_NAMES.items():
-        items = [i for i in digest["items"] if i["category"] == cat]
-        if not items:
-            continue
-        out += [f"## {CATEGORY_ICONS[cat]} {name}", ""]
+    for cat, items in groups:
+        titles = []
         for it in items:
             n += 1
-            out += [f"### {n}. {it.get('title') or it['original_title']}", ""]
+            titles.append(f"{circled(n)} {it.get('title') or it['original_title']}")
+        out.append(f"- {CATEGORY_ICONS[cat]} **{CATEGORY_SHORT[cat]}**　" + "　".join(titles))
+    out += ["", "---", ""]
+
+    n = 0
+    for cat, items in groups:
+        out += [f"## {CATEGORY_ICONS[cat]} {S.CATEGORY_NAMES[cat]}", ""]
+        for it in items:
+            n += 1
+            out += [f"### {circled(n)} {it.get('title') or it['original_title']}", ""]
             if it.get("summary"):
                 out += [it["summary"], ""]
-            if cat == S.TOOLS:
-                for key, label in (("problem", "解決什麼問題"), ("method", "用什麼方法"),
-                                   ("usage", "如何使用"), ("advantage", "使用後的優勢")):
-                    if it.get(key):
-                        out.append(f"- **{label}**：{it[key]}")
+            if cat == S.TOOLS and any(it.get(k) for k, _ in TOOL_FIELDS):
+                out += ["| 面向 | 說明 |", "| :-- | :-- |"]
+                out += [f"| **{label}** | {cell(it[k])} |" for k, label in TOOL_FIELDS if it.get(k)]
                 out.append("")
-            out += [f"來源：{it['source']}｜[閱讀原文]({it['url']})", ""]
-    out += ["---", f"共 {n} 則｜產生時間 {datetime.now(TW):%Y-%m-%d %H:%M}（台灣）｜模型 {digest.get('model', '')}", ""]
+            out += [f"🔗 [閱讀原文]({it['url']})　·　`{short_source(it['source'])}`", ""]
+        out += ["---", ""]
+
+    out += [f"*🤖 由 {digest.get('model', '')} 整理　·　產生於 {datetime.now(TW):%Y-%m-%d %H:%M}（台灣時間）*", ""]
     return "\n".join(out)
 
 
 def main() -> int:
     p = argparse.ArgumentParser(description="AI 挑選與摘要每日新聞")
     p.add_argument("--date", help="日期 YYYY-MM-DD（預設今天，台灣時間）")
+    p.add_argument("--rerender", action="store_true", help="不呼叫 AI，只用既有 digest.json 重新產生排版")
     p.add_argument("--no-email", action="store_true", help="不寄 Email")
+    p.add_argument("--no-notion", action="store_true", help="不同步 Notion")
     args = p.parse_args()
 
     day = args.date or datetime.now(TW).date().isoformat()
     day_dir = DATA_DIR / day
     cands = json.loads((day_dir / "candidates.json").read_text(encoding="utf-8"))
+
+    if args.rerender:
+        digest = json.loads((day_dir / "digest.json").read_text(encoding="utf-8"))
+        md = render_markdown(day, digest)
+        (day_dir / "digest.md").write_text(md, encoding="utf-8")
+        (DATA_DIR / "latest.md").write_text(md, encoding="utf-8")
+        log("[summarize] 已重新排版")
+        return 0
 
     try:
         digest = select_with_llm(cands)
@@ -178,6 +225,8 @@ def main() -> int:
 
     if not args.no_email:
         send_digest_email(day, digest)
+    if not args.no_notion and digest["model"] != "fallback":
+        sync_to_notion(day, digest)
     return 0
 
 
