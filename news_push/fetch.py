@@ -16,6 +16,7 @@ import json
 import os
 import re
 import sys
+import time
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from urllib.parse import urlsplit, urlunsplit, parse_qsl, urlencode
@@ -90,9 +91,20 @@ def make_item(category, source, title, url, summary="", published=None, extra=No
 
 # ---------- 各類來源 ----------
 
-def fetch_rss(src: dict, since: datetime) -> list[dict]:
-    resp = requests.get(src["url"], headers=HEADERS, timeout=TIMEOUT)
+def get(url: str, **kw) -> requests.Response:
+    """GET，遇到 429 或 5xx 會等一下再重試一次。"""
+    kw.setdefault("headers", HEADERS)
+    kw.setdefault("timeout", TIMEOUT)
+    resp = requests.get(url, **kw)
+    if resp.status_code == 429 or resp.status_code >= 500:
+        time.sleep(15)
+        resp = requests.get(url, **kw)
     resp.raise_for_status()
+    return resp
+
+
+def fetch_rss(src: dict, since: datetime) -> list[dict]:
+    resp = get(src["url"])
     feed = feedparser.parse(resp.content)
     items = []
     for e in feed.entries:
@@ -212,6 +224,19 @@ def dedupe(items: list[dict], seen: dict[str, str]) -> list[dict]:
     return out
 
 
+def interleave(items: list[dict]) -> list[dict]:
+    """各來源輪流取一則，避免單一來源佔滿名額。"""
+    groups: dict[str, list[dict]] = {}
+    for it in items:
+        groups.setdefault(it["source"], []).append(it)
+    out, queues = [], list(groups.values())
+    while any(queues):
+        for q in queues:
+            if q:
+                out.append(q.pop(0))
+    return out
+
+
 # ---------- 主流程 ----------
 
 def run(hours: int, out_path: Path | None) -> dict:
@@ -240,11 +265,8 @@ def run(hours: int, out_path: Path | None) -> dict:
     seen = load_seen(now)
     unique = dedupe(collected, seen)
 
-    by_cat = {c: [] for c in S.CATEGORY_NAMES}
-    for it in unique:
-        by_cat[it["category"]].append(it)
-    for c in by_cat:
-        by_cat[c] = by_cat[c][:MAX_PER_CATEGORY]
+    by_cat = {c: interleave([it for it in unique if it["category"] == c])[:MAX_PER_CATEGORY]
+              for c in S.CATEGORY_NAMES}
 
     result = {
         "date": today,
