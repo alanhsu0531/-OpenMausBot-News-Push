@@ -1,6 +1,6 @@
 {
   "date": "2026-11-26",
-  "generated_at": "2026-11-25T16:56:42.010746+00:00",
+  "generated_at": "2026-11-25T17:09:48.088755+00:00",
   "lookback_hours": 26,
   "categories": {
     "company": {
@@ -214,10 +214,10 @@
         {
           "category": "tools",
           "source": "Product Hunt",
-          "title": "MAGI-2",
-          "url": "https://www.producthunt.com/products/magi-1",
-          "summary": "Sand AI's 480B model for cinematic video generation Discussion | Link",
-          "published": "2026-11-25T05:35:39+00:00"
+          "title": "OpenEight",
+          "url": "https://www.producthunt.com/products/openeight",
+          "summary": "The deterministic control layer for AI agents Discussion | Link",
+          "published": "2026-11-25T06:58:59+00:00"
         },
         {
           "category": "tools",
@@ -234,16 +234,16 @@
           "url": "https://github.com/EL4CTEO/fast-anything",
           "summary": "Don't rewrite it in Rust. Rewrite the 5% that's slow: profile Python, Node or Ruby apps, port the hot functions with your coding agent, prove they behave the same.",
           "published": "2026-11-21T14:40:27+00:00",
-          "stars": 3872,
+          "stars": 3876,
           "language": "Rust"
         },
         {
           "category": "tools",
           "source": "Product Hunt",
-          "title": "MyClaw 3.0",
-          "url": "https://www.producthunt.com/products/myclaw-3-0",
-          "summary": "Build an always-on AI team with shared memory Discussion | Link",
-          "published": "2026-11-24T15:39:09+00:00"
+          "title": "MAGI-2",
+          "url": "https://www.producthunt.com/products/magi-1",
+          "summary": "Sand AI's 480B model for cinematic video generation Discussion | Link",
+          "published": "2026-11-25T05:35:39+00:00"
         },
         {
           "category": "tools",
@@ -252,7 +252,7 @@
           "url": "https://github.com/INK-Q/agy-fast",
           "summary": "Non-invasive MCP accelerator plugin for Google Antigravity (CLI/Desktop/IDE): cuts LLM turns (-34%), token quota (-31%), and upload traffic (-40%) without affecting native UI or diffs.",
           "published": "2026-11-19T04:58:46+00:00",
-          "stars": 1477,
+          "stars": 1478,
           "language": "TypeScript"
         },
         {
@@ -276,10 +276,10 @@
         {
           "category": "tools",
           "source": "Product Hunt",
-          "title": "MemoryWorks",
-          "url": "https://www.producthunt.com/products/memoryworks",
-          "summary": "Company memory for people and AI agents Discussion | Link",
-          "published": "2026-11-24T20:30:45+00:00"
+          "title": "MyClaw 3.0",
+          "url": "https://www.producthunt.com/products/myclaw-3-0",
+          "summary": "Build an always-on AI team with shared memory Discussion | Link",
+          "published": "2026-11-24T15:39:09+00:00"
         },
         {
           "category": "tools",
@@ -288,16 +288,16 @@
           "url": "https://github.com/sous-labs/songe",
           "summary": "A training engine for your local model, using your idle compute",
           "published": "2026-11-20T11:01:20+00:00",
-          "stars": 830,
+          "stars": 832,
           "language": "Python"
         },
         {
           "category": "tools",
           "source": "Product Hunt",
-          "title": "Canva MCP",
-          "url": "https://www.producthunt.com/products/canva",
-          "summary": "Turn any AI agent into a creative powerhouse Discussion | Link",
-          "published": "2026-11-24T15:05:09+00:00"
+          "title": "MemoryWorks",
+          "url": "https://www.producthunt.com/products/memoryworks",
+          "summary": "Company memory for people and AI agents Discussion | Link",
+          "published": "2026-11-24T20:30:45+00:00"
         },
         {
           "category": "tools",
@@ -306,16 +306,16 @@
           "url": "https://github.com/erkamyaman/safe-anything",
           "summary": "Find the holes before someone else does. A fast, 100% Rust vulnerability scanner: XSS, SQL injection, leaked secrets, dependency CVEs and AI agent setups.",
           "published": "2026-11-22T16:44:10+00:00",
-          "stars": 684,
+          "stars": 685,
           "language": "Rust"
         },
         {
           "category": "tools",
           "source": "Product Hunt",
-          "title": "OpenEight",
-          "url": "https://www.producthunt.com/products/openeight",
-          "summary": "The deterministic control layer for AI agents Discussion | Link",
-          "published": "2026-11-25T06:58:59+00:00"
+          "title": "Notely",
+          "url": "https://www.producthunt.com/products/notely-8",
+          "summary": "Notion-grade power & BYOK AI, stored locally in SQLite Discussion | Link",
+          "published": "2026-11-25T00:50:46+00:00"
         },
         {
           "category": "tools",
@@ -324,7 +324,7 @@
           "url": "https://github.com/Developing-Gamer/agent-sim",
           "summary": "iOS simulators for AI agents, on Linux. The agent layer for x86Sim.",
           "published": "2026-11-21T20:26:12+00:00",
-          "stars": 589,
+          "stars": 590,
           "language": "Rust"
         },
         {
@@ -342,7 +342,7 @@
           "url": "https://github.com/w01fb0ss/PiBot",
           "summary": "Open-source, local-first AI agent team for your desktop: multi-agent group chats, computer use, browser, MCP, routines and approvals. macOS, Windows, Linux + Android. Built on pi.",
           "published": "2026-11-21T06:54:24+00:00",
-          "stars": 585,
+          "stars": 586,
           "language": "TypeScript"
         },
         {
@@ -360,16 +360,8 @@
           "url": "https://github.com/chanke17/KuroCat",
           "summary": "KuroCat — Free open-source native desktop cat pet & OBS overlay (Bongo Cat alternative, Swift/C++, 802 KB)｜开源免费原生桌面萌猫（全平台 macOS·Win·Linux·UOS / 2.5D转头捕猎 / 数位板 / OBS透明绿幕 / 在线皮肤工坊 / 零按键上传）",
           "published": "2026-11-23T01:06:18+00:00",
-          "stars": 511,
+          "stars": 512,
           "language": "C++"
-        },
-        {
-          "category": "tools",
-          "source": "Product Hunt",
-          "title": "Notely",
-          "url": "https://www.producthunt.com/products/notely-8",
-          "summary": "Notion-grade power & BYOK AI, stored locally in SQLite Discussion | Link",
-          "published": "2026-11-25T00:50:46+00:00"
         },
         {
           "category": "tools",
@@ -418,7 +410,7 @@
           "url": "https://github.com/LIUFelix2004/dsh-workbuddy",
           "summary": "Import WorkBuddy accounts into DeepSeek Harness as model providers: one route per account, full model list, per-account credit balance, and an automatic workaround for the gateway 11128 channel check.",
           "published": "2026-11-20T11:22:44+00:00",
-          "stars": 165,
+          "stars": 166,
           "language": "JavaScript"
         },
         {
@@ -438,8 +430,18 @@
           "url": "https://github.com/matheusmongarde/garimpo",
           "summary": "Prospecção open source do Google Maps ao Pix: acha negócios no Maps, gera um site-prévia com o nome de cada um, conversa no WhatsApp e cobra por Pix, Mercado Pago ou Stripe. Pagou, fecha sozinho. Roda no seu PC, VPS ou Vercel, com API para agentes (Claude Code, Codex, n8n).",
           "published": "2026-11-24T23:58:18+00:00",
-          "stars": 150,
+          "stars": 151,
           "language": "TypeScript"
+        },
+        {
+          "category": "tools",
+          "source": "GitHub 新興專案",
+          "title": "brainintelli/BioSignal-Guided-LLM-Reinforcement-Learning",
+          "url": "https://github.com/brainintelli/BioSignal-Guided-LLM-Reinforcement-Learning",
+          "summary": "Biosignal-guided reinforcement learning for LLM agents: offline organoid neural recordings as policy inputs in a Godot survival game, with paired evaluation.",
+          "published": "2026-11-24T02:39:01+00:00",
+          "stars": 144,
+          "language": "Python"
         }
       ]
     },
@@ -451,7 +453,7 @@
           "source": "Hacker News 熱門 AI 討論",
           "title": "PenGPT: A Generative Transformer for Handwriting and Sketches",
           "url": "https://greydanus.github.io/2026/11/12/pengpt/",
-          "summary": "Article URL: https://greydanus.github.io/2026/11/12/pengpt/ Comments URL: https://news.ycombinator.com/item?id=50637056 Points: 355 # Comments: 63",
+          "summary": "Article URL: https://greydanus.github.io/2026/11/12/pengpt/ Comments URL: https://news.ycombinator.com/item?id=50637056 Points: 360 # Comments: 63",
           "published": "2026-11-25T00:54:49+00:00"
         },
         {
@@ -627,20 +629,20 @@
         {
           "category": "research",
           "source": "Hugging Face Daily Papers",
-          "title": "VenusOCR2.0: Towards Efficient and Effective Document Parsing",
-          "url": "https://huggingface.co/papers/2611.32617",
-          "summary": "We present VenusOCR2.0, a compact 1B-parameter vision-language recognizer designed for both high-accuracy and high-throughput document parsing across text, tables, and formulas. To continuously improve recognition quality without self-training collapse, we build a bounded recursive self-improvement (RSI) data engine where the model acts strictly as a weakness probe, while external multi-expert medoid consensus, VLM visual verification, and factorized synthesis supply reliable supervision across pretraining, curated SFT, and RLVR. VenusOCR2.0 couples a dynamic-resolution SigLIP2 encoder and 2x…",
+          "title": "SpecEngineeringBench: Evaluating Coding Agents as Autonomous Specification Engineers",
+          "url": "https://huggingface.co/papers/2611.32973",
+          "summary": "Autonomous specification engineering requires coding agents to translate functional requirements into executable tests and use the results to discover and validate defects. However, existing benchmarks evaluate coding agents on explicitly specified test generation tasks, commonly providing an issue description, a designated test entry point, or files to inspect, leaving the ability to determine what to test and where to investigate insufficiently evaluated. Relying on such clues bypasses the challenge of mapping requirements to implementations and proactively uncovering unknown defects. We pr…",
           "published": "2026-11-23T19:00:00+00:00",
           "upvotes": 9
         },
         {
           "category": "research",
           "source": "Hugging Face Daily Papers",
-          "title": "SpecEngineeringBench: Evaluating Coding Agents as Autonomous Specification Engineers",
-          "url": "https://huggingface.co/papers/2611.32973",
-          "summary": "Autonomous specification engineering requires coding agents to translate functional requirements into executable tests and use the results to discover and validate defects. However, existing benchmarks evaluate coding agents on explicitly specified test generation tasks, commonly providing an issue description, a designated test entry point, or files to inspect, leaving the ability to determine what to test and where to investigate insufficiently evaluated. Relying on such clues bypasses the challenge of mapping requirements to implementations and proactively uncovering unknown defects. We pr…",
+          "title": "VenusOCR2.0: Towards Efficient and Effective Document Parsing",
+          "url": "https://huggingface.co/papers/2611.32617",
+          "summary": "We present VenusOCR2.0, a compact 1B-parameter vision-language recognizer designed for both high-accuracy and high-throughput document parsing across text, tables, and formulas. To continuously improve recognition quality without self-training collapse, we build a bounded recursive self-improvement (RSI) data engine where the model acts strictly as a weakness probe, while external multi-expert medoid consensus, VLM visual verification, and factorized synthesis supply reliable supervision across pretraining, curated SFT, and RLVR. VenusOCR2.0 couples a dynamic-resolution SigLIP2 encoder and 2x…",
           "published": "2026-11-23T19:00:00+00:00",
-          "upvotes": 8
+          "upvotes": 9
         },
         {
           "category": "research",
@@ -692,7 +694,7 @@
     {
       "source": "Product Hunt",
       "ok": true,
-      "count": 9
+      "count": 8
     },
     {
       "source": "Hacker News Show HN",
@@ -717,7 +719,7 @@
     {
       "source": "GitHub 新興專案",
       "ok": true,
-      "count": 19
+      "count": 18
     }
   ]
 }
