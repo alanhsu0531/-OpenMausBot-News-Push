@@ -61,9 +61,23 @@ USER_PROMPT = """以下是今天的候選新聞，分成三類：
   ]
 }}
 
+最近幾天已經報導過的事件（不要再選同一事件，除非有重大新進展）：
+{recent}
+
 候選新聞：
 {candidates}
 """
+
+
+def recent_titles(day: str, days: int = 3) -> str:
+    """前幾天已推播的標題，讓 AI 避免跨來源重複報導同一事件。"""
+    titles = []
+    for d in sorted(p.name for p in DATA_DIR.iterdir() if p.is_dir() and p.name < day)[-days:]:
+        f = DATA_DIR / d / "digest.json"
+        if f.exists():
+            for it in json.loads(f.read_text(encoding="utf-8")).get("items", []):
+                titles.append(f"- {it.get('title') or it.get('original_title')}")
+    return "\n".join(titles) or "（無）"
 
 
 def facet_guide() -> str:
@@ -108,7 +122,7 @@ def parse_json(text: str) -> dict:
 def select_with_llm(cands: dict) -> dict:
     listing, index = build_candidate_list(cands)
     prompt = USER_PROMPT.format(min_items=MIN_ITEMS, max_items=MAX_ITEMS, candidates=listing,
-                                facet_guide=facet_guide())
+                                facet_guide=facet_guide(), recent=recent_titles(cands["date"]))
     last_err = None
     for attempt in range(2):
         raw, model = chat(SYSTEM_PROMPT, prompt)
