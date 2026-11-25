@@ -24,7 +24,10 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
+      # 一律在 main 上執行並把結果存回 main（OpenMausBot 讀 main 的 data/latest.md）
       - uses: actions/checkout@v4
+        with:
+          ref: main
 
       - uses: actions/setup-python@v5
         with:
@@ -65,7 +68,16 @@ jobs:
           NOTION_DATABASE_ID: ${{ vars.NOTION_DATABASE_ID }}
         run: python -m news_push.summarize
 
+      - name: 失敗提醒（寄警示信，並把早報換成失敗通知）
+        if: ${{ failure() && inputs.mode != 'notion_only' }}
+        env:
+          GMAIL_ADDRESS: ${{ secrets.GMAIL_ADDRESS }}
+          GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
+          MAIL_TO: ${{ secrets.MAIL_TO }}
+        run: python -m news_push.alert
+
       - name: 儲存結果到 repo
+        if: ${{ always() }}
         run: |
           git config user.name "daily-digest-bot"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
@@ -74,6 +86,6 @@ jobs:
             echo "沒有新內容"
           else
             git commit -m "data: $(TZ=Asia/Taipei date +%F) AI 科技早報"
-            git pull --rebase
-            git push
+            git pull --rebase origin main
+            git push origin HEAD:main
           fi

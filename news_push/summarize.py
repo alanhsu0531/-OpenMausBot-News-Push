@@ -155,7 +155,23 @@ def fallback_selection(cands: dict) -> dict:
             items.append({"category": cat, "source": it["source"], "url": it["url"],
                           "title": it["title"], "original_title": it["title"],
                           "brief": it["title"], "summary": it.get("summary", "")[:200]})
-    return {"headline": "今天 AI 摘要服務暫時無法使用，以下為原文標題。", "items": items, "model": "fallback"}
+    return {"headline": "", "items": items, "model": "fallback"}
+
+
+def build_warnings(cands: dict, digest: dict) -> None:
+    """找出需要提醒的狀況，寫進 digest["warnings"]（會出現在早報開頭與 Email 標題）。"""
+    warnings = []
+    if digest.get("model") == "fallback":
+        warnings.append("今天所有 AI 模型都無法使用，以下只列原文標題，沒有摘要。")
+    empty = [S.CATEGORY_NAMES[c] for c, b in cands["categories"].items() if not b["items"]]
+    if empty:
+        warnings.append(f"「{'、'.join(empty)}」今天沒有抓到任何候選新聞。")
+    report = cands.get("sources", [])
+    failed = [s["source"] for s in report if not s.get("ok")]
+    if report and len(failed) * 2 > len(report):
+        warnings.append(f"{len(report)} 個來源中有 {len(failed)} 個抓取失敗，內容可能不完整。")
+    digest["warnings"] = warnings
+    digest["failed_sources"] = failed
 
 
 CATEGORY_SHORT = {S.COMPANY: "公司動態", S.TOOLS: "新工具", S.RESEARCH: "新技術"}
@@ -186,6 +202,8 @@ def render_markdown(day: str, digest: dict) -> str:
 
     out = [f"# ☀️ AI 科技早報｜{day}（週{WEEKDAYS[d.weekday()]}）", "",
            f"**{total} 則精選**　·　閱讀約 {minutes} 分鐘", ""]
+    for w in digest.get("warnings") or []:
+        out += [f"> ⚠️ **系統提醒**　{w}", ""]
     if digest.get("headline"):
         out += [f"> 💡 **今日焦點**　{digest['headline']}", ""]
 
@@ -216,6 +234,8 @@ def render_markdown(day: str, digest: dict) -> str:
             out += [f"🔗 [閱讀原文]({it['url']})　·　`{short_source(it['source'])}`", ""]
         out += ["---", ""]
 
+    if digest.get("failed_sources"):
+        out += [f"*⚠️ 今日抓取失敗的來源：{'、'.join(digest['failed_sources'])}*", ""]
     out += [f"*🤖 由 {digest.get('model', '')} 整理　·　產生於 {datetime.now(TW):%Y-%m-%d %H:%M}（台灣時間）*", ""]
     return "\n".join(out)
 
@@ -252,6 +272,9 @@ def main() -> int:
         log(f"[summarize] 改用備案：{exc}")
         digest = fallback_selection(cands)
     digest["date"] = day
+    build_warnings(cands, digest)
+    for w in digest["warnings"]:
+        log(f"[summarize] ⚠️ {w}")
 
     md = render_markdown(day, digest)
     (day_dir / "digest.md").write_text(md, encoding="utf-8")

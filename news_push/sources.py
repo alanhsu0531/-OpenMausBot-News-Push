@@ -32,12 +32,25 @@ RSS_SOURCES = [
      "url": "https://www.ithome.com.tw/rss", "keyword_filter": True},
     {"name": "科技新報", "category": COMPANY,
      "url": "https://technews.tw/feed/", "keyword_filter": True},
+    {"name": "數位時代", "category": COMPANY,
+     "url": "https://www.bnext.com.tw/rss", "keyword_filter": True},
+    {"name": "INSIDE", "category": COMPANY,
+     "url": "https://www.inside.com.tw/feed/rss", "keyword_filter": True},
+    # 官方部落格（第一手消息）。Anthropic 沒有官方 RSS，用社群每小時轉製的版本。
+    {"name": "OpenAI 官方部落格", "category": COMPANY,
+     "url": "https://openai.com/news/rss.xml"},
+    {"name": "Anthropic 官方新聞", "category": COMPANY,
+     "url": "https://raw.githubusercontent.com/Olshansk/rss-feeds/main/feeds/feed_anthropic_news.xml"},
+    {"name": "Google AI 官方部落格", "category": COMPANY,
+     "url": "https://blog.google/technology/ai/rss/"},
     # --- AI 新工具 ---
     {"name": "Product Hunt", "category": TOOLS,
      "url": "https://www.producthunt.com/feed", "keyword_filter": True},
     {"name": "Hacker News Show HN", "category": TOOLS,
      "url": "https://hnrss.org/show?points=50", "keyword_filter": True},
     # --- ML / DL / NLP 新技術 ---
+    {"name": "Google DeepMind 部落格", "category": RESEARCH,
+     "url": "https://deepmind.google/blog/rss.xml"},
     {"name": "Hacker News 熱門 AI 討論", "category": RESEARCH,
      "url": "https://hnrss.org/newest?points=150&q=LLM+OR+transformer+OR+diffusion+OR+%22reinforcement+learning%22"},
 ]

@@ -24,8 +24,13 @@ def log(msg: str) -> None:
 
 
 def build_email(day: str, digest: dict) -> tuple[str, str, str]:
-    subject = f"AI 科技早報 {day}"
+    warnings = digest.get("warnings") or []
+    subject = f"{'⚠️ ' if warnings else ''}AI 科技早報 {day}"
     text_lines, html_parts = [subject, ""], []
+    if warnings:
+        text_lines += ["⚠️ 系統提醒：" + " ".join(warnings), ""]
+        html_parts.append('<p style="background:#fdecea;color:#a50e0e;padding:10px 12px;border-radius:6px">'
+                          f'⚠️ <b>系統提醒</b>　{html.escape(" ".join(warnings))}</p>')
     if digest.get("headline"):
         text_lines += [digest["headline"], ""]
         html_parts.append(f'<p style="font-size:16px;color:#333"><b>{html.escape(digest["headline"])}</b></p>')
@@ -52,13 +57,16 @@ def build_email(day: str, digest: dict) -> tuple[str, str, str]:
 
 
 def send_digest_email(day: str, digest: dict) -> bool:
+    return send_mail(*build_email(day, digest))
+
+
+def send_mail(subject: str, text: str, body_html: str) -> bool:
     sender = os.environ.get("GMAIL_ADDRESS")
     password = os.environ.get("GMAIL_APP_PASSWORD")
     if not sender or not password:
         log("[mail] 沒有設定 GMAIL_ADDRESS 或 GMAIL_APP_PASSWORD，略過寄信")
         return False
     recipients = [r.strip() for r in (os.environ.get("MAIL_TO") or sender).split(",") if r.strip()]
-    subject, text, body_html = build_email(day, digest)
     msg = MIMEMultipart("alternative")
     msg["Subject"], msg["From"], msg["To"] = subject, sender, ", ".join(recipients)
     msg.attach(MIMEText(text, "plain", "utf-8"))

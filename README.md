@@ -24,6 +24,11 @@
 - `news_push/llm.py`：OpenRouter 免費模型，失敗時改用 Gemini API 免費額度
 - `news_push/mailer.py`：Gmail 寄送精簡版
 - `news_push/notion_sync.py`：每則新聞寫入 Notion 資料庫一列
+- `news_push/alert.py`：流程失敗時寄警示信，並把 `data/latest.md` 換成失敗通知
+- `news_push/source_report.py`：統計各來源最近幾天的產出與入選數，用來汰換來源
+
+所有程式與每日資料都在 `main` 分支。AI 全部失敗、某類沒有候選、或過半來源抓取失敗時，
+早報開頭與 Email 標題會出現 ⚠️ 提醒。
 - `.github/workflows/daily-digest.yml`：每日排程
 
 ## 需要設定的 GitHub Secrets
