@@ -1,6 +1,6 @@
 {
   "date": "2026-11-26",
-  "generated_at": "2026-11-25T16:51:48.903510+00:00",
+  "generated_at": "2026-11-25T16:54:13.597236+00:00",
   "lookback_hours": 26,
   "categories": {
     "company": {
@@ -214,10 +214,10 @@
         {
           "category": "tools",
           "source": "Product Hunt",
-          "title": "MemoryWorks",
-          "url": "https://www.producthunt.com/products/memoryworks",
-          "summary": "Company memory for people and AI agents Discussion | Link",
-          "published": "2026-11-24T20:30:45+00:00"
+          "title": "MyClaw 3.0",
+          "url": "https://www.producthunt.com/products/myclaw-3-0",
+          "summary": "Build an always-on AI team with shared memory Discussion | Link",
+          "published": "2026-11-24T15:39:09+00:00"
         },
         {
           "category": "tools",
@@ -234,16 +234,16 @@
           "url": "https://github.com/EL4CTEO/fast-anything",
           "summary": "Don't rewrite it in Rust. Rewrite the 5% that's slow: profile Python, Node or Ruby apps, port the hot functions with your coding agent, prove they behave the same.",
           "published": "2026-11-21T14:40:27+00:00",
-          "stars": 3871,
+          "stars": 3872,
           "language": "Rust"
         },
         {
           "category": "tools",
           "source": "Product Hunt",
-          "title": "MAGI-2",
-          "url": "https://www.producthunt.com/products/magi-1",
-          "summary": "Sand AI's 480B model for cinematic video generation Discussion | Link",
-          "published": "2026-11-25T05:35:39+00:00"
+          "title": "Qube",
+          "url": "https://www.producthunt.com/products/qube-6",
+          "summary": "An AI agent for anyone with the model of your choice Discussion | Link",
+          "published": "2026-11-24T17:55:06+00:00"
         },
         {
           "category": "tools",
@@ -252,16 +252,16 @@
           "url": "https://github.com/INK-Q/agy-fast",
           "summary": "Non-invasive MCP accelerator plugin for Google Antigravity (CLI/Desktop/IDE): cuts LLM turns (-34%), token quota (-31%), and upload traffic (-40%) without affecting native UI or diffs.",
           "published": "2026-11-19T04:58:46+00:00",
-          "stars": 1476,
+          "stars": 1477,
           "language": "TypeScript"
         },
         {
           "category": "tools",
           "source": "Product Hunt",
-          "title": "MyClaw 3.0",
-          "url": "https://www.producthunt.com/products/myclaw-3-0",
-          "summary": "Build an always-on AI team with shared memory Discussion | Link",
-          "published": "2026-11-24T15:39:09+00:00"
+          "title": "MAGI-2",
+          "url": "https://www.producthunt.com/products/magi-1",
+          "summary": "Sand AI's 480B model for cinematic video generation Discussion | Link",
+          "published": "2026-11-25T05:35:39+00:00"
         },
         {
           "category": "tools",
@@ -276,10 +276,10 @@
         {
           "category": "tools",
           "source": "Product Hunt",
-          "title": "Canva MCP",
-          "url": "https://www.producthunt.com/products/canva",
-          "summary": "Turn any AI agent into a creative powerhouse Discussion | Link",
-          "published": "2026-11-24T15:05:09+00:00"
+          "title": "MemoryWorks",
+          "url": "https://www.producthunt.com/products/memoryworks",
+          "summary": "Company memory for people and AI agents Discussion | Link",
+          "published": "2026-11-24T20:30:45+00:00"
         },
         {
           "category": "tools",
@@ -288,16 +288,16 @@
           "url": "https://github.com/sous-labs/songe",
           "summary": "A training engine for your local model, using your idle compute",
           "published": "2026-11-20T11:01:20+00:00",
-          "stars": 829,
+          "stars": 830,
           "language": "Python"
         },
         {
           "category": "tools",
           "source": "Product Hunt",
-          "title": "Qube",
-          "url": "https://www.producthunt.com/products/qube-6",
-          "summary": "An AI agent for anyone with the model of your choice Discussion | Link",
-          "published": "2026-11-24T17:55:06+00:00"
+          "title": "Canva MCP",
+          "url": "https://www.producthunt.com/products/canva",
+          "summary": "Turn any AI agent into a creative powerhouse Discussion | Link",
+          "published": "2026-11-24T15:05:09+00:00"
         },
         {
           "category": "tools",
@@ -324,7 +324,7 @@
           "url": "https://github.com/Developing-Gamer/agent-sim",
           "summary": "iOS simulators for AI agents, on Linux. The agent layer for x86Sim.",
           "published": "2026-11-21T20:26:12+00:00",
-          "stars": 588,
+          "stars": 589,
           "language": "Rust"
         },
         {

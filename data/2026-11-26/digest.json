@@ -1,0 +1,88 @@
+{
+  "headline": "今天 AI 摘要服務暫時無法使用，以下為原文標題。",
+  "items": [
+    {
+      "category": "company",
+      "source": "TechCrunch AI",
+      "url": "https://techcrunch.com/podcast/ai-data-centers-are-becoming-harder-to-build-and-neoclouds-are-feeling-it/",
+      "title": "AI data centers are becoming harder to build, and neoclouds are feeling it",
+      "original_title": "AI data centers are becoming harder to build, and neoclouds are feeling it",
+      "brief": "AI data centers are becoming harder to build, and neoclouds are feeling it",
+      "summary": "⁠Nvidia has made clear⁠ it won’t backstop an AI data center until it’s nearly ready to run, and that’s landing just as neoclouds report construction delays and more expensive debt. The message to deve"
+    },
+    {
+      "category": "company",
+      "source": "The Verge AI",
+      "url": "https://www.theverge.com/gadgets/1042162/nothing-ear-note-ai-earbuds-reveal",
+      "title": "Nothing offers a full look at its AI earbuds and charging case",
+      "original_title": "Nothing offers a full look at its AI earbuds and charging case",
+      "brief": "Nothing offers a full look at its AI earbuds and charging case",
+      "summary": "Nothing is showing off a much more detailed look at its upcoming AI earbuds ahead of their December 8th release. The Ear Note buds can record your calls, while their charging case can record, transcri"
+    },
+    {
+      "category": "company",
+      "source": "iThome",
+      "url": "https://www.ithome.com.tw/news/178458",
+      "title": "數發部建立風險分級與內控制度，協助各部會展開AI治理",
+      "original_title": "數發部建立風險分級與內控制度，協助各部會展開AI治理",
+      "brief": "數發部建立風險分級與內控制度，協助各部會展開AI治理",
+      "summary": "生成式AI快速普及，政府面臨的問題已不再是「要不要用AI」，而是如何在兼顧效率與風險的前提下，建立一套可長可久的治理制度。 數位發展部數位政府司長王誠明在8月的數位政府高峰會中，首次完整說明政府AI治理的政策藍圖。他指出，愈來愈多公務人員已開始主動利用生成式AI協助撰寫文件、整理資料、查詢法規與處理行政工作，政府若僅以禁止或限制回應，不但無法阻止AI使用，也可能錯失提升行政效能的機會，因此必須建立"
+    },
+    {
+      "category": "tools",
+      "source": "Product Hunt",
+      "url": "https://www.producthunt.com/products/myclaw-3-0",
+      "title": "MyClaw 3.0",
+      "original_title": "MyClaw 3.0",
+      "brief": "MyClaw 3.0",
+      "summary": "Build an always-on AI team with shared memory Discussion | Link"
+    },
+    {
+      "category": "tools",
+      "source": "Hacker News Show HN",
+      "url": "https://gpu-demo-gallery.pages.dev/",
+      "title": "Show HN: Old Nvidia and ATI tech demos, running again in the browser",
+      "original_title": "Show HN: Old Nvidia and ATI tech demos, running again in the browser",
+      "brief": "Show HN: Old Nvidia and ATI tech demos, running again in the browser",
+      "summary": "Article URL: https://gpu-demo-gallery.pages.dev/ Comments URL: https://news.ycombinator.com/item?id=50638503 Points: 261 # Comments: 55"
+    },
+    {
+      "category": "tools",
+      "source": "GitHub 新興專案",
+      "url": "https://github.com/EL4CTEO/fast-anything",
+      "title": "EL4CTEO/fast-anything",
+      "original_title": "EL4CTEO/fast-anything",
+      "brief": "EL4CTEO/fast-anything",
+      "summary": "Don't rewrite it in Rust. Rewrite the 5% that's slow: profile Python, Node or Ruby apps, port the hot functions with your coding agent, prove they behave the same."
+    },
+    {
+      "category": "research",
+      "source": "Hacker News 熱門 AI 討論",
+      "url": "https://greydanus.github.io/2026/11/12/pengpt/",
+      "title": "PenGPT: A Generative Transformer for Handwriting and Sketches",
+      "original_title": "PenGPT: A Generative Transformer for Handwriting and Sketches",
+      "brief": "PenGPT: A Generative Transformer for Handwriting and Sketches",
+      "summary": "Article URL: https://greydanus.github.io/2026/11/12/pengpt/ Comments URL: https://news.ycombinator.com/item?id=50637056 Points: 355 # Comments: 63"
+    },
+    {
+      "category": "research",
+      "source": "Hugging Face Daily Papers",
+      "url": "https://huggingface.co/papers/2611.32884",
+      "title": "Lazy Agents Answer Against Their Own Beliefs: Reinforcement Learning with Verifiable Beliefs Teaches Them to Act on What They Believe",
+      "original_title": "Lazy Agents Answer Against Their Own Beliefs: Reinforcement Learning with Verifiable Beliefs Teaches Them to Act on What They Believe",
+      "brief": "Lazy Agents Answer Against Their Own Beliefs: Reinforcement Learning with Verifiable Beliefs Teaches Them to Act on What They Believe",
+      "summary": "AI agents working on long tasks often commit to an answer before they have enough evidence, a behavior called laziness. In our evaluations, they frequently commit even while their stated belief still "
+    },
+    {
+      "category": "research",
+      "source": "dair-ai Top AI Papers of the Week (November 16 - November 22) - 2026",
+      "url": "https://academy.dair.ai/papers/self-improvement-memory-enables-continual-recursive-self-improvement-2611.18856",
+      "title": "Self-Improvement Memory",
+      "original_title": "Self-Improvement Memory",
+      "brief": "Self-Improvement Memory",
+      "summary": "Harness optimization is usually studied with one fixed model and one fixed benchmark. When either changes, the optimizer has to decide which parts of an evolved harness to keep, but the harness code a"
+    }
+  ],
+  "model": "fallback",
+  "date": "2026-11-26"
+}
