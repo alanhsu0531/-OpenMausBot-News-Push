@@ -4,6 +4,9 @@ on:
   schedule:
     # 台灣時間每天 06:30（UTC 22:30）。GitHub 排程常延遲 10 到 30 分鐘，所以提早開始。
     - cron: "30 22 * * *"
+    # 備援：GitHub 偶爾會漏跑排程。已經產生今天早報的話，這兩次會自動略過。
+    - cron: "10 23 * * *"
+    - cron: "10 0 * * *"
   workflow_dispatch:
     inputs:
       mode:
@@ -36,6 +39,14 @@ jobs:
 
       - run: pip install -r requirements.txt
 
+      - name: 檢查今天是否已產生
+        id: guard
+        run: |
+          if [ "${{ github.event_name }}" = "schedule" ] && [ -f "data/$(TZ=Asia/Taipei date +%F)/digest.json" ]; then
+            echo "今天的早報已經產生，略過這次排程"
+            echo "skip=true" >> "$GITHUB_OUTPUT"
+          fi
+
       - name: 只同步 Notion
         if: ${{ inputs.mode == 'notion_only' }}
         env:
@@ -44,13 +55,13 @@ jobs:
         run: python -m news_push.summarize --notion-only
 
       - name: 第 1 步：抓取與分類
-        if: ${{ inputs.mode != 'notion_only' }}
+        if: ${{ inputs.mode != 'notion_only' && steps.guard.outputs.skip != 'true' }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: python -m news_push.fetch
 
       - name: 第 2 步：AI 挑選、摘要、寄 Email、同步 Notion
-        if: ${{ inputs.mode != 'notion_only' }}
+        if: ${{ inputs.mode != 'notion_only' && steps.guard.outputs.skip != 'true' }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
