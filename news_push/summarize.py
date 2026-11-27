@@ -1,4 +1,4 @@
-"""第 2 步：AI 挑選 5 到 10 則新聞、寫繁體中文摘要，產出完整版與 Email 精簡版。
+"""第 2 步：AI 每類挑選 5 則新聞（共 15 則）、寫繁體中文摘要，產出完整版與 Email 精簡版。
 
 用法：
     python -m news_push.summarize                 # 讀今天的 candidates.json，寫 digest，寄 Email
@@ -25,7 +25,8 @@ from .llm import chat
 from .mailer import send_digest_email
 from .notion_sync import sync_to_notion
 
-MIN_ITEMS, MAX_ITEMS = 5, 10
+PER_CATEGORY = 5
+MAX_ITEMS = PER_CATEGORY * len(S.CATEGORY_NAMES)
 WEEKDAYS = "一二三四五六日"
 CATEGORY_ICONS = {S.COMPANY: "🏢", S.TOOLS: "🛠️", S.RESEARCH: "🔬"}
 
@@ -39,8 +40,8 @@ USER_PROMPT = """以下是今天的候選新聞，分成三類：
 - tools：AI 新工具
 - research：ML / DL / NLP 新技術與論文
 
-請挑出最重要、最有新意的 {min_items} 到 {max_items} 則：
-- 三類都要有，每類 2 到 4 則（某類候選不足時例外）
+請每一類各挑出最重要、最有新意的 {per_cat} 則，共 {max_items} 則：
+- 三類都要剛好 {per_cat} 則（某類候選不足 {per_cat} 則時，該類有幾則就選幾則）
 - 優先選影響大、讀者會想點開的；避免同一事件重複
 - tools 優先選真的能用的產品或開源專案，略過純行銷文
 
@@ -121,7 +122,7 @@ def parse_json(text: str) -> dict:
 
 def select_with_llm(cands: dict) -> dict:
     listing, index = build_candidate_list(cands)
-    prompt = USER_PROMPT.format(min_items=MIN_ITEMS, max_items=MAX_ITEMS, candidates=listing,
+    prompt = USER_PROMPT.format(per_cat=PER_CATEGORY, max_items=MAX_ITEMS, candidates=listing,
                                 facet_guide=facet_guide(), recent=recent_titles(cands["date"]))
     last_err = None
     for attempt in range(2):
@@ -136,6 +137,8 @@ def select_with_llm(cands: dict) -> dict:
                     continue  # 模型給了不存在的編號就略過，確保網址都是真的
                 if any(i["url"] == src["url"] for i in items):
                     continue
+                if sum(i["category"] == src["category"] for i in items) >= PER_CATEGORY:
+                    continue  # 每類最多 PER_CATEGORY 則
                 items.append({**sel, "category": src["category"], "source": src["source"],
                               "url": src["url"], "original_title": src["title"]})
             if len(items) < 3:
@@ -148,10 +151,10 @@ def select_with_llm(cands: dict) -> dict:
 
 
 def fallback_selection(cands: dict) -> dict:
-    """AI 全部失敗時的備案：每類取前 3 則原文標題，至少讓早報照常出現。"""
+    """AI 全部失敗時的備案：每類取前 5 則原文標題，至少讓早報照常出現。"""
     items = []
     for cat, block in cands["categories"].items():
-        for it in block["items"][:3]:
+        for it in block["items"][:PER_CATEGORY]:
             items.append({"category": cat, "source": it["source"], "url": it["url"],
                           "title": it["title"], "original_title": it["title"],
                           "brief": it["title"], "summary": it.get("summary", "")[:200]})

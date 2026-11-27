@@ -4,7 +4,7 @@
     python -m news_push.fetch                 # 輸出到 data/YYYY-MM-DD/candidates.json
     python -m news_push.fetch --hours 48      # 調整回溯時間
 
-輸出的 candidates.json 會交給第 2 步（AI 摘要）挑選 5 到 10 則。
+輸出的 candidates.json 會交給第 2 步（AI 摘要）每類挑選 5 則。
 任何單一來源失敗都只會記錄警告，不會讓整個流程中斷。
 """
 
