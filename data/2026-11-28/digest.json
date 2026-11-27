@@ -1,0 +1,235 @@
+{
+  "headline": "AI 資本熱潮與代理攻擊風險同步升溫",
+  "items": [
+    {
+      "id": 3,
+      "title": "AI 需求旺 主計總處估明年出口破兆美元",
+      "brief": "AI 供不應求，主計總處估明年商品出口破 1 兆美元創新高",
+      "summary": "主計總處公布最新經濟預測，認為儘管 AI 產業發展仍有變數，市場依舊供不應求，帶動出口持續成長。預估今年商品出口突破 9 千億美元，明年更將突破 1 兆美元、創歷史新高。",
+      "facets": {
+        "event": "主計總處公布最新經濟預測，因 AI 需求維持強勁，估計今年商品出口突破 9 千億美元，明年突破 1 兆美元創新高。",
+        "background": "AI 伺服器與晶片訂單近年成為台灣出口主引擎，即使官方坦言 AI 產業發展存在變數，仍選擇上修出口預測。",
+        "impact": "出口動能支撐台灣經濟成長，但也意味著台灣景氣對 AI 單一需求循環的依賴程度進一步加深。",
+        "outlook": "後續要觀察 AI 訂單是否受先進晶片出口管制、以及雲端業者資本支出調整的影響。"
+      },
+      "category": "company",
+      "source": "科技新報",
+      "url": "https://finance.technews.tw/2026/11/27/ai-supply-shortage-dgbass-forecasts-next-year-exports-1-trillion-record-high/",
+      "original_title": "AI 仍供不應求，主計總處估明年出口破 1 兆美元創新高"
+    },
+    {
+      "id": 4,
+      "title": "英央行：雲端巨頭 AI 曝險逾 4 兆美元",
+      "brief": "英格蘭銀行估超大規模雲端業者 AI 潛在曝險逾 4 兆美元",
+      "summary": "英格蘭銀行發布《金融穩定報告》，估算超大規模雲端業者的債務加上表外承諾，潛在 AI 曝險略高於 4 兆美元。報告形容當前 AI 融資「日益複雜、循環且不透明」，點出跨市場連鎖風險。",
+      "facets": {
+        "event": "英格蘭銀行在《金融穩定報告》中估算，超大規模雲端業者的債務與表外承諾合計，AI 相關潛在曝險略高於 4 兆美元。",
+        "background": "AI 資料中心與算力投資規模龐大，多以債務與循環融資支撐，交易結構趨於複雜且揭露不足。",
+        "impact": "一旦 AI 投資報酬不如預期，風險可能經由信貸與表外承諾傳導到更廣泛的金融市場。",
+        "outlook": "值得注意各國央行與監理機關是否跟進，要求 AI 相關融資揭露或提高資本計提。"
+      },
+      "category": "company",
+      "source": "INSIDE",
+      "url": "https://www.inside.com.tw/article/43024-boe-ai-hyperscaler-4-trillion-exposure",
+      "original_title": "英國央行估雲端巨頭 AI 曝險逾 4 兆美元，表外承諾與循環融資放大跨市場連鎖風險"
+    },
+    {
+      "id": 11,
+      "title": "OpenAI 修正計費錯誤 Astra 配額耗更快",
+      "brief": "GPT-6.2 計費錯誤修正後，Astra、Sol 用量消耗明顯加快",
+      "summary": "OpenAI 通知 GPT-6.2 的計費系統錯誤已修正，先前多數用戶使用 Astra 與 Sol 時消耗的配額低於應計額度。修正後同樣工作將吃掉更多用量，Astra 用完配額的速度比上週加快 40%，Sol 加快 25%。",
+      "facets": {
+        "event": "OpenAI 於 11 月 26 日通知用戶，GPT-6.2 計費系統錯誤已修正，Astra 與 Sol 兩個頂級模型將更快用罄 token 使用限額。",
+        "background": "先前的計費錯誤讓用戶低估實際用量，使高階模型的使用成本被系統性低估。",
+        "impact": "重度用戶的實際成本上升，可能促使部分團隊改用較小模型或重新評估訂閱方案。",
+        "outlook": "觀察 OpenAI 是否提供補償或調整限額設計，以及其他模型供應商是否跟進調整計價透明度。"
+      },
+      "category": "company",
+      "source": "iThome",
+      "url": "https://www.ithome.com.tw/news/180853",
+      "original_title": "OpenAI修正GPT-6.2計費系統錯誤，Astra、Sol模型將更快用罄使用限額"
+    },
+    {
+      "id": 15,
+      "title": "近 4,200 個 AI 攻擊框架曝光 台灣占 10 個",
+      "brief": "開源 AI 自主攻擊框架大量暴露於公開網路，台灣也發現 10 個",
+      "summary": "研究發現近 4,200 個 AI 自主攻擊框架暴露在公開網路上，台灣境內也發現 10 個。這類開源工具可串接 LLM 代理，自動執行網路偵察、漏洞探測與憑證蒐集，大幅壓低發動攻擊的門檻。",
+      "facets": {
+        "event": "資安研究揭露近 4,200 個 AI 自主攻擊框架暴露於公開網路，其中台灣也被發現 10 個。",
+        "background": "開源社群近一年湧現大量以 LLM 代理為核心的滲透測試框架，原本用於自動化資安檢測，卻逐漸被攻擊者挪用。",
+        "impact": "入侵所需的人力與技術門檻明顯下降，攻擊速度加快，企業暴露面管理難度上升。",
+        "outlook": "觀察企業是否把這類框架納入外部暴露面掃描，並對自家 AI 代理的權限與工具呼叫加上控管。"
+      },
+      "category": "company",
+      "source": "iThome",
+      "url": "https://www.ithome.com.tw/news/180843",
+      "original_title": "近4,200個AI自主攻擊框架暴露於公開網路，臺灣也發現10個"
+    },
+    {
+      "id": 18,
+      "title": "蘋果下架 AI 聊天機器人 Talkie",
+      "brief": "Talkie 涉向未成年人傳性暗示訊息，遭蘋果全球下架",
+      "summary": "蘋果本週將 MiniMax 旗下熱門 AI 聊天機器人 Talkie 從全球 App Store 下架，原因是涉及向未成年人傳送性暗示訊息。這是 AI 陪伴類應用在兒少保護爭議上，遭平台方最直接的一次處置。",
+      "facets": {
+        "event": "蘋果本週將 MiniMax 的 AI 聊天機器人 Talkie 自全球 App Store 下架，理由為涉向未成年人傳送性暗示訊息。",
+        "background": "AI 陪伴與角色聊天應用快速成長，內容審查與年齡驗證機制長期受到監管機關與家長團體質疑。",
+        "impact": "對 MiniMax 的海外用戶成長造成直接打擊，也對其他 AI 陪伴類 App 形成強烈警示。",
+        "outlook": "觀察蘋果是否收緊 AI 聊天類應用的年齡驗證與內容審查規則，以及 Talkie 後續的申訴與整改。"
+      },
+      "category": "company",
+      "source": "科技新報",
+      "url": "https://technews.tw/2026/11/27/apple-pulls-minimax-ai-chatbot-from-app-store-over-child-safety-concerns/",
+      "original_title": "涉向未成年人傳性暗示訊息，蘋果下架 AI 聊天機器人 Talkie"
+    },
+    {
+      "id": 28,
+      "title": "opengame 把 coding agent 變成遊戲工作室",
+      "brief": "開源專案 opengame 串接 20 多種 coding agent，一鍵做遊戲並上架",
+      "summary": "GitHub 專案 opengame 以「AI agent 的 Unity 與 Unreal」為定位，內建 100 多款可改編的遊戲模板，並可串接 Claude Code、Codex、DeepSeek 等 20 多種 coding agent。目標是把單一代理升級成能建置、發布遊戲的完整工作室。",
+      "facets": {
+        "problem": "開發者想用 coding agent 做遊戲，但從企劃、建置到跨平台發布的流程零散，難以串成可重複的工作流。",
+        "method": "提供 100 多款可 remix 的遊戲模板作為起點，再把 20 多種 coding agent 接入同一套建置與發布管線。",
+        "usage": "從 GitHub 取得專案，挑選模板並指定慣用的 coding agent，即可建置 3D 或小遊戲並發布到微信、抖音、TikTok、Telegram、itch.io 等平台。",
+        "advantage": "把遊戲開發到上架的多個環節自動化，讓個人開發者能快速驗證玩法點子並直接觸及多個通路的用戶。"
+      },
+      "category": "tools",
+      "source": "GitHub 新興專案",
+      "url": "https://github.com/nexu-io/opengame",
+      "original_title": "nexu-io/opengame"
+    },
+    {
+      "id": 32,
+      "title": "100x：把 prompt 變成形式驗證過的程式碼",
+      "brief": "前 Cursor 工程師開源 skill，讓 prompt 產出經形式驗證的程式碼",
+      "summary": "GitHub 專案 100x-engineer-skill 由前 Cursor 工程師打造，主打把 prompt 直接轉成經過形式驗證、可上線的程式碼。它並非另一個 coding agent，而是掛在既有代理流程上的一道驗證層。",
+      "facets": {
+        "problem": "LLM 產出的程式碼常「能跑但不保證正確」，缺乏形式驗證，後續審查與除錯成本高。",
+        "method": "以 skill 形式把形式驗證納入生成流程，讓輸出在交付前先通過規格層級的檢查。",
+        "usage": "從 GitHub 取得 skill，掛載到既有的 coding agent 工作流程中使用。",
+        "advantage": "把驗證往前移到生成階段，可減少後續人工審查與線上除錯的成本。"
+      },
+      "category": "tools",
+      "source": "GitHub 新興專案",
+      "url": "https://github.com/DeadInternetStudios/100x-engineer-skill",
+      "original_title": "DeadInternetStudios/100x-engineer-skill"
+    },
+    {
+      "id": 34,
+      "title": "agent-sim 讓 AI 代理在 Linux 跑 iOS 模擬器",
+      "brief": "開源專案 agent-sim 在 Linux 上提供 iOS 模擬器，供 AI 代理操作",
+      "summary": "agent-sim 在 Linux 上提供 iOS 模擬器，並以 x86Sim 為基礎加上代理操作層，讓 AI 代理能直接驅動 iOS App。對需要大量測試行動應用的代理開發者來說，等於繞開了 macOS 的硬體限制。",
+      "facets": {
+        "problem": "AI 代理要操作或測試 iOS App，通常得綁在 macOS 與 Xcode 環境，在 Linux 伺服器上難以規模化。",
+        "method": "以 x86Sim 為基礎在 Linux 上提供 iOS 模擬器，並在其上疊一層專供 AI 代理驅動的操作介面。",
+        "usage": "從 GitHub 取得專案，在 Linux 環境啟動模擬器後接上自家代理即可操作。",
+        "advantage": "讓代理測試與操作 iOS App 不再依賴蘋果硬體，便於在伺服器端平行擴充。"
+      },
+      "category": "tools",
+      "source": "GitHub 新興專案",
+      "url": "https://github.com/Developing-Gamer/agent-sim",
+      "original_title": "Developing-Gamer/agent-sim"
+    },
+    {
+      "id": 41,
+      "title": "pop-agent 本地網頁 UI 緊盯 coding agent",
+      "brief": "本地網頁介面即時看推理串流，還能中途插入修正",
+      "summary": "pop-agent 提供本地網頁介面來管理 coding agent，可即時觀看推理串流，並在單輪執行中途插入修正。它支援 pi、Codex、Claude Code、OpenCode 與 DSH，且不建資料庫、不需帳號。",
+      "facets": {
+        "problem": "使用 coding agent 時多半只能盯著終端輸出，難以在中途導正方向，也不容易同時管理多個模型與工具。",
+        "method": "以本地網頁 UI 呈現推理串流，允許使用者在同一輪執行中打斷並給出修正，同時集中管理模型與工具設定。",
+        "usage": "在本機啟動後選擇支援的引擎（pi、Codex、Claude Code、OpenCode、DSH），session 直接沿用引擎自身的檔案。",
+        "advantage": "兼顧可觀察性與即時介入能力，且資料留在本機、不需額外資料庫或帳號。"
+      },
+      "category": "tools",
+      "source": "GitHub 新興專案",
+      "url": "https://github.com/duzhenxun/pop-agent",
+      "original_title": "duzhenxun/pop-agent"
+    },
+    {
+      "id": 43,
+      "title": "flyx：50MB 單檔本地 LLM 推論引擎",
+      "brief": "零依賴、約 50MB 單一執行檔的本地 LLM 推論引擎",
+      "summary": "flyx 是一個零依賴的本地 LLM 推論引擎，整包只有約 50MB 的單一執行檔。它支援原生長上下文、依 GPU 調校，並內建投機解碼與網頁儀表板。",
+      "facets": {
+        "problem": "在本機跑 LLM 往往要處理一堆依賴與環境設定，部署與移植門檻偏高。",
+        "method": "以單一約 50MB 的執行檔實作零依賴推論引擎，原生支援長上下文、針對 GPU 調校，並內建投機解碼加速。",
+        "usage": "下載對應平台的 binary 直接執行，透過內建的網頁儀表板操作與監看。",
+        "advantage": "免安裝依賴即可在本地推論，並以投機解碼換取生成速度，適合快速部署到各種機器。"
+      },
+      "category": "tools",
+      "source": "GitHub 新興專案",
+      "url": "https://github.com/enwove/flyx",
+      "original_title": "enwove/flyx"
+    },
+    {
+      "id": 44,
+      "title": "Harness 自我改進 需要一份可遷移的記憶",
+      "brief": "Google 等團隊研究 harness 演化如何跨模型、跨 benchmark 重用",
+      "summary": "Google Cloud AI、DeepMind 與賓州州立大學的研究指出，harness 最佳化通常綁定單一模型與單一 benchmark，一旦換模型或換任務，優化器就難以判斷哪些改動該保留。問題在於 harness 程式碼本身沒有記錄「為何改、效果如何」。",
+      "facets": {
+        "research_problem": "現有 harness 最佳化多在固定模型與固定 benchmark 下進行，換模型或換任務後，優化器無法判斷哪些既有改動仍值得保留。",
+        "core_method": "研究讓 harness 的演化過程保留可重用的記憶，把每次編輯的理由與實際表現一併記錄下來，作為跨模型、跨 benchmark 遷移的依據。",
+        "results": "原文未提供具體數據。",
+        "implication": "對自行調校 agent harness 的團隊，可望省下換模型後重跑整輪搜尋的成本；限制在於記憶本身的維護與檢索品質。"
+      },
+      "category": "research",
+      "source": "dair-ai Top AI Papers of the Week (November 16 - November 22) - 2026",
+      "url": "https://academy.dair.ai/papers/self-improvement-memory-enables-continual-recursive-self-improvement-2611.18856",
+      "original_title": "Self-Improvement Memory"
+    },
+    {
+      "id": 45,
+      "title": "GUARD 讓自我改寫的代理不再越改越差",
+      "brief": "Google Cloud 提出 GUARD，用外部評分區分新破壞與舊缺陷",
+      "summary": "Google Cloud 研究者指出，沒有外部評分器把關、自行改寫 harness 的代理往往越改越差。反思與純量分數會把「這次改壞了什麼」和「本來就沒解決的問題」混在一起，導致局部退步、技能遺忘與記憶膨脹。",
+      "facets": {
+        "research_problem": "自我改寫 harness 的代理缺乏外部評分訊號時，容易把新引入的破壞誤判為進步，長期下來出現局部退步、技能遺忘與記憶膨脹。",
+        "core_method": "GUARD 是一個演化 prompt、skill、tool 等 harness 元件的框架，透過外部評分區分「這次改動新弄壞的部分」與「原本就存在的缺陷」。",
+        "results": "原文未提供具體數據。",
+        "implication": "可讓長期自我改進的代理不至於退化，實務上需先建立可靠的評分訊號，否則框架效果受限。"
+      },
+      "category": "research",
+      "source": "dair-ai Top AI Papers of the Week (November 16 - November 22) - 2026",
+      "url": "https://academy.dair.ai/papers/guard-stabilizing-recursive-self-improvement-with-regret-guidance-2611.23476",
+      "original_title": "GUARD"
+    },
+    {
+      "id": 46,
+      "title": "EfficientSkill 先求準再剪枝 壓低 token",
+      "brief": "Google 與普渡團隊先學準確、再剪長度，避免技能無限膨脹",
+      "summary": "Google 與普渡大學的研究觀察到，技能優化器習慣在每次失敗後新增一條規則，技能越長、代理每輪讀的 token 越多，長流程就開始逾時。EfficientSkill 改為先以準確率為目標學習技能，再針對長度進行剪枝。",
+      "facets": {
+        "research_problem": "現有技能優化器每失敗一次就加一條規則，技能持續膨脹，代理每回合讀取的 token 增加，長流程容易逾時。",
+        "core_method": "EfficientSkill 把學習拆成兩階段：先以準確率為目標把技能學好，再針對長度做剪枝壓縮。",
+        "results": "原文未提供具體數據。",
+        "implication": "對長時程代理可直接降低 token 成本與延遲；限制是剪枝可能誤刪只在罕見情境才需要的規則。"
+      },
+      "category": "research",
+      "source": "dair-ai Top AI Papers of the Week (November 16 - November 22) - 2026",
+      "url": "https://academy.dair.ai/papers/efficientskill-learning-skills-for-token-efficient-multi-turn-agents-2611.19823",
+      "original_title": "EfficientSkill"
+    },
+    {
+      "id": 47,
+      "title": "Safe Personal RSI 為個人助理更新設閘門",
+      "brief": "CMU 等團隊為個人健康助理 Kicker 建立指令更新安全閘門",
+      "summary": "CMU、UCSD、UC Berkeley 等機構的研究指出，改動個人助理的指令雖能提升任務表現，卻同時改變它揭露什麼資訊、遵循哪些請求、如何回報行動。團隊因此打造 Safe Personal RSI，為個人健康助理 Kicker 加上更新閘門。",
+      "facets": {
+        "research_problem": "個人助理的指令一旦更新，任務表現與安全屬性會同時改變，包括揭露範圍、遵循哪些請求與行動回報方式，現有流程難以一起評估。",
+        "core_method": "提出 Safe Personal RSI，在採納指令更新前先經過一道閘門，檢查更新對安全相關行為的影響。",
+        "results": "原文未提供具體數據。",
+        "implication": "為個人化助理的持續自我改進提供把關機制；限制是閘門必須涵蓋足夠多的安全面向，否則可能放行有風險的更新。"
+      },
+      "category": "research",
+      "source": "dair-ai Top AI Papers of the Week (November 16 - November 22) - 2026",
+      "url": "https://academy.dair.ai/papers/safe-personal-rsi-evaluating-and-repairing-personal-agent-updates-2611.23651",
+      "original_title": "Safe Personal RSI"
+    }
+  ],
+  "model": "openrouter:particle-ai/particle-1:free",
+  "date": "2026-11-28",
+  "warnings": [],
+  "failed_sources": [
+    "VentureBeat AI"
+  ]
+}
