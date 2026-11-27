@@ -1,5 +1,6 @@
 # 用 OpenMausBot 內建 CLI 建立「文章問答」bot：
 #   node /Applications/OpenMausBot.app/Contents/Resources/server/openmausbot.js team apply article_qa/team.yaml
+version: 1
 bots:
   - name: 文章問答
     team: AI 知識庫
@@ -11,4 +12,4 @@ bots:
     effort: medium
     approval: ask
     computer: local
-    cwd: ~/.article-qa
+    cwd: /Users/alanhsu/.article-qa
