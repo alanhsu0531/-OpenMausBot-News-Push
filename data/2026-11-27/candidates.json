@@ -1,0 +1,547 @@
+{
+  "date": "2026-11-27",
+  "generated_at": "2026-11-27T00:21:30.435685+00:00",
+  "lookback_hours": 26,
+  "categories": {
+    "company": {
+      "name": "AI 科技公司新聞",
+      "items": [
+        {
+          "category": "company",
+          "source": "TechCrunch AI",
+          "title": "Nvidia hits pause on chip shipments to Southeast Asia",
+          "url": "https://techcrunch.com/2026/11/26/nvidia-hits-pause-on-chip-shipments-to-southeast-asia/",
+          "summary": "Nvidia has told manufacturing partners to pause server shipments to Malaysia, Singapore, Thailand and Indonesia as the U.S. tightens its push to keep AI chips out of China.",
+          "published": "2026-11-26T20:03:54+00:00"
+        },
+        {
+          "category": "company",
+          "source": "The Verge AI",
+          "title": "42 state AGs are trying to stop Character.AI from selling users’ chats",
+          "url": "https://www.theverge.com/policy/1042620/character-ai-sale-state-ags-block-selling-users-chats",
+          "summary": "A coalition of 42 state attorneys general is trying to prevent Character.AI from selling off user data as it navigates Chapter 11 bankruptcy proceedings. In a deluge of nearly identical press releases, the various AGs accuse the company of planning to auction off \"the private chat histories of more than 21 million U.S. accounts - […]",
+          "published": "2026-11-26T09:54:40+00:00"
+        },
+        {
+          "category": "company",
+          "source": "iThome",
+          "title": "義大利、瑞士示警AI代理式攻擊，籲24小時內修補對外系統漏洞",
+          "url": "https://www.ithome.com.tw/news/180821",
+          "summary": "近期美國、英國及臺灣政府資安機構陸續示警AI代理式攻擊，義大利及瑞士也公布境內發生的攻擊案例。義大利資安事件應變團隊（CSIRT Italia）11月23日發布公告，指出駭客運用多個AI代理同時執行攻擊任務，部分案例中，短短數小時內就入侵大量系統。",
+          "published": "2026-11-27T08:11:00+00:00"
+        },
+        {
+          "category": "company",
+          "source": "科技新報",
+          "title": "鎧俠攜手輝達以 SSD 擴充 GPU 記憶體容量，突破 1 PB 並支援處理 2 兆個向量",
+          "url": "https://finance.technews.tw/2026/11/27/kioxia-and-nvidia-collaborate-to-expand-gpu-memory-capacity-via-ssds/",
+          "summary": "記憶體解決方案大廠鎧俠（Kioxia）於 27 日宣布與輝達（NVIDIA）展開合作，透過結合輝達 SCADA […]",
+          "published": "2026-11-27T00:20:25+00:00"
+        },
+        {
+          "category": "company",
+          "source": "INSIDE",
+          "title": "T3 Code 是什麼？開源 coding agent 控制介面，讓 Claude Code 與 Codex 在電腦與手機間接力",
+          "url": "https://www.inside.com.tw/article/43019-what-is-t3-code-open-source-coding-agent-control-plane-claude-code-codex-ios-android",
+          "summary": "T3 Code 是開源的 coding agent 控制介面，在用戶自己的電腦上執行 Claude Code、Codex 等代理，並提供桌面、網頁、iOS 與 Android 版本。用戶可在電腦開啟對話，再用手機接手審核與下指令，採 MIT 授權且不轉賣模型額度。",
+          "published": "2026-11-26T08:52:00+00:00"
+        },
+        {
+          "category": "company",
+          "source": "TechCrunch AI",
+          "title": "Grand Theft Auto VI proves why efficiency isn’t a virtue",
+          "url": "https://techcrunch.com/2026/11/26/as-anthropic-ipos-grand-theft-auto-vi-proves-why-efficiency-isnt-a-virtue/",
+          "summary": "On the same day that Anthropic entered the public market, a painstakingly human video game became one of most successful entertainment launches of all time.",
+          "published": "2026-11-26T16:00:00+00:00"
+        },
+        {
+          "category": "company",
+          "source": "iThome",
+          "title": "雲端安全聯盟提出AI治理框架整合指引，強調模型安全測試與執行過程可追溯性",
+          "url": "https://www.ithome.com.tw/news/180801",
+          "summary": "國際非營利資安組織雲端安全聯盟（CSA）近期發布企業AI成熟度指引，提出整合3套AI治理框架的做法，建議企業從AI系統原型開發階段就納入模型安全措施，定期檢測模型漏洞，並評估模型抵禦對抗性攻擊的能力，同時建立追蹤機制，以利查明AI系統的執行過程及各項作業所使用的身分。",
+          "published": "2026-11-27T08:11:00+00:00"
+        },
+        {
+          "category": "company",
+          "source": "科技新報",
+          "title": "美封殺中國遠端使用輝達 AI 晶片，數千顆頂級 GPU 湧入市場拋售",
+          "url": "https://technews.tw/2026/11/27/us-expands-chip-ban-triggering-b300-gpu-sell-off/",
+          "summary": "美國川普政府擴大封鎖中國企業遠端使用輝達（Nvidia）最先進人工智慧（AI）晶片的規定，《CNBC》報導，三 […]",
+          "published": "2026-11-27T00:20:20+00:00"
+        },
+        {
+          "category": "company",
+          "source": "INSIDE",
+          "title": "Anthropic CEO Amodei 否認主張人類向 AI「交出自由意志」，強調民主程序治理",
+          "url": "https://www.inside.com.tw/article/43018-anthropic-ceo-amodei-denies-surrender-human-free-will-to-ai-responds-axios-democratic-governance",
+          "summary": "Axios 引述匿名消息人士報導，Anthropic 內部有人認為不把 AI 做得更好的事交給 AI 並不理性。Amodei 當天在 X 發文否認主張人類交出自由意志，稱把治理交給 AI 是糟糕的主意，AI 應由合法的民主程序治理。",
+          "published": "2026-11-26T06:28:00+00:00"
+        },
+        {
+          "category": "company",
+          "source": "TechCrunch AI",
+          "title": "S&P considers Nvidia credit downgrade over governance and ‘key man’ risks",
+          "url": "https://techcrunch.com/2026/11/25/sp-considers-nvidia-credit-downgrade-over-governance-and-key-man-risks/",
+          "summary": "The credit rating agency may lower Nvidia's credit rating to AA-, the fourth-highest rating.",
+          "published": "2026-11-25T22:44:32+00:00"
+        },
+        {
+          "category": "company",
+          "source": "iThome",
+          "title": "BeyondTrust預測2027年企業資安新挑戰，AI代理權限遭濫用，對外開放系統重大漏洞應變時間縮短至數小時",
+          "url": "https://www.ithome.com.tw/news/180760",
+          "summary": "企業部署的AI代理能夠自主存取敏感資料、操作其他系統，並代表使用者執行任務，但攻擊者也可能濫用這些權限發動攻擊。特權存取管理（PAM）業者BeyondTrust公布2027年資安趨勢預測，指出企業資安管理的重點將不再只是掌握誰擁有存取權限，也須釐清人員、機器及AI代理取得權限後能夠執行哪些操作、授權範圍有多大，以及發生資安事件時應由誰負責。",
+          "published": "2026-11-27T08:11:00+00:00"
+        },
+        {
+          "category": "company",
+          "source": "科技新報",
+          "title": "中國 AI 算力需求有多強？美國新規掀輝達 B300 求售潮",
+          "url": "https://technews.tw/2026/11/27/china-ai-computing-power-demand-us-regulations-thousands-nvidia-b300-sell-off/",
+          "summary": "美國政府進一步封堵中國企業取得先進 AI 算力的管道，也意外揭露中國需求對全球 AI 晶片市場的影響力。根據 […]",
+          "published": "2026-11-27T00:11:36+00:00"
+        },
+        {
+          "category": "company",
+          "source": "INSIDE",
+          "title": "美國收緊中國企業遠端租用 AI 晶片限制，傳數千顆 NVIDIA B300 GPU 尋求新買家",
+          "url": "https://www.inside.com.tw/article/43016-nvidia-b300-buyers-us-china-remote-access-controls",
+          "summary": "外媒引述消息人士指出，美國收緊中國企業遠端租用先進 AI 算力的規定後，市場上有涉及數千顆 NVIDIA B300 GPU 的尋找買家提案。報導未確認成交量與價格。",
+          "published": "2026-11-26T04:55:00+00:00"
+        },
+        {
+          "category": "company",
+          "source": "iThome",
+          "title": "導入AI省逾4.7萬工時，聖地牙哥市雲端部署從數月縮至數分鐘",
+          "url": "https://www.ithome.com.tw/news/180831",
+          "summary": "美國加州聖地牙哥市政府近日公布的內部數位轉型成效顯示，透過將生成式人工智慧（AI）工具普及至基層公務體系，並重整底層雲端網路架構，已實質縮減了行政作業與基礎設施部署的時間成本，為大型市政機關的營運效率帶來明顯改變。",
+          "published": "2026-11-26T06:11:15+00:00"
+        },
+        {
+          "category": "company",
+          "source": "科技新報",
+          "title": "AI 程式助理遭惡意指令操控：文字檔揭開企業資安新破口",
+          "url": "https://infosecu.technews.tw/2026/11/27/ai-agents-tricked-by-a-rogue-downloads-file-into-running-dangerous-malware/",
+          "summary": "許多企業研發團隊近年積極導入 AI 程式開發助理，期望加速軟體編寫與系統除錯效率。但當這類具高度自動執行力的工 […]",
+          "published": "2026-11-27T00:00:53+00:00"
+        },
+        {
+          "category": "company",
+          "source": "INSIDE",
+          "title": "AWS 執行長談 AI Agent 安全，企業應從身分、權限與系統架構著手",
+          "url": "https://www.inside.com.tw/article/43015-aws-reinvent-matt-garman-ai-agent-safety-engineering",
+          "summary": "AWS 執行長 Matt Garman 在 re:Invent 前撰文，主張為 AI 代理建立獨立身分、最小權限與隔離邊界，並透過獨立監控與驗證，降低部署風險。",
+          "published": "2026-11-26T04:22:00+00:00"
+        },
+        {
+          "category": "company",
+          "source": "iThome",
+          "title": "澳洲立法強化AI聊天機器人與社群平臺安全責任，違規罰款可達全球營收5%",
+          "url": "https://www.ithome.com.tw/news/180825",
+          "summary": "澳洲國會11月25日通過數位注意義務（Digital Duty of Care）法案，要求社群媒體、線上遊戲、AI聊天機器人及其他受規範的數位服務業者，主動防範可能對使用者造成嚴重傷害的內容及行為，並降低服務功能造成傷害的風險。違反數位注意義務的企業，罰款上限為全球營收5%或1.092億澳元，取兩者較高金額。數位注意義務預計12個月後生效。",
+          "published": "2026-11-26T04:11:01+00:00"
+        },
+        {
+          "category": "company",
+          "source": "科技新報",
+          "title": "貓王過世快 50 年，AI 竟然讓他「開口唱新歌」？",
+          "url": "https://finance.technews.tw/2026/11/27/elvis-presley-rightsholders-amend-suno-lawsuit-adding-more-than-100-allegedly-infringing-ai-tracks/",
+          "summary": "如果有一天，你在網路聽見過世歌手竟然在唱新歌，聲音、唱腔與本人幾乎一模一樣，你會相信這是真的嗎？AI 音樂快速 […]",
+          "published": "2026-11-26T23:50:04+00:00"
+        },
+        {
+          "category": "company",
+          "source": "INSIDE",
+          "title": "Meta AI 代理 Muse 攜手 Walmart，讓用戶以 AI 購買黑五優惠",
+          "url": "https://www.inside.com.tw/article/43009-meta-muse-walmart-black-friday-deals-ai-agent-agent-gateway-shopping",
+          "summary": "Walmart 與 Meta 合作，讓用戶在 Meta 的 AI 代理 Muse 中直接搜尋、比價並購買 Walmart 黑色星期五優惠，背後是 Walmart 10 月推出的 Agent Gateway。",
+          "published": "2026-11-26T03:49:00+00:00"
+        },
+        {
+          "category": "company",
+          "source": "iThome",
+          "title": "【資安日報】11月26日，Copeland XWEB PRO冷凍控制器遭劫持，淪為垃圾郵件發送與代理節點",
+          "url": "https://www.ithome.com.tw/news/180823",
+          "summary": "本日新聞焦點 ● Copeland XWEB PRO冷凍控制器遭劫持，淪為垃圾郵件與代理節點 ● 1Password員工GitHub帳號遭入侵，攻擊者竊取原始碼及客戶資料",
+          "published": "2026-11-26T02:11:50+00:00"
+        },
+        {
+          "category": "company",
+          "source": "科技新報",
+          "title": "戴爾三度上修全年財測，台系協力廠營運可望跟著衝",
+          "url": "https://finance.technews.tw/2026/11/27/dell-raises-full-year-outlook-third-time-taiwanese-suppliers-operations-surge/",
+          "summary": "戴爾（Dell Technologies）成功搭上 AI 需求熱潮，上季營收、獲利和本季展望都超出華爾街預期， […]",
+          "published": "2026-11-26T23:30:16+00:00"
+        },
+        {
+          "category": "company",
+          "source": "iThome",
+          "title": "Copeland XWEB PRO冷凍控制器遭劫持，淪為垃圾郵件發送與代理節點",
+          "url": "https://www.ithome.com.tw/news/180809",
+          "summary": "自10月上旬起，歐洲陸續爆發冷凍冷藏設備遭網路攻擊事件，法國數百家超市的冷凍設備遭人竄改溫度設定，後續攻擊更波及多個歐洲國家及血庫。",
+          "published": "2026-11-26T11:11:02+00:00"
+        },
+        {
+          "category": "company",
+          "source": "科技新報",
+          "title": "全球 AI 算力市場兩樣情，中國高價搶卡，美國需求與貸款逐步降溫",
+          "url": "https://technews.tw/2026/11/27/a-sharp-divide-in-the-global-ai-computing-market/",
+          "summary": "全球 AI 算力市場正出現荒誕的兩極割裂。在中國國內，一台 8 卡輝達 B300 伺服器黑市報價已炒至人民幣 […]",
+          "published": "2026-11-26T23:30:09+00:00"
+        },
+        {
+          "category": "company",
+          "source": "iThome",
+          "title": "OpenAI開始合併ChatGPT的Chat與Work介面，預定12月擴大部署共用配額",
+          "url": "https://www.ithome.com.tw/news/180807",
+          "summary": "OpenAI於11月宣布將合併對話（Chat）、Work及Codex的token用量配額的計畫。在ChatGPT Work與Codex本月稍早整合用量配額後，OpenAI官方公告開始針對少數Pro用戶合併Chat和Work，預定12月擴大部署共用配額機制。",
+          "published": "2026-11-26T11:11:20+00:00"
+        },
+        {
+          "category": "company",
+          "source": "科技新報",
+          "title": "「華爾街之狼」推 AI 語音平台 Tone 主打銷售語調，坦承成交力仍輸頂尖業務",
+          "url": "https://technews.tw/2026/11/27/wolf-of-wall-street-ventures-into-ai-voice-startup/",
+          "summary": "曾因證券詐欺入獄的「華爾街之狼」喬登·貝爾福（Jordan Belfort）推出 AI 語音平台 Tone，宣 […]",
+          "published": "2026-11-26T23:20:27+00:00"
+        }
+      ]
+    },
+    "tools": {
+      "name": "AI 新工具",
+      "items": [
+        {
+          "category": "tools",
+          "source": "Product Hunt",
+          "title": "Pax by Pydantic",
+          "url": "https://www.producthunt.com/products/pydantic",
+          "summary": "A coding agent where even coding is a plugin Discussion | Link",
+          "published": "2026-11-26T04:04:50+00:00"
+        },
+        {
+          "category": "tools",
+          "source": "GitHub 新興專案",
+          "title": "alesha-pro/llm.asm",
+          "url": "https://github.com/alesha-pro/llm.asm",
+          "summary": "Qwen3-0.6B inference (12 KB), bare-metal bootable OS (22 KB), and from-scratch Mini-GPT trainer with live Braille TUI (32 KB) in 100% pure x86-64 NASM assembly. Zero C, zero libc, zero dependencies.",
+          "published": "2026-11-25T07:28:51+00:00",
+          "stars": 1514,
+          "language": "Assembly"
+        },
+        {
+          "category": "tools",
+          "source": "Product Hunt",
+          "title": "Superframes",
+          "url": "https://www.producthunt.com/products/superframes-ai-video-editor",
+          "summary": "Brief an AI Director to edit the whole video Discussion | Link",
+          "published": "2026-11-26T05:09:09+00:00"
+        },
+        {
+          "category": "tools",
+          "source": "GitHub 新興專案",
+          "title": "qianyiai/KuroCat",
+          "url": "https://github.com/qianyiai/KuroCat",
+          "summary": "KuroCat — Free open-source 3D/2D desktop typing cat & AI coding companion (Bongo Cat alternative · Tauri v2 + Rust + MCP · Claude/Codex/DeepSeek/OBS · Win/Mac/Linux/Android)｜开源3D桌面打字小黑猫与AI伴侣",
+          "published": "2026-11-21T15:49:31+00:00",
+          "stars": 1346,
+          "language": "TypeScript"
+        },
+        {
+          "category": "tools",
+          "source": "Product Hunt",
+          "title": "Claude-Mem Cloud Sync",
+          "url": "https://www.producthunt.com/products/claude-mem",
+          "summary": "Switch devices. Keep your AI agents' memory. Discussion | Link",
+          "published": "2026-11-26T07:58:18+00:00"
+        },
+        {
+          "category": "tools",
+          "source": "GitHub 新興專案",
+          "title": "nexu-io/opengame",
+          "url": "https://github.com/nexu-io/opengame",
+          "summary": "The Super Game Agent — the Unity & Unreal for AI agents, with 100+ viral games to remix. Turn 20+ coding agents (Claude Code, Codex, DeepSeek, etc.) into a full-stack AI game studio. Build and publish 3D & mini-games to WeChat, Douyin, TikTok, Telegram, itch.io, and more.",
+          "published": "2026-11-25T10:35:45+00:00",
+          "stars": 842,
+          "language": "TypeScript"
+        },
+        {
+          "category": "tools",
+          "source": "Product Hunt",
+          "title": "AgentDE",
+          "url": "https://www.producthunt.com/products/agentde",
+          "summary": "Put all your coding agents in one native Mac window Discussion | Link",
+          "published": "2026-11-26T03:15:08+00:00"
+        },
+        {
+          "category": "tools",
+          "source": "GitHub 新興專案",
+          "title": "chanke17/KuroCat",
+          "url": "https://github.com/chanke17/KuroCat",
+          "summary": "KuroCat — Free open-source native desktop cat pet & OBS overlay (Bongo Cat alternative, Swift/C++, 802 KB)｜开源免费原生桌面萌猫（全平台 macOS·Win·Linux·UOS / 2.5D转头捕猎 / 数位板 / OBS透明绿幕 / 在线皮肤工坊 / 零按键上传）",
+          "published": "2026-11-23T01:06:18+00:00",
+          "stars": 672,
+          "language": "C++"
+        },
+        {
+          "category": "tools",
+          "source": "GitHub 新興專案",
+          "title": "Developing-Gamer/agent-sim",
+          "url": "https://github.com/Developing-Gamer/agent-sim",
+          "summary": "iOS simulators for AI agents, on Linux. The agent layer for x86Sim.",
+          "published": "2026-11-21T20:26:12+00:00",
+          "stars": 616,
+          "language": "Rust"
+        },
+        {
+          "category": "tools",
+          "source": "GitHub 新興專案",
+          "title": "gary23w/f-ck_data_brokers",
+          "url": "https://github.com/gary23w/f-ck_data_brokers",
+          "summary": "fck_data_brokers.py is a free, open-source Python script that sends opt-out and deletion requests to data brokers on your behalf.",
+          "published": "2026-11-26T17:53:07+00:00",
+          "stars": 364,
+          "language": "Python"
+        },
+        {
+          "category": "tools",
+          "source": "GitHub 新興專案",
+          "title": "praseesh369/youtube-ai-video-editing-system",
+          "url": "https://github.com/praseesh369/youtube-ai-video-editing-system",
+          "summary": "Storyboard, capture, and animate: an AI editing workflow for YouTube",
+          "published": "2026-11-21T17:21:17+00:00",
+          "stars": 338,
+          "language": "HTML"
+        },
+        {
+          "category": "tools",
+          "source": "GitHub 新興專案",
+          "title": "EL4CTEO/shrink-anything",
+          "url": "https://github.com/EL4CTEO/shrink-anything",
+          "summary": "Less code, same tests passing: delete the dead code, files, dependencies and assets in any codebase, and keep each cut only if your own tests still pass.",
+          "published": "2026-11-23T15:55:48+00:00",
+          "stars": 335,
+          "language": "Rust"
+        },
+        {
+          "category": "tools",
+          "source": "GitHub 新興專案",
+          "title": "bytebuildsmall/claude-desktop",
+          "url": "https://github.com/bytebuildsmall/claude-desktop",
+          "summary": "Claude Desktop for Windows 10/11. Chats with Claude AI to draft documents, analyze files and code, and answer questions from a native desktop app with quick access to your projects and conversations.",
+          "published": "2026-11-24T11:49:09+00:00",
+          "stars": 242,
+          "language": null
+        },
+        {
+          "category": "tools",
+          "source": "GitHub 新興專案",
+          "title": "matheusmongarde/garimpo",
+          "url": "https://github.com/matheusmongarde/garimpo",
+          "summary": "Prospecção open source do Google Maps ao Pix: acha negócios no Maps, gera um site-prévia com o nome de cada um, conversa no WhatsApp e cobra por Pix, Mercado Pago ou Stripe. Pagou, fecha sozinho. Roda no seu PC, VPS ou Vercel, com API para agentes (Claude Code, Codex, n8n).",
+          "published": "2026-11-24T23:58:18+00:00",
+          "stars": 215,
+          "language": "TypeScript"
+        },
+        {
+          "category": "tools",
+          "source": "GitHub 新興專案",
+          "title": "LIUFelix2004/dsh-workbuddy",
+          "url": "https://github.com/LIUFelix2004/dsh-workbuddy",
+          "summary": "Import WorkBuddy accounts into DeepSeek Harness as model providers: one route per account, full model list, per-account credit balance, and an automatic workaround for the gateway 11128 channel check.",
+          "published": "2026-11-20T11:22:44+00:00",
+          "stars": 176,
+          "language": "JavaScript"
+        },
+        {
+          "category": "tools",
+          "source": "GitHub 新興專案",
+          "title": "w1ccc/sap-data-mcp",
+          "url": "https://github.com/w1ccc/sap-data-mcp",
+          "summary": "Read-only MCP servers that let AI assistants query SAP S/4HANA through RFC/BAPI, private-cloud OData and public-cloud released APIs. Every call audited; credentials stay local.",
+          "published": "2026-11-20T15:15:23+00:00",
+          "stars": 175,
+          "language": "Python"
+        },
+        {
+          "category": "tools",
+          "source": "GitHub 新興專案",
+          "title": "nestjs/agent-skills",
+          "url": "https://github.com/nestjs/agent-skills",
+          "summary": "Agent skills for Nest framework (node.js) 🕵️‍♂️",
+          "published": "2026-11-20T07:44:21+00:00",
+          "stars": 167,
+          "language": "JavaScript"
+        },
+        {
+          "category": "tools",
+          "source": "GitHub 新興專案",
+          "title": "brainintelli/BioSignal-Guided-LLM-Reinforcement-Learning",
+          "url": "https://github.com/brainintelli/BioSignal-Guided-LLM-Reinforcement-Learning",
+          "summary": "Biosignal-guided reinforcement learning for LLM agents: offline organoid neural recordings as policy inputs in a Godot survival game, with paired evaluation.",
+          "published": "2026-11-24T02:39:01+00:00",
+          "stars": 166,
+          "language": "Python"
+        },
+        {
+          "category": "tools",
+          "source": "GitHub 新興專案",
+          "title": "mbzuai-oryx/LoopedWSP",
+          "url": "https://github.com/mbzuai-oryx/LoopedWSP",
+          "summary": "Looped Weight-Space Programming: LLM-Written Transformers for Long Algorithmic Reasoning",
+          "published": "2026-11-23T06:25:04+00:00",
+          "stars": 124,
+          "language": "Python"
+        }
+      ]
+    },
+    "research": {
+      "name": "ML / DL / NLP 新技術",
+      "items": [
+        {
+          "category": "research",
+          "source": "dair-ai Top AI Papers of the Week (November 16 - November 22) - 2026",
+          "title": "Self-Improvement Memory",
+          "url": "https://academy.dair.ai/papers/self-improvement-memory-enables-continual-recursive-self-improvement-2611.18856",
+          "summary": "Harness optimization is usually studied with one fixed model and one fixed benchmark. When either changes, the optimizer has to decide which parts of an evolved harness to keep, but the harness code alone does not record why earlier edits were made or how they performed. Researchers from Google Cloud AI, Google DeepMind, and Penn State study this setting, which they call continual recursive self-improvement, and give the harness optimizer its own memory.",
+          "published": null
+        },
+        {
+          "category": "research",
+          "source": "dair-ai Top AI Papers of the Week (November 16 - November 22) - 2026",
+          "title": "AutoRL",
+          "url": "https://academy.dair.ai/papers/autorl-a-multi-agent-system-towards-autonomous-reinforcement-learning-2611.17790",
+          "summary": "Reinforcement learning is a central step in improving model capabilities, but automating it is hard because training is unstable and needs constant supervision. Researchers from Meituan and collaborating universities introduce AutoRL, a multi-agent system that supervises a live RL run the way an RL researcher would, instead of following a fixed recipe.",
+          "published": null
+        },
+        {
+          "category": "research",
+          "source": "dair-ai Top AI Papers of the Week (November 16 - November 22) - 2026",
+          "title": "Weight-Space Programming",
+          "url": "https://academy.dair.ai/papers/interpretable-weight-space-programming-builds-transparent-transformers-and-brain-2611.18114",
+          "summary": "Neural networks predict well, but in science the goal is often an explanation, and deep models rarely show which features drive their predictions. Researchers from Microsoft Research and colleagues introduce interpretable weight-space programming (iWSP), where an LLM agent builds models by writing their weights and features directly in code, with no gradient training.",
+          "published": null
+        },
+        {
+          "category": "research",
+          "source": "dair-ai Top AI Papers of the Week (November 16 - November 22) - 2026",
+          "title": "GUARD",
+          "url": "https://academy.dair.ai/papers/guard-stabilizing-recursive-self-improvement-with-regret-guidance-2611.23476",
+          "summary": "Agents that edit their own harness without an external grader often get worse over time. Reflection and scalar scores mix up what an edit newly broke with what was never solved, which leads to local regressions, forgotten skills, and bloated memory. Google Cloud researchers propose GUARD, a framework for evolving a harness of prompts, skills, tool rules, and memory around a frozen base model without reference answers.",
+          "published": null
+        },
+        {
+          "category": "research",
+          "source": "dair-ai Top AI Papers of the Week (November 16 - November 22) - 2026",
+          "title": "EfficientSkill",
+          "url": "https://academy.dair.ai/papers/efficientskill-learning-skills-for-token-efficient-multi-turn-agents-2611.19823",
+          "summary": "Skill optimizers usually add a new rule after every failure. The skill grows, the agent reads more tokens every turn, and long loops start to time out. Researchers from Google and Purdue University introduce EfficientSkill, which learns a skill for accuracy first and then prunes it for length.",
+          "published": null
+        },
+        {
+          "category": "research",
+          "source": "dair-ai Top AI Papers of the Week (November 16 - November 22) - 2026",
+          "title": "Safe Personal RSI",
+          "url": "https://academy.dair.ai/papers/safe-personal-rsi-evaluating-and-repairing-personal-agent-updates-2611.23651",
+          "summary": "A change to a personal assistant's instructions can improve how it handles tasks while also changing what it discloses, which requests it follows, and how it reports its actions. Researchers from CMU, UC San Diego, UC Berkeley, and other institutions build Safe Personal RSI, an update gate for Kicker, a personal health assistant.",
+          "published": null
+        },
+        {
+          "category": "research",
+          "source": "dair-ai Top AI Papers of the Week (November 16 - November 22) - 2026",
+          "title": "Against All Likelihood",
+          "url": "https://academy.dair.ai/papers/against-all-likelihood-2611.09385",
+          "summary": "This essay from Meta argues that maximum likelihood, the dominant training principle for LLMs, is neither necessary nor sufficient for truth, since unlikely events happen every day and frequently repeated statements can be false. Drawing on philosophers who tie objectivity to invariance, including Nozick, Poincaré, and Cassirer, it proposes judging a statement true when it holds across relevant changes to the environment. The author connects this to work on out-of-distribution generalization, sketches how an LLM could test invariance at inference time, and discusses what it means for continua…",
+          "published": null
+        }
+      ]
+    }
+  },
+  "sources": [
+    {
+      "source": "TechCrunch AI",
+      "ok": true,
+      "count": 3
+    },
+    {
+      "source": "The Verge AI",
+      "ok": true,
+      "count": 1
+    },
+    {
+      "source": "VentureBeat AI",
+      "ok": false,
+      "error": "HTTPError: 429 Client Error: Too Many Requests for url: https://venturebeat.com/category/ai/feed/"
+    },
+    {
+      "source": "iThome",
+      "ok": true,
+      "count": 13
+    },
+    {
+      "source": "科技新報",
+      "ok": true,
+      "count": 20
+    },
+    {
+      "source": "數位時代",
+      "ok": true,
+      "count": 0
+    },
+    {
+      "source": "INSIDE",
+      "ok": true,
+      "count": 5
+    },
+    {
+      "source": "OpenAI 官方部落格",
+      "ok": true,
+      "count": 0
+    },
+    {
+      "source": "Anthropic 官方新聞",
+      "ok": true,
+      "count": 0
+    },
+    {
+      "source": "Google AI 官方部落格",
+      "ok": true,
+      "count": 0
+    },
+    {
+      "source": "Product Hunt",
+      "ok": true,
+      "count": 4
+    },
+    {
+      "source": "Hacker News Show HN",
+      "ok": true,
+      "count": 0
+    },
+    {
+      "source": "Google DeepMind 部落格",
+      "ok": true,
+      "count": 0
+    },
+    {
+      "source": "Hacker News 熱門 AI 討論",
+      "ok": false,
+      "error": "HTTPError: 502 Server Error: Bad Gateway for url: https://hnrss.org/newest?points=150&q=LLM+OR+transformer+OR+diffusion+OR+%22reinforcement+learning%22"
+    },
+    {
+      "source": "Hugging Face Daily Papers",
+      "ok": true,
+      "count": 0
+    },
+    {
+      "source": "dair-ai AI Papers of the Week",
+      "ok": true,
+      "count": 10
+    },
+    {
+      "source": "GitHub 新興專案",
+      "ok": true,
+      "count": 19
+    }
+  ]
+}
