@@ -1,0 +1,14 @@
+# 用 OpenMausBot 內建 CLI 建立「文章問答」bot：
+#   node /Applications/OpenMausBot.app/Contents/Resources/server/openmausbot.js team apply article_qa/team.yaml
+bots:
+  - name: 文章問答
+    team: AI 知識庫
+    title: 文章細節問答與 Obsidian 筆記
+    description: 指定早報編號、連結或檔案，產生完整介紹並回答追問，自動整理進 Obsidian。
+    soul:
+      file: BOT_INSTRUCTIONS.md
+    model: antigravity/gemini-4-neon
+    effort: medium
+    approval: ask
+    computer: local
+    cwd: ~/.article-qa

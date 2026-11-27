@@ -173,12 +173,21 @@ def html_to_md_arxiv(html: str, base: str):
                     return "stop"
                 out.append("#" * min(depth, 4) + " " + txt)
             elif name == "figure" and "ltx_table" not in cls:
-                cap = child.find("figcaption")
-                img = child.find("img")
-                if img and img.get("src"):
-                    figures.append({"caption": cap.get_text(" ", strip=True) if cap else "",
-                                    "src": urljoin(base, img["src"])})
+                # LaTeXML 的圖說可能是 <figcaption> 或 span.ltx_caption；圖可能是 <img> 或 <object data=*.svg>
+                cap = child.find("figcaption") or child.select_one(".ltx_caption")
+                img = child.find("img", src=True) or child.find("object", attrs={"data": True})
+                src = img and (img.get("src") or img.get("data"))
+                if src:
+                    figures.append({"caption": " ".join(cap.get_text(" ", strip=True).split()) if cap else "",
+                                    "src": urljoin(base, src)})
                     out.append(f"[圖 {len(figures)}] {figures[-1]['caption'][:200]}")
+            elif name == "figure":
+                cap = child.find("figcaption") or child.select_one(".ltx_caption")
+                if cap:
+                    out.append(cap.get_text(" ", strip=True))
+                    cap.decompose()
+                if emit(child, out, depth) == "stop":
+                    return "stop"
             elif name == "div" and "ltx_abstract" in cls:
                 out.append("## Abstract")
                 out.append(child.get_text(" ", strip=True).removeprefix("Abstract").strip())
@@ -212,11 +221,13 @@ def html_to_md_arxiv(html: str, base: str):
 def split_refs_md(md: str):
     """從 Markdown 切掉參考文獻與致謝；參考文獻後面的部分當附錄。"""
     lines = md.splitlines()
-    main, appx, mode = [], [], "main"
+    main, appx, mode, fence = [], [], "main", False
     for line in lines:
-        h = re.match(r"^#{1,6}\s+(.*)", line)
+        if re.match(r"^\s*(```|~~~)", line):
+            fence = not fence
+        h = None if fence else re.match(r"^#{1,6}\s+(.*)", line)
         head = re.sub(r"[*_`]", "", h[1]).strip() if h else None
-        if head is None and re.match(r"^\*\*[^*]{3,60}\*\*$", line.strip()):
+        if head is None and not fence and re.match(r"^\*\*[^*]{3,60}\*\*$", line.strip()):
             head = line.strip().strip("*")
         if head is not None:
             plain = re.sub(r"^[\dIVX]+\.?\s*", "", head)
@@ -267,7 +278,7 @@ def pdf_figures(path: Path, out: Path, limit: int = 12):
     import pymupdf
     doc = pymupdf.open(str(path))
     figs, seen = [], set()
-    cap_re = re.compile(r"^\s*(Figure|Fig\.)\s*(\d+)\s*[:.|]", re.I)
+    cap_re = re.compile(r"^\s*(Figure|Fig\.)\s*([A-Z]?\d+)\s*[:.|]", re.I)  # 也抓附錄的 Figure A1
     for pno, page in enumerate(doc):
         W, H = page.rect.width, page.rect.height
         blocks = [b for b in page.get_text("blocks") if b[6] == 0]
@@ -310,15 +321,20 @@ def pdf_figures(path: Path, out: Path, limit: int = 12):
             seen.add(m[2])
             fn = out / f"fig{m[2]}.png"
             pix.save(str(fn))
-            figs.append({"n": int(m[2]), "caption": " ".join(b[4].split())[:400], "file": fn.name, "page": pno + 1})
+            figs.append({"n": len(figs) + 1, "caption": " ".join(b[4].split())[:400], "file": fn.name, "page": pno + 1})
             if len(figs) >= limit:
-                return sorted(figs, key=lambda f: f["n"])
-    return sorted(figs, key=lambda f: f["n"])
+                return figs
+    return figs
 
 
 def build_toc(md: str, part: str):
     lines = md.splitlines()
-    heads = [(i, len(m[1]), m[2].strip()) for i, l in enumerate(lines) if (m := re.match(r"^(#{1,6})\s+(.*)", l))]
+    heads, fence = [], False
+    for i, l in enumerate(lines):
+        if re.match(r"^\s*(```|~~~)", l):  # 程式碼區塊裡的 # 註解不是標題
+            fence = not fence
+        elif not fence and (m := re.match(r"^(#{1,6})\s+(.*)", l)):
+            heads.append((i, len(m[1]), m[2].strip()))
     if not heads or heads[0][0] > 0:
         heads.insert(0, (0, 1, "（開頭）"))
     toc = []
@@ -370,13 +386,20 @@ def fetch(src: str, refresh: bool = False) -> Path:
             r = None
         if r is not None and r.status_code == 200 and "ltx_" in r.text:
             kind, final_url = "arxiv-html", r.url
-            title, main, appx, raw_figs = html_to_md_arxiv(r.text, r.url if r.url.endswith("/") else r.url + "/")
+            title, main, appx, raw_figs = html_to_md_arxiv(r.text, r.url.rstrip("/"))  # 圖片 src 相對於 /html/ 解析
             for k, f in enumerate(raw_figs[:12], 1):
                 try:
                     img = http_get(f["src"])
-                    ext = Path(urlparse(f["src"]).path).suffix or ".png"
+                    if img.status_code != 200 or "text/html" in img.headers.get("content-type", ""):
+                        continue
+                    ext = Path(urlparse(f["src"]).path).suffix.lower() or ".png"
+                    data = img.content
+                    if ext == ".svg":  # 轉成 PNG，模型與 Obsidian 都比較好看
+                        import pymupdf
+                        svg = pymupdf.open(stream=data, filetype="svg")
+                        data, ext = svg[0].get_pixmap(dpi=200).tobytes("png"), ".png"
                     fn = f"fig{k}{ext}"
-                    (d / "figures" / fn).write_bytes(img.content)
+                    (d / "figures" / fn).write_bytes(data)
                     figs.append({"n": k, "caption": f["caption"][:400], "file": fn})
                 except Exception:
                     pass
@@ -588,7 +611,8 @@ def note_create(cid: str, intro: str, title: str | None, category: str | None, t
             continue
         dst = f"{cid}-{f['file']}"
         shutil.copy(d / "figures" / f["file"], adir / dst)
-        embeds[n] = f"![[{dst}|640]]\n*圖 {n}：{f['caption'][:200]}*"
+        cap = " ".join(f["caption"].split())[:200]  # 圖說裡的換行會讓斜體斷掉
+        embeds[n] = f"![[{dst}|640]]\n*圖 {n}：{cap}*"
     used = set()
 
     def repl(m):
