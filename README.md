@@ -52,3 +52,11 @@
 pip install -r requirements.txt
 python -m news_push.fetch --out /tmp/candidates.json
 ```
+
+## 文章問答 bot（article_qa/）
+
+OpenMausBot 的「文章問答」bot 在 Mac 本機使用的讀文工具。它把早報文章、網址或上傳的檔案轉成乾淨的文字快取（去掉參考文獻、擷取關鍵圖、建立章節目錄），讓模型只讀需要的段落，並把介紹與問答寫進 Obsidian。
+
+- 安裝：`bash article_qa/install.sh`（裝到 `~/.article-qa`，指令是 `~/.article-qa/aqa`）
+- bot 指令：`article_qa/BOT_INSTRUCTIONS.md`
+- Obsidian vault 預設為 iCloud 上的 Notes，可用環境變數 `AQA_VAULT` 或 `~/.article-qa/config.json` 的 `vault` 覆寫。
