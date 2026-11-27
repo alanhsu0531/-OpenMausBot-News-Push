@@ -9,7 +9,6 @@ bots:
     soul:
       file: BOT_INSTRUCTIONS.md
     model: antigravity/gemini-4-neon
-    effort: medium
     approval: full
     computer: local
     cwd: /Users/alanhsu/.article-qa
