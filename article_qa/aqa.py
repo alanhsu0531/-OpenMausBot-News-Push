@@ -616,7 +616,10 @@ def split_sections(intro: str):
 
 def figure_block(cid: str, f: dict) -> str:
     cap = " ".join(f["caption"].split())
-    cap = re.sub(r"^(Figure|Fig\.)\s*[A-Z]?\d+\s*[:.|]\s*", "", cap, flags=re.I)[:180]
+    cap = re.sub(r"^(Figure|Fig\.)\s*[A-Z]?\d+\s*[:.|]\s*", "", cap, flags=re.I)
+    cap = re.split(r"(?<=[.。])\s", cap, maxsplit=1)[0]  # 只取圖說第一句（圖的標題），避免在字中間截斷
+    if len(cap) > 120:
+        cap = cap[:119].rsplit(" ", 1)[0] + "…"
     return f"> [!example] 圖 {f['n']}｜{cap}\n> ![[{cid}-{f['file']}|680]]"
 
 
@@ -644,7 +647,7 @@ def render_intro(cid: str, intro: str, figmap: dict, fig_nos: list[int]):
         if "適合" in head:
             body = f"> [!tip] 適用情境\n{quote(body)}"
         elif "成果" in head or "限制" in head:
-            m = re.search(r"^###\s*限制.*$", body, re.M)
+            m = re.search(r"^###\s*(主要|研究)?限制.*$", body, re.M)
             if m:
                 lim = body[m.end():].strip()
                 body = body[:m.start()].rstrip() + f"\n\n> [!warning] 限制\n{quote(lim)}"
