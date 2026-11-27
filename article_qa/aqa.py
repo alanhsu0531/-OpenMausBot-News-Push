@@ -11,6 +11,7 @@
   figure <快取ID> <圖號>        印出某張圖的檔案路徑（給模型看圖用）
   note create <快取ID>          從 stdin 讀介紹，建立 Obsidian 筆記
   note qa <快取ID> -q 問題       從 stdin 讀回答，追加到筆記的問答紀錄
+  note restyle <快取ID>         把舊版筆記改成最新樣式（保留問答）
   list                          列出最近的快取
 """
 from __future__ import annotations
@@ -585,6 +586,128 @@ def yaml_str(s) -> str:
     return json.dumps(str(s), ensure_ascii=False)
 
 
+SECTION_STYLE = [  # (關鍵字, 圖示)
+    ("一句話", "💡"), ("背景", "🧭"), ("核心", "🧠"), ("方法", "🧠"), ("成果", "📊"), ("限制", "📊"),
+    ("怎麼用", "🛠️"), ("意義", "🛠️"), ("適合", "🎯"), ("延伸", "📚"),
+]
+EMOJI_RE = re.compile(r"^[\U0001F000-\U0001FFFF\u2600-\u27BF\uFE0F\u200d\s]+")
+
+
+def quote(text: str) -> str:
+    """把一段 Markdown 包進 callout（每行前面加 >）。"""
+    return "\n".join(f"> {l}" if l.strip() else ">" for l in text.strip().splitlines())
+
+
+def split_sections(intro: str):
+    """把介紹依 ## 標題切成 [(標題, 內容)]，標題前的文字標題為空字串。"""
+    out, cur, buf = [], "", []
+    for line in intro.strip().splitlines():
+        m = re.match(r"^##\s+(.*)", line)
+        if m:
+            if cur or "\n".join(buf).strip():
+                out.append((cur, "\n".join(buf).strip()))
+            cur, buf = EMOJI_RE.sub("", m[1]).strip(), []
+        else:
+            buf.append(line)
+    if cur or "\n".join(buf).strip():
+        out.append((cur, "\n".join(buf).strip()))
+    return out
+
+
+def figure_block(cid: str, f: dict) -> str:
+    cap = " ".join(f["caption"].split())
+    cap = re.sub(r"^(Figure|Fig\.)\s*[A-Z]?\d+\s*[:.|]\s*", "", cap, flags=re.I)[:180]
+    return f"> [!example] 圖 {f['n']}｜{cap}\n> ![[{cid}-{f['file']}|680]]"
+
+
+def render_intro(cid: str, intro: str, figmap: dict, fig_nos: list[int]):
+    """回傳 (重點 callout, 其餘段落)。圖片放在 {{fig:N}} 的位置，沒放的補在最後。"""
+    used = set()
+
+    def repl(m):
+        n = int(m[1])
+        if n in figmap and n in fig_nos:
+            used.add(n)
+            return "\n" + figure_block(cid, figmap[n]) + "\n"
+        return ""
+    intro = re.sub(r"\{\{\s*fig:(\d+)\s*\}\}", repl, intro)
+    abstract, parts = "", []
+    for head, body in split_sections(intro):
+        if not head:
+            if body:
+                parts.append(body)
+            continue
+        if "一句話" in head or "重點" == head:
+            abstract = f"> [!abstract] 一句話重點\n{quote(body)}"
+            continue
+        icon = next((e for k, e in SECTION_STYLE if k in head), "📌")
+        if "適合" in head:
+            body = f"> [!tip] 適用情境\n{quote(body)}"
+        elif "成果" in head or "限制" in head:
+            m = re.search(r"^###\s*限制.*$", body, re.M)
+            if m:
+                lim = body[m.end():].strip()
+                body = body[:m.start()].rstrip() + f"\n\n> [!warning] 限制\n{quote(lim)}"
+        parts.append(f"## {icon} {head}\n\n{body}")
+    rest = [figure_block(cid, figmap[n]) for n in fig_nos if n in figmap and n not in used]
+    if rest:
+        parts.append("## 🖼️ 關鍵圖\n\n" + "\n\n".join(rest))
+    return abstract, "\n\n".join(parts)
+
+
+def render_note(cid: str, meta: dict, title: str, cat: str, tags: list[str], intro: str,
+                fig_nos: list[int], date: str, qa_text: str = "") -> str:
+    it = meta.get("digest") or {}
+    topic = [t.strip().lstrip("#") for t in tags if t.strip()]
+    tagset = ["AI早報/文章筆記"] + ([f"AI早報/{cat}"] if cat else []) + topic
+    fm = ["---", f"title: {yaml_str(title)}",
+          f"aliases:\n  - {yaml_str(meta['title'])}" if meta["title"] and meta["title"] != title else None,
+          f"原文標題: {yaml_str(meta['title'])}" if meta["title"] and meta["title"] != title else None,
+          f"來源: {yaml_str(meta['url'])}" if meta["url"] else None,
+          f"檔案: {yaml_str(meta['file'])}" if meta.get("file") else None,
+          f"arxiv: {yaml_str(meta['arxiv'])}" if meta.get("arxiv") else None,
+          f"日期: {date}",
+          f"分類: {cat}" if cat else None,
+          f"早報: {'內' if it else '外'}",
+          f"早報日期: {it['digest_date']}" if it else None,
+          f"早報編號: {it['digest_no']}" if it else None,
+          f"aqa_id: {cid}",
+          "tags:"] + [f"  - {yaml_str(t)}" for t in tagset] + ["---"]
+    figmap = {f["n"]: f for f in meta["figures"]}
+    abstract, body = render_intro(cid, intro, figmap, fig_nos)
+
+    rows = [("項目", "內容")]
+    link = meta["url"] or meta.get("file", "")
+    if link.startswith("http"):
+        rows.append(("🔗 原文", f"[{(meta['title'] or title).replace('|', '/')}]({link})"))
+    elif link:
+        rows.append(("📁 檔案", f"`{link}`"))
+    if it:
+        rows.append(("🗞️ 早報", f"{it['digest_date']}　第 {it['digest_no']} 則・{cat}"))
+    elif cat:
+        rows.append(("🗂️ 分類", cat))
+    if meta.get("arxiv"):
+        rows.append(("📑 arXiv", f"[{meta['arxiv']}](https://arxiv.org/abs/{meta['arxiv']})"))
+    if topic:
+        rows.append(("🏷️ 主題", "、".join(topic)))
+    rows.append(("🗓️ 建立", date))
+    table = "\n".join([f"| {a} | {b} |" for a, b in rows[:1]] + ["| :-- | :-- |"] + [f"| {a} | {b} |" for a, b in rows[1:]])
+    info = "> [!info]- 文章資訊\n" + quote(table)
+
+    head = [f"# 📄 {title}", abstract, info]
+    text = "\n".join(x for x in fm if x is not None) + "\n\n" + "\n\n".join(h for h in head if h)
+    text += "\n\n" + body + "\n\n---\n\n## 💬 問答紀錄\n"
+    if qa_text.strip():
+        text += "\n" + qa_text.strip() + "\n"
+    return re.sub(r"\n{3,}", "\n\n", text)
+
+
+def qa_block(n: int, question: str, answer: str, stamp: str | None = None) -> str:
+    q = " ".join(question.split())
+    stamp = stamp or dt.datetime.now(TW).strftime("%Y-%m-%d %H:%M")
+    return f"> [!question]- Q{n}｜{q}\n{quote(answer)}\n>\n> <small>🕒 {stamp}</small>"
+
+
 def note_create(cid: str, intro: str, title: str | None, category: str | None, tags: list[str],
                 fig_nos: list[int], force: bool) -> Path:
     d, meta = load(cid)
@@ -601,53 +724,22 @@ def note_create(cid: str, intro: str, title: str | None, category: str | None, t
     ndir, adir = vault / NOTE_DIR, vault / ATTACH_DIR
     ndir.mkdir(parents=True, exist_ok=True)
     adir.mkdir(parents=True, exist_ok=True)
-
     figmap = {f["n"]: f for f in meta["figures"]}
-    embeds = {}
     for n in fig_nos:
-        f = figmap.get(n)
-        if not f:
+        if n not in figmap:
             print(f"注意：沒有圖 {n}，略過。", file=sys.stderr)
             continue
-        dst = f"{cid}-{f['file']}"
-        shutil.copy(d / "figures" / f["file"], adir / dst)
-        cap = " ".join(f["caption"].split())[:200]  # 圖說裡的換行會讓斜體斷掉
-        embeds[n] = f"![[{dst}|640]]\n*圖 {n}：{cap}*"
-    used = set()
-
-    def repl(m):
-        n = int(m[1])
-        used.add(n)
-        return embeds.get(n, "")
-    body = re.sub(r"\{\{\s*fig:(\d+)\s*\}\}", repl, intro.strip())
-    rest = [embeds[n] for n in embeds if n not in used]
-    if rest:
-        body += "\n\n## 關鍵圖\n\n" + "\n\n".join(rest)
-
-    tagset = ["AI早報/文章筆記"] + ([f"AI早報/{cat}"] if cat else []) + [t.strip().lstrip("#") for t in tags if t.strip()]
-    fm = ["---", f"title: {yaml_str(title)}",
-          f"原文標題: {yaml_str(meta['title'])}" if meta["title"] and meta["title"] != title else None,
-          f"來源: {yaml_str(meta['url'])}" if meta["url"] else None,
-          f"檔案: {yaml_str(meta['file'])}" if meta.get("file") else None,
-          f"arxiv: {yaml_str(meta['arxiv'])}" if meta.get("arxiv") else None,
-          f"日期: {date}",
-          f"分類: {cat}" if cat else None,
-          f"早報: {'內' if it else '外'}",
-          f"早報日期: {it['digest_date']}" if it else None,
-          f"早報編號: {it['digest_no']}" if it else None,
-          "tags:"] + [f"  - {yaml_str(t)}" for t in tagset] + ["---"]
-    link = meta["url"] or meta.get("file", "")
-    text = "\n".join(x for x in fm if x is not None) + f"\n\n# {title}\n\n"
-    if link:
-        text += f"> 原文：[{meta['title'] or title}]({link})\n\n" if link.startswith("http") else f"> 原文檔案：`{link}`\n\n"
-    text += body + "\n\n## 問答紀錄\n"
-    fn = ndir / f"{date} {safe_name(title)}.md"
+        shutil.copy(d / "figures" / figmap[n]["file"], adir / f"{cid}-{figmap[n]['file']}")
+    topic = [t for t in tags if t.strip()]
+    text = render_note(cid, meta, title, cat, topic, intro, fig_nos, date)
+    fn = Path(meta["note"]) if force and meta.get("note") else ndir / f"{date} {safe_name(title)}.md"
     k = 2
     while fn.exists() and not force:
         fn = ndir / f"{date} {safe_name(title)} ({k}).md"
         k += 1
     fn.write_text(text, "utf-8")
-    meta["note"] = str(fn)
+    (d / "intro.md").write_text(intro, "utf-8")
+    meta.update(note=str(fn), note_title=title, note_cat=cat, note_tags=topic, note_figs=fig_nos, note_date=date)
     save_meta(d, meta)
     return fn
 
@@ -658,12 +750,65 @@ def note_qa(cid: str, question: str, answer: str) -> Path:
         die("這篇還沒有筆記，請先執行 note create。")
     fn = Path(meta["note"])
     text = fn.read_text("utf-8").rstrip() + "\n"
-    if "## 問答紀錄" not in text:
-        text += "\n## 問答紀錄\n"
+    if "問答紀錄" not in text:
+        text += "\n---\n\n## 💬 問答紀錄\n"
     n = len(re.findall(r"^> \[!question\]", text, re.M)) + 1
-    q = " ".join(question.split())
-    block = [f"\n> [!question]- Q{n}：{q}"] + [f"> {l}" if l.strip() else ">" for l in answer.strip().splitlines()]
-    fn.write_text(text + "\n".join(block) + "\n", "utf-8")
+    fn.write_text(text + "\n" + qa_block(n, question, answer) + "\n", "utf-8")
+    return fn
+
+
+def note_restyle(cid: str) -> Path:
+    """把舊格式的筆記改成新版樣式，保留介紹內容與所有問答。"""
+    d, meta = load(cid)
+    if not meta.get("note") or not Path(meta["note"]).exists():
+        die("這篇還沒有筆記。")
+    fn = Path(meta["note"])
+    old = fn.read_text("utf-8")
+    fm = re.match(r"^---\n(.*?)\n---\n", old, re.S)
+    front = fm[1] if fm else ""
+    body = old[fm.end():] if fm else old
+    tags = [t for t in re.findall(r'^\s+-\s+"?([^"\n]+)"?', front.split("tags:")[-1], re.M) if not t.startswith("AI早報/")]
+    title = meta.get("note_title") or (re.search(r'^title:\s*"?(.*?)"?$', front, re.M) or [None, meta["title"]])[1]
+    cat = meta.get("note_cat") or ((re.search(r"^分類:\s*(.*)$", front, re.M) or [None, ""])[1])
+    date = meta.get("note_date") or ((re.search(r"^日期:\s*(.*)$", front, re.M) or [None, today().isoformat()])[1])
+    qa_at = re.search(r"^(---\n\n)?##\s*(💬\s*)?問答紀錄\s*$", body, re.M)
+    intro_part = body[:qa_at.start()] if qa_at else body
+    qa_part = body[qa_at.end():] if qa_at else ""
+    if (d / "intro.md").exists():
+        intro = (d / "intro.md").read_text("utf-8")
+        figs = meta.get("note_figs") or []
+    else:
+        intro_part = re.sub(r"^#\s+.*$", "", intro_part, count=1, flags=re.M)
+        intro_part = re.sub(r"^>\s*原文.*$", "", intro_part, flags=re.M)
+        figs = []
+
+        def back(m):
+            name = m[1]
+            f = next((f for f in meta["figures"] if f"{cid}-{f['file']}" == name), None)
+            if not f:
+                return m[0]
+            figs.append(f["n"])
+            return "{{fig:%d}}" % f["n"]
+        intro = re.sub(r"!\[\[([^|\]]+)(?:\|\d+)?\]\]\n\*圖[^\n]*\*", back, intro_part)
+        (d / "intro.md").write_text(intro.strip(), "utf-8")
+    blocks = re.split(r"(?m)^(?=> \[!question\])", qa_part)
+    qas = []
+    for b in blocks:
+        m = re.match(r"> \[!question\][-+]?\s*Q\d+\s*[：｜:|]\s*([^\n]*)\n?(.*)", b, re.S)
+        if not m:
+            continue
+        lines = [re.sub(r"^>\s?", "", l) for l in m[2].rstrip().splitlines()]
+        stamp = None
+        if lines and "🕒" in lines[-1]:
+            stamp = re.sub(r"<[^>]+>|🕒", "", lines.pop()).strip()
+            while lines and not lines[-1].strip():
+                lines.pop()
+        qas.append((m[1].strip(), "\n".join(lines), stamp or date))
+    qa_text = "\n\n".join(qa_block(i, q, a, st) for i, (q, a, st) in enumerate(qas, 1))
+    shutil.copy(fn, d / "note.backup.md")
+    fn.write_text(render_note(cid, meta, title, cat, tags, intro, figs, date, qa_text), "utf-8")
+    meta.update(note_title=title, note_cat=cat, note_tags=tags, note_figs=figs, note_date=date)
+    save_meta(d, meta)
     return fn
 
 
@@ -685,6 +830,7 @@ def main(argv=None):
     c.add_argument("--tags", default=""); c.add_argument("--figures", default="")
     c.add_argument("--force", action="store_true")
     q = ns.add_parser("qa"); q.add_argument("id"); q.add_argument("-q", "--question", required=True)
+    r = ns.add_parser("restyle"); r.add_argument("id")
     sub.add_parser("list")
     a = p.parse_args(argv)
 
@@ -711,6 +857,8 @@ def main(argv=None):
                 die("請從 stdin 提供介紹內容。")
             figs = [int(x) for x in re.findall(r"\d+", a.figures)]
             print(note_create(a.id, intro, a.title, a.category, a.tags.split(","), figs, a.force))
+        elif a.ncmd == "restyle":
+            print(note_restyle(a.id))
         else:
             ans = sys.stdin.read()
             if not ans.strip():
