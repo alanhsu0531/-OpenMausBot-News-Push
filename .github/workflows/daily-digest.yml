@@ -90,6 +90,7 @@ jobs:
           python -m news_push.source_report --days 1
           python -c "import json,glob;d=json.load(open(sorted(glob.glob('data/*/candidates.json'))[-1]));[print('LAB', i['source'], i['title'], i['url'], i.get('stars')) for i in d['categories']['lab']['items']]"
           grep -n -A3 "AI研究所" data/latest.md | head -60
+          if [ -n "${{ inputs.radar_date }}" ]; then python -m news_push.radar_outline "${{ inputs.radar_date }}"; fi
 
       - name: 失敗提醒（寄警示信，並把早報換成失敗通知）
         if: ${{ failure() && inputs.mode != 'notion_only' && inputs.mode != 'test' }}
