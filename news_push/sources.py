@@ -11,11 +11,13 @@
 COMPANY = "company"
 TOOLS = "tools"
 RESEARCH = "research"
+LAB = "lab"
 
 CATEGORY_NAMES = {
     COMPANY: "AI 科技公司新聞",
     TOOLS: "AI 新工具",
     RESEARCH: "ML / DL / NLP 新技術",
+    LAB: "AI研究所",
 }
 
 # 一般 RSS 來源。
@@ -70,6 +72,15 @@ DAIR_AI_YEAR_URL = (
 GITHUB_TOPICS = ["llm", "ai-agents", "generative-ai", "mcp"]
 GITHUB_MIN_STARS = 100
 
+# 「AI研究所」類別：每天從 GitHub 隨機挑近一年內建立的熱門 AI 開源專案，
+# 加上 0xspeter AI 日報平台當天的全部貼文（當天沒發就略過）。
+LAB_GITHUB_PICKS = 5
+LAB_GITHUB_TOPICS = ["llm", "ai-agents", "generative-ai", "mcp", "machine-learning",
+                     "deep-learning", "rag", "ai", "artificial-intelligence"]
+LAB_GITHUB_MIN_STARS = 1000
+LAB_GITHUB_MAX_AGE_DAYS = 365
+RADAR_ISSUE_URL = "https://0xspeter-radar-5888.web.app/issues/{date}/"
+
 # 綜合科技來源的 AI 關鍵字（不分大小寫）
 AI_KEYWORDS = [
     "ai", "a.i.", "人工智慧", "llm", "gpt", "openai", "anthropic", "claude",
@@ -92,6 +103,12 @@ FACETS = {
         ("method", "⚙️", "方法", "用什麼方法", "透過什麼方法或技術解決", "blue_background"),
         ("usage", "🚀", "用法", "如何使用", "如何開始使用", "green_background"),
         ("advantage", "✨", "優勢", "使用後的優勢", "使用後的優勢", "yellow_background"),
+    ],
+    LAB: [
+        ("problem", "🎯", "問題", "解決什麼問題", "這個專案或消息想解決什麼問題", "red_background"),
+        ("method", "⚙️", "方法", "用什麼方法", "透過什麼方法或技術解決", "blue_background"),
+        ("usage", "🚀", "用法", "如何使用", "如何開始使用（新聞類寫「可以怎麼關注或應用」）", "green_background"),
+        ("advantage", "✨", "優勢", "使用後的優勢", "使用後的優勢或對讀者的價值", "yellow_background"),
     ],
     RESEARCH: [
         ("research_problem", "🧩", "問題", "研究問題", "現有方法卡在哪裡", "red_background"),

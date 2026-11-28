@@ -55,8 +55,9 @@ CATEGORY_STYLE = {  # (icon, 主色, 背景色)
     "company": ("🏢", "blue", "blue_background"),
     "tools": ("🛠️", "green", "green_background"),
     "research": ("🔬", "purple", "purple_background"),
+    "lab": ("🧪", "orange", "orange_background"),
 }
-FACET_HEADINGS = {"company": "🧭 事件解析", "tools": "🧰 工具解析", "research": "🔬 技術解析"}
+FACET_HEADINGS = {"company": "🧭 事件解析", "tools": "🧰 工具解析", "research": "🔬 技術解析", "lab": "🧪 專案解析"}
 
 
 def _facets(it: dict) -> list[tuple]:

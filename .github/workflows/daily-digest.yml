@@ -14,6 +14,10 @@ on:
         type: choice
         options: [full, notion_only, test]
         default: full
+      radar_date:
+        description: "（測試用）指定讀取 AI 日報平台哪一天的貼文，格式 YYYY-MM-DD；留空為今天"
+        required: false
+        default: ""
 
 permissions:
   contents: write
@@ -58,6 +62,7 @@ jobs:
         if: ${{ inputs.mode != 'notion_only' && steps.guard.outputs.skip != 'true' }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          RADAR_DATE: ${{ inputs.radar_date }}
         run: python -m news_push.fetch
 
       - name: 第 2 步：AI 挑選、摘要、寄 Email、同步 Notion
@@ -81,7 +86,10 @@ jobs:
 
       - name: 試跑結果
         if: ${{ inputs.mode == 'test' }}
-        run: python -m news_push.source_report --days 1 && head -40 data/latest.md
+        run: |
+          python -m news_push.source_report --days 1
+          python -c "import json,glob;d=json.load(open(sorted(glob.glob('data/*/candidates.json'))[-1]));[print('LAB', i['source'], i['title'], i['url'], i.get('stars')) for i in d['categories']['lab']['items']]"
+          grep -n -A3 "AI研究所" data/latest.md | head -60
 
       - name: 失敗提醒（寄警示信，並把早報換成失敗通知）
         if: ${{ failure() && inputs.mode != 'notion_only' && inputs.mode != 'test' }}

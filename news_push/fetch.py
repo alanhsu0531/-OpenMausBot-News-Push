@@ -207,6 +207,73 @@ def fetch_github_trending(now: datetime) -> list[dict]:
     ]
 
 
+def fetch_lab_github(now: datetime) -> list[dict]:
+    """AI研究所：近一年內建立、星數高的 AI 開源專案，每天依日期隨機挑幾個（不分時間先後）。"""
+    import random
+    since_date = (now - timedelta(days=S.LAB_GITHUB_MAX_AGE_DAYS)).date().isoformat()
+    headers = dict(HEADERS, Accept="application/vnd.github+json")
+    token = os.environ.get("GITHUB_TOKEN")
+    if token:
+        headers["Authorization"] = f"Bearer {token}"
+    pool: dict[str, dict] = {}
+    for topic in S.LAB_GITHUB_TOPICS:
+        q = f"topic:{topic} created:>={since_date} stars:>={S.LAB_GITHUB_MIN_STARS}"
+        resp = requests.get("https://api.github.com/search/repositories",
+                            params={"q": q, "sort": "stars", "order": "desc", "per_page": 100},
+                            headers=headers, timeout=TIMEOUT)
+        resp.raise_for_status()
+        for r in resp.json().get("items", []):
+            pool.setdefault(r["html_url"], r)
+    seen = load_seen(now)
+    repos = sorted((r for u, r in pool.items() if normalize_url(u) not in seen), key=lambda r: r["html_url"])
+    rng = random.Random(now.astimezone(TW).date().isoformat())
+    picks = rng.sample(repos, min(S.LAB_GITHUB_PICKS, len(repos)))
+    return [
+        make_item(S.LAB, "AI研究所・GitHub 熱門開源", r["full_name"], r["html_url"], r.get("description") or "",
+                  datetime.fromisoformat(r["created_at"].replace("Z", "+00:00")),
+                  {"stars": r["stargazers_count"], "language": r.get("language"), "must_include": True})
+        for r in picks
+    ]
+
+
+def parse_radar_issue(page: str) -> list[dict]:
+    """解析 AI 日報平台單日頁面：每個 <h2> 標題一則，找區段內的原文連結與第一段說明。"""
+    items = []
+    parts = re.split(r"<h2\b[^>]*>", page, flags=re.I)[1:]
+    for part in parts:
+        title_html, _, rest = part.partition("</h2>")
+        title = clean_text(title_html, 200)
+        if not title:
+            continue
+        section = re.split(r"<h2\b", rest, flags=re.I)[0]
+        link = None
+        for href, text in re.findall(r'<a\b[^>]*href="([^"]+)"[^>]*>(.*?)</a>', section, flags=re.I | re.S):
+            if href.startswith("http") and "0xspeter" not in href and "wallet-5888" not in href:
+                if "原文" in text or link is None:
+                    link = html.unescape(href)
+                    if "原文" in text:
+                        break
+        anchor = re.search(r'<a\b[^>]*href="([^"]+)"', title_html)
+        if anchor and anchor.group(1).startswith("http") and "0xspeter" not in anchor.group(1):
+            link = link or html.unescape(anchor.group(1))
+        if not link:
+            continue
+        para = re.search(r"<p\b[^>]*>(.*?)</p>", section, flags=re.I | re.S)
+        items.append({"title": title, "url": link, "summary": clean_text(para.group(1)) if para else ""})
+    return items
+
+
+def fetch_radar_today(now: datetime) -> list[dict]:
+    day = os.environ.get("RADAR_DATE") or now.astimezone(TW).date().isoformat()
+    resp = requests.get(S.RADAR_ISSUE_URL.format(date=day), headers=HEADERS, timeout=TIMEOUT)
+    if resp.status_code == 404:
+        return []  # 當天沒發
+    resp.raise_for_status()
+    return [make_item(S.LAB, "AI研究所・AI 日報平台", it["title"], it["url"], it["summary"],
+                      extra={"must_include": True})
+            for it in parse_radar_issue(resp.text)]
+
+
 # ---------- 去重與狀態 ----------
 
 def load_seen(now: datetime) -> dict[str, str]:
@@ -253,7 +320,10 @@ def run(hours: int, out_path: Path | None) -> dict:
     since = now - timedelta(hours=hours)
     today = now.astimezone(TW).date().isoformat()
 
-    jobs = [(src["name"], lambda src=src: fetch_rss(src, since)) for src in S.RSS_SOURCES]
+    # AI研究所放最前面：去重時保留先出現的，確保它每天都有 5 個專案
+    jobs = [("AI研究所・AI 日報平台", lambda: fetch_radar_today(now)),
+            ("AI研究所・GitHub 熱門開源", lambda: fetch_lab_github(now))]
+    jobs += [(src["name"], lambda src=src: fetch_rss(src, since)) for src in S.RSS_SOURCES]
     jobs += [
         ("Hugging Face Daily Papers", lambda: fetch_hf_daily_papers(since)),
         ("dair-ai AI Papers of the Week", lambda: fetch_dair_ai_week(now)),

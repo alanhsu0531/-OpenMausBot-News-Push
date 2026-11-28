@@ -26,22 +26,25 @@ from .mailer import send_digest_email
 from .notion_sync import sync_to_notion
 
 PER_CATEGORY = 5
-MAX_ITEMS = PER_CATEGORY * len(S.CATEGORY_NAMES)
+PICKED_CATEGORIES = [S.COMPANY, S.TOOLS, S.RESEARCH]  # 由 AI 挑選的類別；lab 全收
+MAX_ITEMS = 40
 WEEKDAYS = "一二三四五六日"
-CATEGORY_ICONS = {S.COMPANY: "🏢", S.TOOLS: "🛠️", S.RESEARCH: "🔬"}
+CATEGORY_ICONS = {S.COMPANY: "🏢", S.TOOLS: "🛠️", S.RESEARCH: "🔬", S.LAB: "🧪"}
 
 SYSTEM_PROMPT = """你是一位專業的科技新聞編輯，替台灣讀者整理每日 AI 科技早報。
 一律使用台灣慣用的繁體中文（例如：軟體、模型、程式、晶片、輝達），專有名詞與產品名可保留英文。
 只根據提供的資料撰寫，不可捏造事實、數字或功能；資料不足時就寫得保守一點。
 只輸出一個 JSON 物件，不要有任何其他文字或 Markdown 程式碼框。"""
 
-USER_PROMPT = """以下是今天的候選新聞，分成三類：
+USER_PROMPT = """以下是今天的候選新聞，分成四類：
 - company：AI 科技公司新聞（人事異動、產品決策、商業與政策動態）
 - tools：AI 新工具
 - research：ML / DL / NLP 新技術與論文
+- lab：AI研究所（GitHub 熱門開源專案與 AI 日報平台貼文）
 
-請每一類各挑出最重要、最有新意的 {per_cat} 則，共 {max_items} 則：
+company、tools、research 三類，每一類各挑出最重要、最有新意的 {per_cat} 則：
 - 三類都要剛好 {per_cat} 則（某類候選不足 {per_cat} 則時，該類有幾則就選幾則）
+- lab 類不用挑選，候選全部都要寫
 - 優先選影響大、讀者會想點開的；避免同一事件重複
 - tools 優先選真的能用的產品或開源專案，略過純行銷文
 
@@ -122,7 +125,7 @@ def parse_json(text: str) -> dict:
 
 def select_with_llm(cands: dict) -> dict:
     listing, index = build_candidate_list(cands)
-    prompt = USER_PROMPT.format(per_cat=PER_CATEGORY, max_items=MAX_ITEMS, candidates=listing,
+    prompt = USER_PROMPT.format(per_cat=PER_CATEGORY, candidates=listing,
                                 facet_guide=facet_guide(), recent=recent_titles(cands["date"]))
     last_err = None
     for attempt in range(2):
@@ -137,10 +140,17 @@ def select_with_llm(cands: dict) -> dict:
                     continue  # 模型給了不存在的編號就略過，確保網址都是真的
                 if any(i["url"] == src["url"] for i in items):
                     continue
-                if sum(i["category"] == src["category"] for i in items) >= PER_CATEGORY:
+                if (src["category"] in PICKED_CATEGORIES
+                        and sum(i["category"] == src["category"] for i in items) >= PER_CATEGORY):
                     continue  # 每類最多 PER_CATEGORY 則
                 items.append({**sel, "category": src["category"], "source": src["source"],
                               "url": src["url"], "original_title": src["title"]})
+            # 必收的項目（AI研究所）AI 漏寫時，用原文標題補上
+            for src in index.values():
+                if src.get("must_include") and not any(i["url"] == src["url"] for i in items):
+                    items.append({"category": src["category"], "source": src["source"], "url": src["url"],
+                                  "title": src["title"], "original_title": src["title"],
+                                  "brief": src.get("summary", "")[:60], "summary": src.get("summary", "")[:200]})
             if len(items) < 3:
                 raise ValueError(f"有效項目只有 {len(items)} 則")
             return {"headline": data.get("headline", ""), "items": items[:MAX_ITEMS], "model": model}
@@ -154,7 +164,7 @@ def fallback_selection(cands: dict) -> dict:
     """AI 全部失敗時的備案：每類取前 5 則原文標題，至少讓早報照常出現。"""
     items = []
     for cat, block in cands["categories"].items():
-        for it in block["items"][:PER_CATEGORY]:
+        for it in (block["items"] if cat == S.LAB else block["items"][:PER_CATEGORY]):
             items.append({"category": cat, "source": it["source"], "url": it["url"],
                           "title": it["title"], "original_title": it["title"],
                           "brief": it["title"], "summary": it.get("summary", "")[:200]})
@@ -177,7 +187,7 @@ def build_warnings(cands: dict, digest: dict) -> None:
     digest["failed_sources"] = failed
 
 
-CATEGORY_SHORT = {S.COMPANY: "公司動態", S.TOOLS: "新工具", S.RESEARCH: "新技術"}
+CATEGORY_SHORT = {S.COMPANY: "公司動態", S.TOOLS: "新工具", S.RESEARCH: "新技術", S.LAB: "AI研究所"}
 
 
 def circled(n: int) -> str:
