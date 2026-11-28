@@ -236,14 +236,17 @@ def fetch_lab_github(now: datetime) -> list[dict]:
     ]
 
 
-def parse_radar_issue(page: str) -> list[dict]:
+RADAR_SKIP_TITLES = ("今日總結", "今日熱搜", "熱搜", "總結", "訂閱", "關於", "看更多")
+
+
+def parse_radar_issue(page: str, page_url: str = "") -> list[dict]:
     """解析 AI 日報平台單日頁面：每個 <h2> 標題一則，找區段內的原文連結與第一段說明。"""
     items = []
     parts = re.split(r"<h2\b[^>]*>", page, flags=re.I)[1:]
     for part in parts:
         title_html, _, rest = part.partition("</h2>")
         title = clean_text(title_html, 200)
-        if not title:
+        if not title or title.startswith("Q") or any(k in title for k in RADAR_SKIP_TITLES):
             continue
         section = re.split(r"<h2\b", rest, flags=re.I)[0]
         link = None
@@ -257,7 +260,9 @@ def parse_radar_issue(page: str) -> list[dict]:
         if anchor and anchor.group(1).startswith("http") and "0xspeter" not in anchor.group(1):
             link = link or html.unescape(anchor.group(1))
         if not link:
-            continue
+            if not page_url:
+                continue
+            link = f"{page_url}#{len(items) + 1}"  # 沒有外部原文連結時，連回日報平台當天頁面
         para = re.search(r"<p\b[^>]*>(.*?)</p>", section, flags=re.I | re.S)
         items.append({"title": title, "url": link, "summary": clean_text(para.group(1)) if para else ""})
     return items
@@ -265,13 +270,14 @@ def parse_radar_issue(page: str) -> list[dict]:
 
 def fetch_radar_today(now: datetime) -> list[dict]:
     day = os.environ.get("RADAR_DATE") or now.astimezone(TW).date().isoformat()
-    resp = requests.get(S.RADAR_ISSUE_URL.format(date=day), headers=HEADERS, timeout=TIMEOUT)
+    url = S.RADAR_ISSUE_URL.format(date=day)
+    resp = requests.get(url, headers=HEADERS, timeout=TIMEOUT)
     if resp.status_code == 404:
         return []  # 當天沒發
     resp.raise_for_status()
     return [make_item(S.LAB, "AI研究所・AI 日報平台", it["title"], it["url"], it["summary"],
                       extra={"must_include": True})
-            for it in parse_radar_issue(resp.text)]
+            for it in parse_radar_issue(resp.text, url)]
 
 
 # ---------- 去重與狀態 ----------
