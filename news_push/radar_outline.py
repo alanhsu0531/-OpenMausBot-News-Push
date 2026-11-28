@@ -11,5 +11,6 @@ url = S.RADAR_ISSUE_URL.format(date=sys.argv[1])
 page = requests.get(url, headers=HEADERS, timeout=20).text
 print(url, len(page))
 pat = r'<(h[1-4]|article|section|li)\b[^>]*>.{0,120}|<a\b[^>]*href="[^"]+"[^>]*>[^<]{0,40}'
-for m in re.finditer(pat, page, re.S):
-    print(re.sub(r"\s+", " ", m.group(0))[:180])
+page = re.split(r'class="past-feed"', page)[0]
+for art in re.findall(r"<article\b.*?</article>", page, re.S):
+    print("ARTICLE:", re.sub(r"\s+", " ", art)[:1500])

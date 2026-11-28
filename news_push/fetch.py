@@ -242,7 +242,9 @@ def parse_radar_issue(page: str, page_url: str = "") -> list[dict]:
     page = re.split(r'class="past-feed"', page)[0]
     items = []
     for art in re.findall(r"<article\b[^>]*>(.*?)</article>", page, flags=re.I | re.S):
-        t = re.search(r"<h[23]\b[^>]*>(.*?)</h[23]>", art, flags=re.I | re.S)
+        t = (re.search(r"<h[2-4]\b[^>]*>(.*?)</h[2-4]>", art, flags=re.I | re.S)
+             or re.search(r'<(?:p|div|span|a)\b[^>]*class="[^"]*(?:ttl|title|headline)[^"]*"[^>]*>(.*?)</(?:p|div|span|a)>',
+                          art, flags=re.I | re.S))
         title = clean_text(t.group(1), 200) if t else ""
         if not title:
             continue
@@ -256,7 +258,7 @@ def parse_radar_issue(page: str, page_url: str = "") -> list[dict]:
         if not link:
             continue
         paras = [clean_text(x) for x in re.findall(r"<p\b[^>]*>(.*?)</p>", art, flags=re.I | re.S)]
-        paras = [x for x in paras if x and "值得留意的重要變化" not in x]
+        paras = [x for x in paras if x and x != title and "值得留意的重要變化" not in x]
         items.append({"title": title, "url": link, "summary": max(paras, key=len) if paras else ""})
     return items
 
