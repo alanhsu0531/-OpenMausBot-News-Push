@@ -236,35 +236,28 @@ def fetch_lab_github(now: datetime) -> list[dict]:
     ]
 
 
-RADAR_SKIP_TITLES = ("今日總結", "今日熱搜", "熱搜", "總結", "訂閱", "關於", "看更多")
-
-
 def parse_radar_issue(page: str, page_url: str = "") -> list[dict]:
-    """解析 AI 日報平台單日頁面：每個 <h2> 標題一則，找區段內的原文連結與第一段說明。"""
+    """解析 AI 日報平台單日頁面：當天每則貼文是一個 <article>（頭條 hero＋其他 card）。
+    「繼續讀 · 翻翻過去幾天」(past-feed) 以下是舊貼文，不收。"""
+    page = re.split(r'class="past-feed"', page)[0]
     items = []
-    parts = re.split(r"<h2\b[^>]*>", page, flags=re.I)[1:]
-    for part in parts:
-        title_html, _, rest = part.partition("</h2>")
-        title = clean_text(title_html, 200)
-        if not title or title.startswith("Q") or any(k in title for k in RADAR_SKIP_TITLES):
+    for art in re.findall(r"<article\b[^>]*>(.*?)</article>", page, flags=re.I | re.S):
+        t = re.search(r"<h[23]\b[^>]*>(.*?)</h[23]>", art, flags=re.I | re.S)
+        title = clean_text(t.group(1), 200) if t else ""
+        if not title:
             continue
-        section = re.split(r"<h2\b", rest, flags=re.I)[0]
         link = None
-        for href, text in re.findall(r'<a\b[^>]*href="([^"]+)"[^>]*>(.*?)</a>', section, flags=re.I | re.S):
-            if href.startswith("http") and "0xspeter" not in href and "wallet-5888" not in href:
-                if "原文" in text or link is None:
-                    link = html.unescape(href)
-                    if "原文" in text:
-                        break
-        anchor = re.search(r'<a\b[^>]*href="([^"]+)"', title_html)
-        if anchor and anchor.group(1).startswith("http") and "0xspeter" not in anchor.group(1):
-            link = link or html.unescape(anchor.group(1))
+        for href, text in re.findall(r'<a\b[^>]*href="([^"]+)"[^>]*>(.*?)</a>', art, flags=re.I | re.S):
+            if href.startswith("http") and "原文" in text:
+                link = html.unescape(href)
+                break
         if not link:
-            if not page_url:
-                continue
-            link = f"{page_url}#{len(items) + 1}"  # 沒有外部原文連結時，連回日報平台當天頁面
-        para = re.search(r"<p\b[^>]*>(.*?)</p>", section, flags=re.I | re.S)
-        items.append({"title": title, "url": link, "summary": clean_text(para.group(1)) if para else ""})
+            link = f"{page_url}#{len(items) + 1}" if page_url else None
+        if not link:
+            continue
+        paras = [clean_text(x) for x in re.findall(r"<p\b[^>]*>(.*?)</p>", art, flags=re.I | re.S)]
+        paras = [x for x in paras if x and "值得留意的重要變化" not in x]
+        items.append({"title": title, "url": link, "summary": max(paras, key=len) if paras else ""})
     return items
 
 
